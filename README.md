@@ -30,6 +30,13 @@ npm run build
 npm run preview    # http://localhost:4173
 ```
 
+## Publicación
+
+Cada `push` a `main` publica la web en GitHub Pages (`.github/workflows/deploy.yml`):
+https://bellit.github.io/Web-Ferreteria/
+
+La compilación usa la base `/Web-Ferreteria/` (en `vite.config.js`). Si cambia el nombre del repositorio, hay que cambiarla allí y en la etiqueta `og:image` de `index.html`.
+
 ## Estructura
 
 ```
