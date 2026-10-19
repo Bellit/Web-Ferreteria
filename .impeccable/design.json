@@ -1,0 +1,613 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T14:15:10.024Z",
+  "title": "Design System: Ferretería Pino",
+  "extensions": {
+    "colorMeta": {
+      "brass": {
+        "role": "primary",
+        "displayName": "Brushed Brass",
+        "canonical": "#b4873a",
+        "oklch": "oklch(65.2% 0.109 78.1)",
+        "tonalRamp": [
+          "#190500",
+          "#351f00",
+          "#5e3500",
+          "#7e5400",
+          "#a37728",
+          "#ca9c50",
+          "#f1c276",
+          "#ffeabe"
+        ]
+      },
+      "brass-hi": {
+        "role": "primary",
+        "displayName": "Polished Brass",
+        "canonical": "#d6b066",
+        "oklch": "oklch(77.5% 0.103 82.9)",
+        "tonalRamp": [
+          "#170700",
+          "#322000",
+          "#5a3800",
+          "#7a5700",
+          "#9e7a2e",
+          "#c49f55",
+          "#ebc57a",
+          "#ffecc0"
+        ]
+      },
+      "brass-lo": {
+        "role": "primary",
+        "displayName": "Shadowed Brass",
+        "canonical": "#8f6726",
+        "oklch": "oklch(54.3% 0.095 76.1)",
+        "tonalRamp": [
+          "#180600",
+          "#341f00",
+          "#5c3700",
+          "#7c550e",
+          "#a17838",
+          "#c79c5d",
+          "#eec283",
+          "#ffeac4"
+        ]
+      },
+      "brass-ink": {
+        "role": "primary",
+        "displayName": "Brass Ink",
+        "canonical": "#7a5719",
+        "oklch": "oklch(48.3% 0.089 77.4)",
+        "tonalRamp": [
+          "#170700",
+          "#322001",
+          "#593800",
+          "#795618",
+          "#9e793f",
+          "#c49e63",
+          "#ebc488",
+          "#ffebc7"
+        ]
+      },
+      "open": {
+        "role": "secondary",
+        "displayName": "Open Green",
+        "canonical": "#2c7a4b",
+        "oklch": "oklch(51.9% 0.107 153.7)",
+        "tonalRamp": [
+          "#001201",
+          "#022d15",
+          "#004f23",
+          "#1e6f40",
+          "#469362",
+          "#6cb885",
+          "#92dfaa",
+          "#cefcdb"
+        ]
+      },
+      "closed": {
+        "role": "secondary",
+        "displayName": "Closed Red",
+        "canonical": "#b8382c",
+        "oklch": "oklch(52.9% 0.166 29.2)",
+        "tonalRamp": [
+          "#290000",
+          "#490403",
+          "#820000",
+          "#a7271d",
+          "#d15041",
+          "#fb7665",
+          "#ff9d8a",
+          "#ffd6c8"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Nickel White",
+        "canonical": "#ecedea",
+        "oklch": "oklch(94.4% 0.004 121.6)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#242423",
+          "#3f403e",
+          "#5d5e5b",
+          "#80817e",
+          "#a4a5a2",
+          "#cacbc8",
+          "#eeefed"
+        ]
+      },
+      "ground-2": {
+        "role": "neutral",
+        "displayName": "Pegboard",
+        "canonical": "#e1e2de",
+        "oklch": "oklch(91.1% 0.005 117.9)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#242422",
+          "#3f403d",
+          "#5d5e5b",
+          "#80817d",
+          "#a4a5a1",
+          "#cacbc7",
+          "#eeefec"
+        ]
+      },
+      "ground-3": {
+        "role": "neutral",
+        "displayName": "Pegboard Hole",
+        "canonical": "#d4d6d1",
+        "oklch": "oklch(87.3% 0.007 124.5)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#232422",
+          "#3f403c",
+          "#5d5e5a",
+          "#7f817c",
+          "#a3a5a1",
+          "#c9cbc6",
+          "#eeefec"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Tag Paper",
+        "canonical": "#f8f8f5",
+        "oklch": "oklch(97.8% 0.004 106.5)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#242423",
+          "#40403d",
+          "#5e5e5b",
+          "#80807e",
+          "#a5a5a2",
+          "#cbcbc8",
+          "#eeeeed"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Steel Hairline",
+        "canonical": "#c3c5c0",
+        "oklch": "oklch(82.0% 0.007 124.5)",
+        "tonalRamp": [
+          "#0b0b09",
+          "#232422",
+          "#3f403c",
+          "#5d5e5a",
+          "#7f817c",
+          "#a3a5a0",
+          "#c9cbc6",
+          "#eeefec"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Graphite Ink",
+        "canonical": "#1b1c1e",
+        "oklch": "oklch(22.6% 0.004 264.5)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#232425",
+          "#3f4042",
+          "#5c5e60",
+          "#7f8083",
+          "#a3a4a7",
+          "#c9cacd",
+          "#edeef0"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Graphite Ink 2",
+        "canonical": "#44474b",
+        "oklch": "oklch(39.7% 0.008 255.5)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#222426",
+          "#3d4044",
+          "#5b5e62",
+          "#7d8085",
+          "#a1a5a9",
+          "#c7cbd0",
+          "#eceff2"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Graphite Ink 3",
+        "canonical": "#5d6065",
+        "oklch": "oklch(48.8% 0.009 260.7)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232427",
+          "#3d4045",
+          "#5b5e63",
+          "#7d8086",
+          "#a1a5aa",
+          "#c7cbd0",
+          "#eceef2"
+        ]
+      },
+      "nickel": {
+        "role": "neutral",
+        "displayName": "Nickel",
+        "canonical": "#a5a9ac",
+        "oklch": "oklch(73.2% 0.006 239.9)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#222426",
+          "#3d4043",
+          "#5a5e61",
+          "#7d8184",
+          "#a1a5a8",
+          "#c7cbce",
+          "#eceff1"
+        ]
+      },
+      "nickel-lo": {
+        "role": "neutral",
+        "displayName": "Nickel Deep",
+        "canonical": "#84888c",
+        "oklch": "oklch(62.5% 0.008 247.9)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#222426",
+          "#3d4044",
+          "#5a5e62",
+          "#7d8185",
+          "#a1a5a9",
+          "#c7cbcf",
+          "#eceff1"
+        ]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Back Wall",
+        "canonical": "#1b1c1e",
+        "oklch": "oklch(22.6% 0.004 264.5)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#232425",
+          "#3f4042",
+          "#5c5e60",
+          "#7f8083",
+          "#a3a4a7",
+          "#c9cacd",
+          "#edeef0"
+        ]
+      },
+      "graphite-2": {
+        "role": "neutral",
+        "displayName": "Back Wall Panel",
+        "canonical": "#26282b",
+        "oklch": "oklch(27.6% 0.006 258.4)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232426",
+          "#3e4043",
+          "#5b5e61",
+          "#7e8084",
+          "#a2a5a9",
+          "#c8cbcf",
+          "#edeef1"
+        ]
+      },
+      "graphite-rule": {
+        "role": "neutral",
+        "displayName": "Back Wall Hairline",
+        "canonical": "#393b3f",
+        "oklch": "oklch(35.2% 0.007 264.5)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232426",
+          "#3e4044",
+          "#5b5e62",
+          "#7e8085",
+          "#a2a5a9",
+          "#c8cacf",
+          "#edeef1"
+        ]
+      },
+      "on-graphite": {
+        "role": "neutral",
+        "displayName": "On Graphite",
+        "canonical": "#ecedea",
+        "oklch": "oklch(94.4% 0.004 121.6)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#242423",
+          "#3f403e",
+          "#5d5e5b",
+          "#80817e",
+          "#a4a5a2",
+          "#cacbc8",
+          "#eeefed"
+        ]
+      },
+      "on-graphite-2": {
+        "role": "neutral",
+        "displayName": "On Graphite 2",
+        "canonical": "#a9acb0",
+        "oklch": "oklch(74.3% 0.007 255.5)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232426",
+          "#3d4043",
+          "#5b5e61",
+          "#7e8084",
+          "#a2a5a9",
+          "#c8cbcf",
+          "#edeff1"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The brand name in the hero only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles as plain sentences; the Visítanos address."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Service names and the form title."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Prices on tags and workshop facts, stamped in the display face."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text, tabular figures, 38 to 46ch."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Section intro text in ink-2, max 38ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Width-expanded Archivo for tag codes, rail titles, the desde 1985 line. Sparingly."
+      }
+    },
+    "fonts": [
+      {
+        "family": "Bricolage Grotesque Variable",
+        "source": "@fontsource-variable/bricolage-grotesque (standard.css)",
+        "role": "display"
+      },
+      {
+        "family": "Archivo Variable",
+        "source": "@fontsource-variable/archivo (wdth.css)",
+        "role": "text"
+      }
+    ],
+    "shadows": [
+      {
+        "name": "hanging-tag",
+        "value": "0 8px 12px -8px rgb(27 28 30 / 0.3)",
+        "purpose": "Catalogue price tags hanging from the rail."
+      },
+      {
+        "name": "hanging-key",
+        "value": "drop-shadow(0 8px 6px rgb(27 28 30 / 0.18))",
+        "purpose": "Key blanks on the hook wall (filter)."
+      },
+      {
+        "name": "hook",
+        "value": "0 6px 8px -2px rgb(27 28 30 / 0.28)",
+        "purpose": "Hook pegs."
+      },
+      {
+        "name": "dock",
+        "value": "0 10px 24px -8px rgb(27 28 30 / 0.45)",
+        "purpose": "Desktop WhatsApp pill only."
+      },
+      {
+        "name": "open-pulse",
+        "value": "0 0 0 0 to 0 0 0 9px, rgb(44 122 75 / 0.45) to 0",
+        "purpose": "Open status dot ring, 2.4s loop. A state signal, not a glow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Every physical motion: key cut marks, sway, tag entrance and straighten, dock."
+      },
+      {
+        "name": "key-cut",
+        "value": "cutter wheel travels the blade and carves cuts in order 1·9·8·5; marks fade in 0.35s and drop 8px over 0.5s; replay via Cortar otra vez",
+        "purpose": "The one signature. Finished state drawn instantly under reduced motion."
+      },
+      {
+        "name": "sway",
+        "value": "1.8s damped rotation 9deg, -6deg, 3.5deg, -1.8deg, 0.6deg, 0 around the hook (transform-origin 50% 9%)",
+        "purpose": "Board sways once on entering view with staggered --sway-delay; single blank on hover."
+      },
+      {
+        "name": "tag-in",
+        "value": "0.6s, from opacity 0 and translate 0 -10px, stagger 40ms up to 8 tags",
+        "purpose": "Tags dropping onto the rail when the catalogue renders or filters change."
+      },
+      {
+        "name": "tag-straighten",
+        "value": "rotate 0.6s ease-out",
+        "purpose": "Askew tag straightens on hover."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce collapses animation and transition durations to 0.01ms; smooth scroll off",
+        "purpose": "Honoured globally."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "rail-3",
+        "value": "1240px"
+      },
+      {
+        "name": "nav-collapse",
+        "value": "1080px"
+      },
+      {
+        "name": "single-column",
+        "value": "860px"
+      },
+      {
+        "name": "small",
+        "value": "420px"
+      }
+    ],
+    "imagery": {
+      "source": "Pexels stock photos in public/img (herramientas, pinturas, fontaneria, electricidad, llaves-panel, cerrajero)",
+      "provenance": "Origin embedded in each file as provenance.",
+      "note": "Stand-ins until real shop photos exist."
+    },
+    "data": {
+      "note": "All business data is example data set in Spain (€, +34, fictional Madrid address)."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button (Brass)",
+      "kind": "button",
+      "refersTo": "button-brass",
+      "description": "The primary action: Cómo llegar, Enviar mensaje.",
+      "html": "<a class=\"ds-btn-brass\" href=\"#\">Cómo llegar</a>",
+      "css": ".ds-btn-brass{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:var(--radius,6px);border:1.5px solid var(--brass,#b4873a);background:var(--brass,#b4873a);color:var(--ink,#1b1c1e);font-family: var(--f-text);font-weight:600;font-size:1rem;letter-spacing:.005em;text-decoration:none;white-space:nowrap;transition:background-color .2s,border-color .2s,transform .2s cubic-bezier(.16,1,.3,1)}.ds-btn-brass:hover{background:var(--brass-hi,#d6b066);border-color:var(--brass-hi,#d6b066)}.ds-btn-brass:active{transform:translateY(1px)}.ds-btn-brass:focus-visible{outline:2px solid var(--brass-ink,#7a5719);outline-offset:3px}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Secondary action: WhatsApp in the hero, Ver los 20 artículos.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">WhatsApp</a>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 22px;border-radius:var(--radius,6px);border:1.5px solid var(--ink,#1b1c1e);background:transparent;color:var(--ink,#1b1c1e);font-family: var(--f-text);font-weight:600;font-size:1rem;text-decoration:none;transition:background-color .2s,color .2s,transform .2s}.ds-btn-line:hover{background:var(--ink,#1b1c1e);color:var(--ground,#ecedea)}.ds-btn-line:active{transform:translateY(1px)}.ds-btn-line:focus-visible{outline:2px solid var(--brass-ink,#7a5719);outline-offset:3px}"
+    },
+    {
+      "name": "Filter Tag",
+      "kind": "chip",
+      "refersTo": "filter-tag",
+      "description": "Luggage-tag category filter with a punch dot that fills brass when selected.",
+      "html": "<div style=\"display:flex;gap:10px\"><button class=\"ds-filter\" aria-selected=\"true\">Todo</button><button class=\"ds-filter\" aria-selected=\"false\">Herramientas</button></div>",
+      "css": ".ds-filter{position:relative;min-height:44px;padding:0 18px 0 32px;border:1.5px solid var(--ink,#1b1c1e);border-radius:3px 999px 999px 3px;background:transparent;color:var(--ink,#1b1c1e);font-family: var(--f-text);font-weight:600;font-size:.97rem;cursor:pointer;transition:background-color .2s,color .2s}.ds-filter::before{content:'';position:absolute;left:13px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;border:1.5px solid currentColor;box-sizing:border-box}.ds-filter:hover{background:var(--ground-2,#e1e2de)}.ds-filter[aria-selected='true']{background:var(--ink,#1b1c1e);color:var(--paper,#f8f8f5)}.ds-filter[aria-selected='true']::before{background:var(--brass,#b4873a);border-color:var(--brass,#b4873a)}.ds-filter:focus-visible{outline:2px solid var(--brass-ink,#7a5719);outline-offset:3px}"
+    },
+    {
+      "name": "Hanging Price Tag",
+      "kind": "card",
+      "refersTo": "price-tag",
+      "description": "Catalogue item: a punched paper tag hung by a thread from a steel rail.",
+      "html": "<div class=\"ds-rail\"><div class=\"ds-tag\"><span class=\"ds-tag__code\">HER-014</span><span class=\"ds-tag__name\">Martillo de carpintero 450 g</span><span class=\"ds-tag__desc\">Mango de fibra, cabeza forjada.</span><span class=\"ds-tag__price\">12,90 <small>€</small></span></div></div>",
+      "css": ".ds-rail{border-top:5px solid var(--nickel-lo,#84888c);padding:30px 8px 8px;max-width:240px;font-family: var(--f-text);color:var(--ink,#1b1c1e)}.ds-tag{position:relative;display:flex;flex-direction:column;gap:4px;padding:34px 16px 16px;background:var(--paper,#f8f8f5);border:1px solid var(--rule,#c3c5c0);border-radius:4px 4px 8px 8px;box-shadow:0 8px 12px -8px rgb(27 28 30 / .3);transform-origin:50% -30px;rotate:-.7deg;transition:rotate .6s cubic-bezier(.16,1,.3,1)}.ds-tag:hover{rotate:0deg}.ds-tag::before{content:'';position:absolute;left:50%;top:11px;z-index:1;width:11px;height:11px;margin-left:-5.5px;border-radius:50%;background:var(--ground,#ecedea);border:1.5px solid var(--nickel-lo,#84888c);box-sizing:border-box}.ds-tag::after{content:'';position:absolute;left:50%;top:-31px;width:1.5px;margin-left:-.75px;height:48px;background:var(--ink-3,#5d6065)}.ds-tag__code{font-size:.78rem;font-stretch:112%;color:var(--ink-3,#5d6065);letter-spacing:.02em}.ds-tag__name{font-weight:640;font-size:1.02rem;line-height:1.25}.ds-tag__desc{color:var(--ink-2,#44474b);font-size:.9rem;line-height:1.4}.ds-tag__price{padding-top:10px;font-family:var(--f-display);font-weight:750;font-size:1.5rem;letter-spacing:-.02em}.ds-tag__price small{font-size:.62em}"
+    },
+    {
+      "name": "Field on Graphite",
+      "kind": "input",
+      "refersTo": "field-on-graphite",
+      "description": "Form field on the graphite back wall.",
+      "html": "<div class=\"ds-wall\"><label class=\"ds-field\"><span>Nombre</span><input placeholder=\"Tu nombre\"></label></div>",
+      "css": ".ds-wall{background:var(--graphite-2,#26282b);padding:24px;border-radius:var(--radius,6px);font-family: var(--f-text);}.ds-field{display:grid;gap:6px}.ds-field span{font-weight:550;font-size:.95rem;color:var(--on-graphite-2,#a9acb0)}.ds-field input{width:100%;box-sizing:border-box;padding:12px 14px;font:inherit;background:var(--graphite,#1b1c1e);color:var(--on-graphite,#ecedea);border:1.5px solid var(--graphite-rule,#393b3f);border-radius:4px;caret-color:var(--brass-hi,#d6b066);transition:border-color .2s}.ds-field input:hover{border-color:#55585d}.ds-field input:focus{outline:none;border-color:var(--brass-hi,#d6b066)}"
+    },
+    {
+      "name": "Rail Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Sticky rail: brand, plain section links, compact status. No section numbers.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__brand\" href=\"#\">Pino</a><a class=\"ds-nav__link\" href=\"#\">Llaves</a><a class=\"ds-nav__link\" href=\"#\" aria-current=\"true\">Catálogo</a><a class=\"ds-nav__link\" href=\"#\">Visítanos</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:4px;height:68px;padding:0 24px;background:var(--ground,#ecedea);border-bottom:1px solid var(--rule,#c3c5c0);font-family: var(--f-text);}.ds-nav__brand{font-family:var(--f-display);font-weight:800;font-size:1.6rem;letter-spacing:-.03em;color:var(--ink,#1b1c1e);text-decoration:none;margin-right:auto}.ds-nav__link{display:block;padding:8px 12px;border-radius:var(--radius,6px);font-weight:550;font-size:.97rem;text-decoration:none;color:var(--ink-2,#44474b);transition:color .2s,background-color .2s}.ds-nav__link:hover{color:var(--ink,#1b1c1e);background:var(--ground-2,#e1e2de)}.ds-nav__link[aria-current='true']{color:var(--ink,#1b1c1e);box-shadow:inset 0 -2px 0 var(--brass,#b4873a);border-radius:0}.ds-nav__link:focus-visible{outline:2px solid var(--brass-ink,#7a5719);outline-offset:3px}"
+    },
+    {
+      "name": "Open / Closed Status",
+      "kind": "custom",
+      "description": "Live status sentence. Green pulsing dot when open, red static dot when closed.",
+      "html": "<div style=\"display:grid;gap:12px\"><p class=\"ds-status is-open\"><span class=\"ds-status__dot\"></span><span><strong>Abierto ahora</strong> · hasta las 20:30</span></p><p class=\"ds-status is-closed\"><span class=\"ds-status__dot\"></span><span><strong>Cerrado</strong> · abre a las 9:00</span></p></div>",
+      "css": ".ds-status{display:inline-flex;align-items:center;gap:10px;margin:0;font-family: var(--f-text);font-size:.98rem;font-weight:500;color:var(--ink-2,#44474b)}.ds-status strong{color:var(--ink,#1b1c1e);font-weight:650}.ds-status__dot{width:10px;height:10px;border-radius:50%;flex:none;background:var(--nickel,#a5a9ac)}.is-open .ds-status__dot{background:var(--open,#2c7a4b);animation:ds-pulse 2.4s cubic-bezier(.16,1,.3,1) infinite}.is-closed .ds-status__dot{background:var(--closed,#b8382c)}@keyframes ds-pulse{0%{box-shadow:0 0 0 0 rgb(44 122 75 / .45)}70%{box-shadow:0 0 0 9px rgb(44 122 75 / 0)}100%{box-shadow:0 0 0 0 rgb(44 122 75 / 0)}}@media (prefers-reduced-motion:reduce){.is-open .ds-status__dot{animation:none}}"
+    },
+    {
+      "name": "Dock (WhatsApp pill)",
+      "kind": "button",
+      "refersTo": "dock-button",
+      "description": "Fixed desktop WhatsApp pill; becomes a three-button bottom bar at 860px and below.",
+      "html": "<a class=\"ds-dock\" href=\"#\">WhatsApp</a>",
+      "css": ".ds-dock{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 20px;border-radius:999px;text-decoration:none;font-family: var(--f-text);font-weight:650;background:var(--ink,#1b1c1e);color:var(--ground,#ecedea);box-shadow:0 10px 24px -8px rgb(27 28 30 / .45);transition:transform .25s cubic-bezier(.16,1,.3,1),background-color .2s}.ds-dock:hover{transform:translateY(-2px);background:#2d2f32}.ds-dock:focus-visible{outline:2px solid var(--brass-ink,#7a5719);outline-offset:3px}"
+    },
+    {
+      "name": "Bitting Divider",
+      "kind": "custom",
+      "description": "Key bitting profile: the section divider, and the cut top edge of the graphite back wall.",
+      "html": "<div style=\"padding-top:8px\"><div class=\"ds-bitting\"></div><div class=\"ds-wall-cut\"></div></div>",
+      "css": ".ds-bitting{height:24px;background:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24'%3E%3Cpath d='M0 4H40L72 20H88L120 4H150L166 13H178L194 4H240' fill='none' stroke='%2384888c' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E\") repeat-x left center;margin-bottom:48px}.ds-wall-cut{position:relative;height:60px;background:var(--graphite,#1b1c1e)}.ds-wall-cut::before{content:'';position:absolute;left:0;right:0;top:-23px;height:24px;background:var(--graphite,#1b1c1e);-webkit-mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24'%3E%3Cpath d='M0 24V4H40L72 20H88L120 4H150L166 13H178L194 4H240V24Z'/%3E%3C/svg%3E\") repeat-x left bottom;mask:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24'%3E%3Cpath d='M0 24V4H40L72 20H88L120 4H150L166 13H178L194 4H240V24Z'/%3E%3C/svg%3E\") repeat-x left bottom}"
+    }
+  ],
+  "narrative": {
+    "northStar": "El panel de llaves",
+    "overview": "The site is the shop's key counter: the wall of blank keys on hooks, the cutting machine, the paper price tags hanging from steel rails, and the graphite back wall behind the counter. Every surface is a material from that counter, rendered as flat colour. Nickel-white is the ground, graphite is the ink, and brushed brass is the one material colour, carried by keys, tags' accents and the primary action. The page refuses the hardware-store default (tool hero photo, red banner, a row of category cards) and the old dark neon and glass look.\n\nType is the monument. A single display grotesque set very large and very tight carries the brand name across the first viewport, and one giant drawn key runs the full width under it. Density is generous: sections breathe on a fluid section rhythm, and information (open now, address, hours, WhatsApp) is never hidden behind effect. Motion is rationed to three behaviours, all physical: the key being cut, blanks swaying on their hooks, tags dropping onto their rail.\n\nThe page closes on graphite. The Visítanos section and footer are the counter's back wall, and their top edge is cut as a key bitting profile, so the light ground ends the way a key blade does.",
+    "keyCharacteristics": [
+      "Flat colour only: no gradients, no glass, no glows, no blends.",
+      "Brass is the single material accent; green and red are signals, never decoration.",
+      "Monumental Bricolage Grotesque display over a quiet Archivo text face with tabular figures.",
+      "Recurring counter objects: hooks, punched paper tags on threads, steel rails, the bitting profile.",
+      "One signature motion (the key cut 1·9·8·5) plus the board sway and the tag entrance; reduced motion honoured."
+    ],
+    "rules": [
+      {
+        "name": "The One Metal Rule",
+        "body": "Brass is the only warm colour and the only accent. If something needs emphasis and is not a key, a tag accent or the primary action, it gets weight or size, not brass.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal Rule",
+        "body": "Green means open, red means closed. The open pulse is green (open) because red reads universally as \"closed\"; red is reserved for the closed state (and the key fob object). Signals never decorate.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat Fill Rule",
+        "body": "Every surface is a single flat colour. The only gradient function in the build is the pegboard's hard-edged hole pattern, which is a texture of holes, not a colour blend.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stamped Number Rule",
+        "body": "Prices and facts are set in the display face at weight 750; everything numeric is tabular.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Headline Rule",
+        "body": "Headlines are plain sentences in the display face. No kicker, eyebrow or section number above them.",
+        "section": "typography"
+      },
+      {
+        "name": "The Never-Twice Rule",
+        "body": "The open/closed status appears in the rail only after the hero status scrolls out of view, so it is never shown twice on screen. The rail carries status, not WhatsApp, because WhatsApp already lives in the hero, the dock and Visítanos.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hanging Shadow Rule",
+        "body": "A shadow means \"this hangs on the wall\". Shadows fall downward, are short and neutral, and are never coloured, offset hard, or used to lift a panel.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep every fill flat: one colour per surface.",
+      "Do spend brass only on keys, tags' accents and the primary action; let weight and size do the rest.",
+      "Do use green (`open`) for open and red (`closed`) for closed, and nothing else.",
+      "Do draw from the counter: hooks, punched paper tags on threads, steel rails, the bitting profile, the graphite back wall.",
+      "Do set prices and facts in the display face at 750 with tabular figures.",
+      "Do end the page on the graphite back wall with its bitting-cut top edge.",
+      "Do keep address, hours, phone and WhatsApp within one move: hero, dock, rail status, Visítanos.",
+      "Do honour prefers-reduced-motion: animations and transitions collapse, the key is shown already cut.",
+      "Do use real-looking photos (Pexels stock in public/img) with their origin embedded in the file as provenance; replace with real shop photos when available."
+    ],
+    "donts": [
+      "Don't use gradients, glass, blur or glows.",
+      "Don't add motion beyond the three: the key cut, the board sway, the tag entrance (plus small state transitions).",
+      "Don't put kickers, eyebrows or section numbers above headlines or in the nav.",
+      "Don't turn the catalogue into a price list or table; products hang as tags on a rail.",
+      "Don't use red for \"open\" or as a decorative accent.",
+      "Don't lift containers as floating cards; shadows only mean hanging.",
+      "Don't fall back to system display fonts; both families ship self-hosted.",
+      "Don't present example data (Spain: €, +34, the Madrid address, product list) as real business facts."
+    ]
+  }
+}

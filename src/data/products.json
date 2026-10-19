@@ -1,0 +1,22 @@
+[
+  { "id": 1,  "code": "HE-101", "name": "Martillo de uña 500 g",               "category": "herramientas", "price": 12.90, "description": "Mango de madera y cabeza de acero forjado." },
+  { "id": 2,  "code": "HE-114", "name": "Juego de destornilladores, 6 piezas", "category": "herramientas", "price": 9.95,  "description": "Planos y Phillips, mango antideslizante." },
+  { "id": 3,  "code": "HE-230", "name": "Taladro percutor 650 W",              "category": "herramientas", "price": 59.90, "description": "Velocidad variable, portabrocas de 13 mm y maletín." },
+  { "id": 4,  "code": "HE-052", "name": "Flexómetro 5 m",                      "category": "herramientas", "price": 6.50,  "description": "Carcasa de goma antigolpes y freno de cinta." },
+  { "id": 5,  "code": "PI-301", "name": "Esmalte sintético blanco 750 ml",     "category": "pinturas",     "price": 11.90, "description": "Alto brillo, interior y exterior." },
+  { "id": 6,  "code": "PI-340", "name": "Pintura plástica mate 4 L",           "category": "pinturas",     "price": 24.90, "description": "Cubriente y lavable, para paredes y techos." },
+  { "id": 7,  "code": "PI-322", "name": "Pintura antimoho 750 ml",             "category": "pinturas",     "price": 14.50, "description": "Para baños y cocinas con humedad." },
+  { "id": 8,  "code": "PI-118", "name": "Spray acrílico negro mate 400 ml",    "category": "pinturas",     "price": 6.95,  "description": "Secado rápido sobre metal, madera y plástico." },
+  { "id": 9,  "code": "FO-412", "name": "Llave de paso 1/2\"",                 "category": "fontaneria",   "price": 7.90,  "description": "Latón cromado, cierre de cuarto de vuelta." },
+  { "id": 10, "code": "FO-460", "name": "Tubo PVC evacuación Ø110 mm, 3 m",    "category": "fontaneria",   "price": 12.40, "description": "Para desagües y bajantes." },
+  { "id": 11, "code": "FO-501", "name": "Grifo monomando de cocina",           "category": "fontaneria",   "price": 49.00, "description": "Acero inoxidable, caño giratorio." },
+  { "id": 12, "code": "FO-433", "name": "Sifón de lavabo universal",           "category": "fontaneria",   "price": 5.90,  "description": "PVC, con juntas y tuercas." },
+  { "id": 13, "code": "EL-610", "name": "Cable H07V-K 1,5 mm², 100 m",         "category": "electricidad", "price": 32.00, "description": "Cobre flexible para instalación interior." },
+  { "id": 14, "code": "EL-602", "name": "Interruptor sencillo",                "category": "electricidad", "price": 3.20,  "description": "Blanco, 10 A / 250 V." },
+  { "id": 15, "code": "EL-605", "name": "Portalámparas E27",                   "category": "electricidad", "price": 2.40,  "description": "Cerámica con rosca metálica." },
+  { "id": 16, "code": "EL-690", "name": "Multímetro digital",                  "category": "electricidad", "price": 19.90, "description": "Mide tensión AC/DC, intensidad y resistencia." },
+  { "id": 17, "code": "LL-001", "name": "Copia de llave plana",                "category": "llaves",       "price": 2.50,  "description": "Puerta de casa, trastero o buzón." },
+  { "id": 18, "code": "LL-020", "name": "Copia de llave de seguridad",         "category": "llaves",       "price": 9.00,  "description": "Con tarjeta de propiedad." },
+  { "id": 19, "code": "LL-031", "name": "Copia de llave tubular",              "category": "llaves",       "price": 6.00,  "description": "Para cerraduras de tubo." },
+  { "id": 20, "code": "LL-090", "name": "Llavero identificador",               "category": "llaves",       "price": 1.20,  "description": "Con etiqueta, varios colores." }
+]
