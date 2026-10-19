@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  // En GitHub Pages la web vive en /Web-Ferreteria/; en local, en la raíz
+  base: command === 'build' ? '/Web-Ferreteria/' : '/',
   css: {
     postcss: './postcss.config.js',
     devSourcemap: false,
@@ -12,4 +14,4 @@ export default defineConfig({
     port: 3000,
     open: true,
   },
-});
+}));

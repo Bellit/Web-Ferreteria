@@ -4,13 +4,16 @@
 import products from '../../data/products.json';
 import { $, $$ } from '../utils/dom.js';
 
+// Ruta de las fotos según dónde se publique la web (raíz en local, /Web-Ferreteria/ en GitHub Pages)
+const IMG = `${import.meta.env.BASE_URL}img/`;
+
 const SECTIONS = {
-  todas:        { img: '/img/llaves-panel.jpg', alt: 'Llaves vírgenes colgadas en ganchos sobre un panel', caption: 'Todo cuelga de su gancho y tiene su código.' },
-  herramientas: { img: '/img/herramientas.jpg', alt: 'Martillos y guantes de trabajo sobre un banco de madera', caption: 'Herramienta de mano y eléctrica.' },
-  pinturas:     { img: '/img/pinturas.jpg', alt: 'Botes de pintura, brocha y rodillo sobre papel de embalar', caption: 'Pintura, esmaltes y todo para aplicarla.' },
-  fontaneria:   { img: '/img/fontaneria.jpg', alt: 'Dos grifos de latón con maneta roja en una pared blanca', caption: 'Grifería, tubo y recambios.' },
-  electricidad: { img: '/img/electricidad.jpg', alt: 'Multímetro digital rojo con sus puntas sobre la mesa de trabajo', caption: 'Cable, mecanismos y medición.' },
-  llaves:       { img: '/img/llaves-panel.jpg', alt: 'Llaves vírgenes colgadas en ganchos sobre un panel', caption: 'Copias al momento, mientras esperas.' },
+  todas:        { img: IMG + 'llaves-panel.jpg', alt: 'Llaves vírgenes colgadas en ganchos sobre un panel', caption: 'Todo cuelga de su gancho y tiene su código.' },
+  herramientas: { img: IMG + 'herramientas.jpg', alt: 'Martillos y guantes de trabajo sobre un banco de madera', caption: 'Herramienta de mano y eléctrica.' },
+  pinturas:     { img: IMG + 'pinturas.jpg', alt: 'Botes de pintura, brocha y rodillo sobre papel de embalar', caption: 'Pintura, esmaltes y todo para aplicarla.' },
+  fontaneria:   { img: IMG + 'fontaneria.jpg', alt: 'Dos grifos de latón con maneta roja en una pared blanca', caption: 'Grifería, tubo y recambios.' },
+  electricidad: { img: IMG + 'electricidad.jpg', alt: 'Multímetro digital rojo con sus puntas sobre la mesa de trabajo', caption: 'Cable, mecanismos y medición.' },
+  llaves:       { img: IMG + 'llaves-panel.jpg', alt: 'Llaves vírgenes colgadas en ganchos sobre un panel', caption: 'Copias al momento, mientras esperas.' },
 };
 
 const LABEL = {
