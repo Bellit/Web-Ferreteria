@@ -22,7 +22,7 @@ Ferretería familiar de barrio fundada en 1985, con más de 40 años de oficio. 
 - Canales de contacto: teléfono, WhatsApp, email, Instagram, formulario y mapa.
 
 ## Capabilities and Constraints
-- Stack actual: Vite 6, HTML, CSS y JS vanilla (ES modules), con PostCSS. GSAP, Three.js, tsParticles y Locomotive Scroll están instalados, pero ninguno es obligatorio.
+- Stack actual: Vite 6, HTML, CSS y JS vanilla (ES modules), con PostCSS. Sin librerías de animación: todo el movimiento es CSS y SVG propio. Tipografías autoalojadas con @fontsource.
 - Es una página única con secciones Inicio, Catálogo, Servicios, Nosotros y Contacto. El catálogo tiene filtros por categoría y el formulario solo valida en el cliente (no hay backend).
 - **Los datos del negocio son de ejemplo**, ambientados en **España**: precios en euros, teléfonos +34 y dirección española ficticia. Los textos deben ir en español de España.
 
