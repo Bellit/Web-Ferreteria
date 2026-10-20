@@ -6,7 +6,7 @@ Web de una sola página para **Ferretería Pino**, ferretería de barrio desde 1
 
 ## Idea de diseño: «El panel de llaves»
 
-La web está construida como el mostrador de llaves de la ferretería. Usa níquel, grafito y latón, siempre en colores planos.
+La web está construida como el mostrador de llaves de la ferretería. Usa níquel, el azul pizarra del logo y latón, con el rojo del pino como color de marca, siempre en colores planos.
 
 - **Portada:** una fresa corta en directo una llave de latón con el código **1·9·8·5**, el año de apertura. El botón «Cortar otra llave» talla un código al azar.
 - **Panel de llaves:** las llaves vírgenes cuelgan de ganchos con su etiqueta de precio y se balancean al pasar el ratón.
@@ -14,7 +14,7 @@ La web está construida como el mostrador de llaves de la ferretería. Usa níqu
 - **Abierto / cerrado:** el estado se calcula en directo con la hora de Madrid (horario partido) y el día de hoy se marca en la tabla de horarios.
 - **Móvil:** barra fija con «Llegar · Llamar · WhatsApp».
 
-Tipografías servidas desde el propio proyecto: **Bricolage Grotesque** para los titulares y **Archivo** para el texto.
+Tipografías servidas desde el propio proyecto: **Montserrat** para los titulares (la misma voz geométrica del logo) y **Archivo** para el texto.
 
 ## Cómo verla
 

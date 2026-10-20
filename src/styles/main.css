@@ -1,42 +1,46 @@
 /* ==========================================================
    Ferretería Pino — El panel de llaves
-   Níquel, grafito y latón. Colores planos, sin degradados.
+   Níquel, pizarra y latón, con el rojo del pino del logo.
+   Colores planos, sin degradados.
    ========================================================== */
 
 :root {
   /* Superficies */
-  --ground: #ecedea;
-  --ground-2: #e1e2de;
-  --ground-3: #d4d6d1;
-  --paper: #f8f8f5;
-  --rule: #c3c5c0;
+  --ground: #ebeeee;
+  --ground-2: #dfe3e4;
+  --ground-3: #d1d7d9;
+  --paper: #f7f9f9;
+  --rule: #c0c8cc;
 
-  /* Tinta */
-  --ink: #1b1c1e;
-  --ink-2: #44474b;
-  --ink-3: #5d6065;
+  /* Tinta: el azul pizarra del logo (#3e5667) y sus tonos */
+  --ink: #1d2a34;
+  --ink-2: #3e5667;
+  --ink-3: #566a78;
 
   /* Metal */
   --brass: #b4873a;
   --brass-hi: #d6b066;
   --brass-lo: #8f6726;
   --brass-ink: #7a5719;
-  --nickel: #a5a9ac;
-  --nickel-lo: #84888c;
+  --nickel: #a3abb0;
+  --nickel-lo: #828b91;
+
+  /* Marca: el rojo del pino del logo */
+  --pine: #d32733;
 
   /* Señales */
   --open: #2c7a4b;
-  --closed: #b8382c;
+  --closed: #c4242f;
 
-  /* Grafito (cierre de página) */
-  --graphite: #1b1c1e;
-  --graphite-2: #26282b;
-  --graphite-rule: #393b3f;
-  --on-graphite: #ecedea;
-  --on-graphite-2: #a9acb0;
+  /* Pizarra (cierre de página) */
+  --graphite: #2b3c49;
+  --graphite-2: #354a59;
+  --graphite-rule: #4a5f6e;
+  --on-graphite: #ebeeee;
+  --on-graphite-2: #b4c0c8;
 
   /* Tipografía */
-  --f-display: 'Bricolage Grotesque Variable', 'Archivo Variable', sans-serif;
+  --f-display: 'Montserrat Variable', 'Archivo Variable', sans-serif;
   --f-text: 'Archivo Variable', system-ui, sans-serif;
 
   /* Ritmo */
@@ -119,14 +123,16 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .i--lg { width: 26px; height: 26px; }
 
 /* ─── Tipos ────────────────────────────────────────────── */
+/* Los titulares llevan el azul pizarra del logo; en la pared del fondo, el claro */
+.h2, .hero__title { color: var(--ink-2); }
+.visit .h2 { color: var(--on-graphite); }
 .h2 {
   font-family: var(--f-display);
   font-weight: 750;
-  font-size: clamp(2.25rem, 5.2vw, 4.5rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.75rem);
   line-height: 0.98;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.02em;
   text-wrap: balance;
-  font-variation-settings: 'opsz' 96;
 }
 
 .lead {
@@ -198,15 +204,13 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   max-width: 1360px; margin-inline: auto; padding-inline: var(--gutter);
 }
 
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.brand__tag { width: 34px; height: 22px; }
-.brand__tag path { fill: var(--brass); }
-.brand__tag circle { fill: var(--ground); }
-.brand__name {
-  font-family: var(--f-display); font-weight: 800; font-size: 1.6rem;
-  letter-spacing: -0.03em; line-height: 1;
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; flex: none; }
+.brand__logo { width: auto; max-width: none; height: 46px; flex: none; }
+.brand__since {
+  font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-3); font-stretch: 112%;
+  padding-left: 14px; border-left: 1px solid var(--rule); line-height: 1.6;
 }
-.brand__since { font-size: 0.8rem; color: var(--ink-3); font-stretch: 112%; padding-top: 3px; }
 
 .nav { margin-left: auto; }
 .nav__list { display: flex; gap: 4px; }
@@ -241,7 +245,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .menu__list a {
   display: block; padding: 10px 0;
   font-family: var(--f-display); font-weight: 750; font-size: clamp(2.25rem, 10vw, 3.25rem);
-  letter-spacing: -0.03em; line-height: 1.05; text-decoration: none;
+  letter-spacing: -0.02em; line-height: 1.05; text-decoration: none;
   border-bottom: 1px solid var(--rule);
 }
 .menu__foot { color: var(--ink-2); }
@@ -266,21 +270,23 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   font-family: var(--f-display);
   font-weight: 800;
   line-height: 0.8;
-  letter-spacing: -0.04em;
-  font-variation-settings: 'opsz' 96;
+  letter-spacing: -0.03em;
 }
+/* Como en el logo: «FERRETERÍA» pequeño y espaciado sobre un nombre enorme */
 .hero__title-pre {
   display: block;
-  font-size: clamp(2rem, 4.4vw, 4rem);
-  font-weight: 650;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.18em;
-  margin-left: 0.06em;
+  font-size: clamp(1.15rem, 2.5vw, 2.3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  margin-bottom: 0.35em;
+  margin-left: 0.08em;
 }
 .hero__title-name {
   display: block;
-  font-size: clamp(6.5rem, 20vw, 17.5rem);
-  margin-left: -0.04em;
+  font-size: clamp(6rem, 17vw, 15rem);
+  margin-left: -0.05em;
 }
 
 .hero__aside {
@@ -309,10 +315,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .key__hole { fill: var(--ground); }
 .key__groove { fill: var(--brass-lo); }
 .key__edge { fill: none; stroke: var(--brass-hi); stroke-width: 3; stroke-linejoin: round; }
-.key__stamp {
-  font-family: var(--f-display); font-weight: 800; font-size: 92px;
-  letter-spacing: -2px; fill: var(--brass-lo);
-}
+.key__pine { fill: var(--brass-lo); }
 .key__stamp-sub {
   font-family: var(--f-text); font-weight: 600; font-size: 30px; font-stretch: 115%;
   letter-spacing: 3px; fill: var(--brass-lo);
@@ -371,14 +374,14 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .blank__hook {
   width: 8px; height: 24px; border-radius: 4px;
   background: var(--ink);
-  box-shadow: 0 6px 8px -2px rgb(27 28 30 / 0.28);
+  box-shadow: 0 6px 8px -2px rgb(29 42 52 / 0.28);
   position: relative; z-index: 2;
 }
 .blank__key {
   width: clamp(50px, 6.4vw, 86px); height: auto;
   margin-top: -14px; margin-bottom: 14px;
   transform-origin: 50% 9%;
-  filter: drop-shadow(0 8px 6px rgb(27 28 30 / 0.18));
+  filter: drop-shadow(0 8px 6px rgb(29 42 52 / 0.18));
 }
 .blank__key path, .blank__key circle { fill: var(--nickel); }
 .blank__key > circle:not(.dimple) { fill: var(--ground-2); }
@@ -387,7 +390,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .blank:nth-child(4) .blank__key path { fill: var(--brass); }
 .blank:nth-child(2) .blank__key .dimple { fill: var(--brass-lo); }
 .blank--small .blank__key { width: clamp(42px, 5vw, 68px); }
-.blank__key .fob { fill: var(--closed); }
+.blank__key .fob { fill: var(--pine); }
 .blank__key .fob-label { fill: var(--paper); }
 
 .blank__tag {
@@ -490,7 +493,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   background: var(--paper);
   border: 1px solid var(--rule);
   border-radius: 4px 4px 8px 8px;
-  box-shadow: 0 8px 12px -8px rgb(27 28 30 / 0.3);
+  box-shadow: 0 8px 12px -8px rgb(29 42 52 / 0.3);
   transform-origin: 50% -30px;
   rotate: -0.7deg;
   transition: rotate 0.6s var(--ease-out);
@@ -604,7 +607,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .visit__main { display: grid; gap: 28px; align-content: start; }
 .visit__address {
   font-family: var(--f-display); font-weight: 750;
-  font-size: clamp(2.5rem, 5.4vw, 4.75rem); line-height: 0.95; letter-spacing: -0.035em;
+  font-size: clamp(2.5rem, 5.4vw, 4.75rem); line-height: 1; letter-spacing: -0.02em;
   color: var(--brass-hi);
 }
 
@@ -642,7 +645,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   transition: border-color 0.2s;
 }
 .field textarea { resize: vertical; min-height: 110px; }
-.field input:hover, .field textarea:hover { border-color: #55585d; }
+.field input:hover, .field textarea:hover { border-color: var(--ink-3); }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--brass-hi); }
 .field.has-error input, .field.has-error textarea { border-color: #e0786d; }
 .field__error { min-height: 1.2em; font-size: 0.88rem; color: #f0a39a; }
@@ -652,10 +655,11 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 /* ─── Pie ──────────────────────────────────────────────── */
 .footer { background: var(--graphite); color: var(--on-graphite-2); font-size: 0.92rem; }
 .footer__inner {
-  display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: baseline;
+  display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center;
   padding-block: 28px 40px; border-top: 1px solid var(--graphite-rule);
 }
-.footer__brand span { font-family: var(--f-display); font-weight: 800; font-size: 1.3rem; color: var(--on-graphite); margin-right: 8px; letter-spacing: -0.02em; }
+.footer__brand { display: flex; align-items: center; gap: 16px; }
+.footer__logo { width: auto; max-width: none; height: 52px; }
 .footer__legal { margin-left: auto; }
 
 /* ─── Acciones rápidas ─────────────────────────────────── */
@@ -668,10 +672,10 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   min-height: 52px; padding: 0 20px;
   border-radius: 999px; text-decoration: none; font-weight: 650;
   background: var(--ink); color: var(--ground);
-  box-shadow: 0 10px 24px -8px rgb(27 28 30 / 0.45);
+  box-shadow: 0 10px 24px -8px rgb(29 42 52 / 0.45);
   transition: transform 0.25s var(--ease-out), background-color 0.2s;
 }
-.dock__btn:hover { transform: translateY(-2px); background: #2d2f32; }
+.dock__btn:hover { transform: translateY(-2px); background: var(--graphite-2); }
 .dock__btn--map, .dock__btn--tel { display: none; }
 .dock { transition: opacity 0.3s, transform 0.4s var(--ease-out); }
 @media (min-width: 861px) {
@@ -692,6 +696,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 
 @media (max-width: 860px) {
   :root { --rail-h: 60px; }
+  .brand__logo { height: 40px; }
   body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 
   .hero { min-height: auto; }
@@ -739,6 +744,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 
 @media (max-width: 420px) {
   .brand__since { display: none; }
+  .brand__logo { height: 34px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,51 +1,50 @@
 ---
 name: Ferretería Pino
-description: El panel de llaves. The key counter of a barrio hardware shop, drawn in nickel, graphite and brass.
+description: El panel de llaves. The key counter of a barrio hardware shop, drawn in nickel, slate and brass, with the red pine of the logo.
 colors:
-  ground: "#ecedea"
-  ground-2: "#e1e2de"
-  ground-3: "#d4d6d1"
-  paper: "#f8f8f5"
-  rule: "#c3c5c0"
-  ink: "#1b1c1e"
-  ink-2: "#44474b"
-  ink-3: "#5d6065"
+  ground: "#ebeeee"
+  ground-2: "#dfe3e4"
+  ground-3: "#d1d7d9"
+  paper: "#f7f9f9"
+  rule: "#c0c8cc"
+  ink: "#1d2a34"
+  ink-2: "#3e5667"
+  ink-3: "#566a78"
   brass: "#b4873a"
   brass-hi: "#d6b066"
   brass-lo: "#8f6726"
   brass-ink: "#7a5719"
-  nickel: "#a5a9ac"
-  nickel-lo: "#84888c"
+  nickel: "#a3abb0"
+  nickel-lo: "#828b91"
+  pine: "#d32733"
   open: "#2c7a4b"
-  closed: "#b8382c"
-  graphite: "#1b1c1e"
-  graphite-2: "#26282b"
-  graphite-rule: "#393b3f"
-  on-graphite: "#ecedea"
-  on-graphite-2: "#a9acb0"
+  closed: "#c4242f"
+  graphite: "#2b3c49"
+  graphite-2: "#354a59"
+  graphite-rule: "#4a5f6e"
+  on-graphite: "#ebeeee"
+  on-graphite-2: "#b4c0c8"
 typography:
   display:
-    fontFamily: "'Bricolage Grotesque Variable', 'Archivo Variable', sans-serif"
-    fontSize: "clamp(6.5rem, 20vw, 17.5rem)"
+    fontFamily: "'Montserrat Variable', 'Archivo Variable', sans-serif"
+    fontSize: "clamp(6rem, 17vw, 15rem)"
     fontWeight: 800
     lineHeight: 0.8
-    letterSpacing: "-0.04em"
-    fontVariation: "'opsz' 96"
+    letterSpacing: "-0.03em"
   headline:
-    fontFamily: "'Bricolage Grotesque Variable', 'Archivo Variable', sans-serif"
-    fontSize: "clamp(2.25rem, 5.2vw, 4.5rem)"
+    fontFamily: "'Montserrat Variable', 'Archivo Variable', sans-serif"
+    fontSize: "clamp(2.1rem, 4.2vw, 3.75rem)"
     fontWeight: 750
     lineHeight: 0.98
-    letterSpacing: "-0.035em"
-    fontVariation: "'opsz' 96"
+    letterSpacing: "-0.02em"
   title:
-    fontFamily: "'Bricolage Grotesque Variable', 'Archivo Variable', sans-serif"
+    fontFamily: "'Montserrat Variable', 'Archivo Variable', sans-serif"
     fontSize: "1.45rem"
     fontWeight: 700
     lineHeight: 1.15
     letterSpacing: "-0.02em"
   figure:
-    fontFamily: "'Bricolage Grotesque Variable', 'Archivo Variable', sans-serif"
+    fontFamily: "'Montserrat Variable', 'Archivo Variable', sans-serif"
     fontSize: "1.5rem"
     fontWeight: 750
     letterSpacing: "-0.02em"
@@ -140,23 +139,27 @@ The page closes on graphite. The Visítanos section and footer are the counter's
 **Key Characteristics:**
 - Flat colour only: no gradients, no glass, no glows, no blends.
 - Brass is the single material accent; green and red are signals, never decoration.
-- Monumental Bricolage Grotesque display over a quiet Archivo text face with tabular figures.
+- Monumental Montserrat display, the same geometric voice as the logo, over a quiet Archivo text face with tabular figures.
 - Recurring counter objects: hooks, punched paper tags on threads, steel rails, the bitting profile.
 - One signature motion (the key cut 1·9·8·5) plus the board sway and the tag entrance; reduced motion honoured.
 
 ## Colors
 
-A cool, nearly colourless metal palette (nickel, graphite, paper) with one warm brass and two small signal colours.
+A cool metal palette tuned to the logo: nickel and paper grounds, the logo's slate blue (#3e5667) as ink and back wall, one warm brass, the logo's pine red, and two small signal colours.
+
+### Logo
+`public/img/logo-ferreteria-pino.svg`: "FERRETERÍA" over "P·NO S.L." in slate blue, with a red pine standing in for the I. It sits in the rail (46px tall, 40px at 860px and below) and, as the light variant `logo-ferreteria-pino-claro.svg` (slate swapped for on-graphite), in the footer. The favicon is the red pine alone on nickel white. The logo is used as supplied: never recoloured beyond these two variants, never stretched.
 
 ### Primary
-- **Brushed Brass** (brass): the one material colour. Key metal, the brand tag mark, the primary "Cómo llegar" and "Enviar mensaje" buttons, the active nav underline, the selected filter's dot, the "Hoy" badge, text selection.
+- **Brushed Brass** (brass): the one material colour. Key metal, the primary "Cómo llegar" and "Enviar mensaje" buttons, the active nav underline, the selected filter's dot, the "Hoy" badge, text selection.
 - **Polished Brass** (brass-hi): the lit edge. Button hover, the cut key edge and falling shavings, the address and icons on graphite, focus colour on graphite.
 - **Shadowed Brass** (brass-lo): key shoulder, groove and stamp; recessed brass.
 - **Brass Ink** (brass-ink): brass dark enough to read on the light ground. Focus outline and service icons.
 
 ### Secondary
 - **Open Green** (open): the "Abierto" status dot and its pulse. Nothing else.
-- **Closed Red** (closed): the "Cerrado" status dot, and the red key fob on the hook wall. Never used for "open".
+- **Pine Red** (pine): the brand red from the logo's pine. Only in the logo and on the red key fob of the hook wall.
+- **Closed Red** (closed): the "Cerrado" status dot. Never used for "open".
 
 ### Neutral
 - **Nickel White** (ground): page ground, rail, mobile menu and dock bar, the key's hole.
@@ -164,31 +167,31 @@ A cool, nearly colourless metal palette (nickel, graphite, paper) with one warm 
 - **Pegboard Hole** (ground-3): the board's punched-hole dot pattern.
 - **Tag Paper** (paper): price tags, blank tags, the fob label.
 - **Steel Hairline** (rule): hairline dividers, tag borders, the scrolled rail's bottom edge.
-- **Graphite Ink** (ink): primary text, line buttons, filter strokes, the dock pill, the cutter arm.
-- **Graphite Ink 2 / 3** (ink-2, ink-3): secondary text and notes; ink-3 also draws tag threads and cut marks.
+- **Slate Ink** (ink): primary text, line buttons, filter strokes, the dock pill, the cutter arm. A deepened logo slate, dark enough for body text.
+- **Slate Ink 2 / 3** (ink-2, ink-3): ink-2 is the logo slate itself: every display headline (hero title and section h2s on the light ground) and secondary text. ink-3 is for notes and tag threads.
 - **Nickel / Nickel Deep** (nickel, nickel-lo): steel key blanks and the cutter body; nickel-lo is the catalogue's steel rail, the tag punch ring and the bitting divider stroke.
-- **Back Wall** (graphite, graphite-2, graphite-rule): the closing ground of Visítanos and footer; graphite-2 lifts the map frame and form panel; graphite-rule is its hairline. Graphite shares its value with ink by design: the back wall is the ink.
+- **Back Wall** (graphite, graphite-2, graphite-rule): the closing ground of Visítanos and footer; graphite-2 lifts the map frame and form panel; graphite-rule is its hairline. A deep slate, lighter than ink, so the closing wall reads as the logo blue rather than black.
 - **On Graphite** (on-graphite, on-graphite-2): primary and secondary text on the back wall.
 
 ### Named Rules
 **The One Metal Rule.** Brass is the only warm colour and the only accent. If something needs emphasis and is not a key, a tag accent or the primary action, it gets weight or size, not brass.
 
-**The Signal Rule.** Green means open, red means closed. The open pulse is green (open) because red reads universally as "closed"; red is reserved for the closed state (and the key fob object). Signals never decorate.
+**The Signal Rule.** Green means open, red means closed. The open pulse is green (open) because red reads universally as "closed"; signal red is reserved for the closed state. Pine red is the brand's, not a signal: it lives in the logo and the key fob object only. Signals never decorate.
 
 **The Flat Fill Rule.** Every surface is a single flat colour. The only gradient function in the build is the pegboard's hard-edged hole pattern, which is a texture of holes, not a colour blend.
 
 ## Typography
 
-**Display Font:** Bricolage Grotesque Variable (fallback Archivo Variable, sans-serif)
+**Display Font:** Montserrat Variable (fallback Archivo Variable, sans-serif). Chosen because the logo is set in Montserrat or a very close geometric sans: round O, wide R and N.
 **Body Font:** Archivo Variable (fallback system-ui, sans-serif)
 
-Both are self-hosted through @fontsource-variable (bricolage-grotesque standard axes; archivo with the width axis). No system display faces.
+Both are self-hosted through @fontsource-variable (montserrat with the weight axis; archivo with the width axis). No system display faces.
 
-**Character:** a monumental, slightly quirky grotesque set heavy and tight as if stamped into metal, over a sober workshop text face whose width axis gives labels a stamped, expanded feel. All figures are tabular.
+**Character:** a monumental geometric sans set heavy, echoing the logo's PINO, over a sober workshop text face whose width axis gives labels a stamped, expanded feel. All figures are tabular.
 
 ### Hierarchy
-- **Display** (800, clamp(6.5rem, 20vw, 17.5rem), line-height 0.8, -0.04em, opsz 96): the brand name in the hero only. A smaller 650-weight pre-line (clamp(2rem, 4.4vw, 4rem)) sits above it. On mobile the name grows to clamp(6rem, 33vw, 11rem).
-- **Headline** (750, clamp(2.25rem, 5.2vw, 4.5rem), line-height 0.98, -0.035em, balanced): section titles, written as plain sentences. The Visítanos address uses the same voice in brass-hi at clamp(2.5rem, 5.4vw, 4.75rem).
+- **Display** (800, clamp(6rem, 17vw, 15rem), line-height 0.8, -0.03em): the brand name in the hero only. Above it, like the logo's top line, «FERRETERÍA» in 700 uppercase tracked 0.14em at clamp(1.15rem, 2.5vw, 2.3rem). The rail's «Desde 1985» uses the same tracked-caps treatment. On mobile the name grows to clamp(6rem, 33vw, 11rem).
+- **Headline** (750, clamp(2.1rem, 4.2vw, 3.75rem), line-height 0.98, -0.02em, balanced; Montserrat is wider, so it runs smaller than the old grotesque): section titles, written as plain sentences. The Visítanos address uses the same voice in brass-hi at clamp(2.5rem, 5.4vw, 4.75rem).
 - **Title** (700, 1.45rem, line-height 1.15, -0.02em): service names and the form title (1.6rem).
 - **Figure** (750, 1.5rem, -0.02em, display face): prices on tags and the facts in the workshop spec list. Numbers are set in the display face so they read as stamped.
 - **Body** (400, 1.0625rem, line-height 1.55): running text, max 38 to 46ch. Lead text runs at clamp(1.125rem, 1.6vw, 1.3rem) in ink-2, max 38ch.
@@ -267,7 +270,7 @@ A 10px dot and a sentence ("Abierto ahora · hasta las 20:30"). Open: green dot 
 The always-reachable action. Desktop: a single ink WhatsApp pill fixed bottom-right with the dock shadow; it hides while the visitor is in zones that already show WhatsApp. Mobile (860px and below): a full-width ground bar with three 6px buttons: Llegar (brass), Llamar (line), WhatsApp (ink).
 
 ### The Key Cutter (signature)
-One giant SVG key across the hero, whole from bow to tip and centred horizontally at any width: bow at left with a ground-coloured hole and the PINO stamp with "Nº 1985". The drawing leaves headroom so the cutter wheel is always seen as a full circle. On load a nickel and ink cutter wheel travels the blade and carves four cuts in the order 1·9·8·5, dropping brass-hi shavings; no digits are drawn on the key. "Cortar otra llave" replays it with a random code. Two drawings: a long blade with wide cut spacing on desktop, a short blade with tight spacing at 860px and below so the whole key fits at a good size. Under reduced motion the cut key is drawn finished.
+One giant SVG key across the hero, whole from bow to tip and centred horizontally at any width: bow at left with a ground-coloured hole and the logo's pine engraved in brass-lo above "Nº 1985". The drawing leaves headroom so the cutter wheel is always seen as a full circle. On load a nickel and ink cutter wheel travels the blade and carves four cuts in the order 1·9·8·5, dropping brass-hi shavings; no digits are drawn on the key. "Cortar otra llave" replays it with a random code. Two drawings: a long blade with wide cut spacing on desktop, a short blade with tight spacing at 860px and below so the whole key fits at a good size. Under reduced motion the cut key is drawn finished.
 
 ### The Hook Wall
 A ground-2 pegboard (30px hole grid) holding six columns of key blanks (three below 1080px), each on an ink hook with a small paper tag. Blanks are nickel, two are brass, one carries a red fob. The whole board sways once when it enters view (staggered delays), and a single blank sways on hover: a damped swing from 9deg settling to 0 over 1.8s.

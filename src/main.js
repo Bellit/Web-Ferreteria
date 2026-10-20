@@ -2,7 +2,7 @@
  * Ferretería Pino — Entrada
  * Fuentes servidas desde el propio proyecto, sin librerías de animación.
  */
-import '@fontsource-variable/bricolage-grotesque/standard.css';
+import '@fontsource-variable/montserrat';
 import '@fontsource-variable/archivo/wdth.css';
 import './styles/main.css';
 

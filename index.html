@@ -6,7 +6,7 @@
 
   <title>Ferretería Pino · Copias de llaves y ferretería de barrio desde 1985</title>
   <meta name="description" content="Ferretería de barrio desde 1985, miembro de Cadena88. Copias de llaves al momento, herramientas, pintura, fontanería y electricidad. Mira si estamos abiertos y cómo llegar.">
-  <meta name="theme-color" content="#ecedea">
+  <meta name="theme-color" content="#ebeeee">
 
   <meta property="og:title" content="Ferretería Pino · Desde 1985">
   <meta property="og:description" content="Copias de llaves al momento y todo lo demás para tu casa. Ferretería de barrio, miembro de Cadena88.">
@@ -23,13 +23,9 @@
   <!-- ─── Riel de cabecera ─────────────────────────────── -->
   <header class="rail" data-rail>
     <div class="rail__inner">
-      <a href="#inicio" class="brand" aria-label="Ferretería Pino, inicio">
-        <svg class="brand__tag" viewBox="0 0 64 40" aria-hidden="true">
-          <path d="M14 2h44a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H14L2 20Z" />
-          <circle cx="14" cy="20" r="3.4" />
-        </svg>
-        <span class="brand__name">Pino</span>
-        <span class="brand__since">Ferretería · 1985</span>
+      <a href="#inicio" class="brand">
+        <img class="brand__logo" src="/img/logo-ferreteria-pino.svg" alt="Ferretería Pino, inicio" width="821" height="317">
+        <span class="brand__since">Desde 1985</span>
       </a>
 
       <nav class="nav" aria-label="Principal">
@@ -111,7 +107,10 @@
             <path class="key__metal" d="M70 40H300Q385 40 385 125V205Q385 290 300 290H70Q22 290 22 242V88Q22 40 70 40Z"/>
             <path class="key__shoulder" d="M385 92H428V238H385Z"/>
             <circle class="key__hole" cx="98" cy="165" r="34"/>
-            <text class="key__stamp" x="250" y="168" text-anchor="middle">PINO</text>
+            <!-- el pino del logo, grabado en el latón -->
+            <g class="key__pine" transform="translate(68.43 -291.42) scale(0.542)">
+              <polygon points="335,641 375.5,714 294.5,714"/><polygon points="313,714 357,714 388,769 282,769"/><polygon points="308,769 362,769 400,835 270,835"/><rect x="321.5" y="834" width="27" height="28.5"/>
+            </g>
             <text class="key__stamp-sub" x="250" y="214" text-anchor="middle">Nº 1985</text>
           </g>
 
@@ -370,7 +369,7 @@
 
   <footer class="footer">
     <div class="wrap footer__inner">
-      <p class="footer__brand"><span>Pino</span> Ferretería de barrio desde 1985</p>
+      <p class="footer__brand"><img class="footer__logo" src="/img/logo-ferreteria-pino-claro.svg" alt="Ferretería Pino" width="821" height="317" loading="lazy"> Ferretería de barrio desde 1985</p>
       <p>Miembro de la red Cadena88</p>
       <p><a href="https://instagram.com/ferreteriapino" target="_blank" rel="noopener">Instagram @ferreteriapino</a></p>
       <p class="footer__legal">© 2026 Ferretería Pino. Datos, precios y cifras de ejemplo.</p>
