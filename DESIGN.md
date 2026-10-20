@@ -150,6 +150,8 @@ A cool metal palette tuned to the logo: nickel and paper grounds, the logo's sla
 ### Logo
 `public/img/logo-ferreteria-pino.svg`: "FERRETERÍA" over "P·NO S.L." in slate blue, with a red pine standing in for the I. It sits in the rail (46px tall, 40px at 860px and below) and, as the light variant `logo-ferreteria-pino-claro.svg` (slate swapped for on-graphite), in the footer. The favicon is the red pine alone on nickel white. The logo is used as supplied: never recoloured beyond these two variants, never stretched.
 
+**Cadena88.** The network the shop belongs to, `public/img/logo-cadena88.png` (300×88, transparent; its wordmark is black). It appears twice and never above the fold: as the value of the "Red" row in the Taller spec list (38px tall, on the light ground), and in the footer after "Miembro de", mounted on a small paper plate (7px 12px padding, 4px radius) because black text cannot sit on the slate back wall. Never recoloured; ask Cadena88 for an SVG or an official negative version if one is needed.
+
 ### Primary
 - **Brushed Brass** (brass): the one material colour. Key metal, the primary "Cómo llegar" and "Enviar mensaje" buttons, the active nav underline, the selected filter's dot, the "Hoy" badge, text selection.
 - **Polished Brass** (brass-hi): the lit edge. Button hover, the cut key edge and falling shavings, the address and icons on graphite, focus colour on graphite.
