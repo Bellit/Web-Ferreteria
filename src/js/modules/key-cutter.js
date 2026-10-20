@@ -7,14 +7,19 @@ import { $ } from '../utils/dom.js';
 const NS = 'http://www.w3.org/2000/svg';
 const TOP = 110;           // canto superior de la paleta sin cortar
 const START = 428;         // donde empieza la paleta
-const END = 1480;          // donde empieza la punta
+let END;                   // donde empieza la punta (depende de la disposición)
 const WHEEL = 62;
 
-// Escritorio: cortes amplios a lo largo de la paleta. Móvil: cortes juntos, como una llave real,
-// para que cabeza, agujero, sello y los cuatro cortes quepan a buen tamaño.
+// Escritorio: cortes amplios a lo largo de una paleta larga. Móvil: cortes juntos y paleta corta,
+// como una llave real, para que la llave entera quepa a buen tamaño.
+// El dibujo deja sitio arriba para la fresa completa (y = -40) y va de la cabeza a la punta,
+// con el mismo margen a cada lado para que la llave quede centrada.
+const VIEW_TOP = -40;
+const VIEW_H = 340;
+const TIP = 85;            // largo de la punta, desde END
 const LAYOUTS = {
-  wide:   { cuts: [560, 800, 1040, 1280], half: 80, flat: 12, viewBox: '0 0 1520 330' },
-  narrow: { cuts: [500, 625, 750, 875],   half: 52, flat: 10, viewBox: '10 36 930 290' },
+  wide:   { cuts: [560, 800, 1040, 1280], half: 80, flat: 12, end: 1480 },
+  narrow: { cuts: [500, 625, 750, 875],   half: 52, flat: 10, end: 960 },
 };
 let CUTS, HALF, FLAT;
 const DURATION = 2900;
@@ -56,19 +61,18 @@ export function initKeyCutter() {
   if (!svg) return;
 
   const blade = $('[data-blade]', svg);
+  const groove = $('[data-groove]', svg);
   const uncut = $('[data-uncut]', svg);
   const uncutRect = $('[data-uncut-rect]', svg);
   const edge = $('[data-edge]', svg);
-  const marks = $('[data-marks]', svg);
   const chips = $('[data-chips]', svg);
   const mill = $('[data-mill]', svg);
   const wheel = $('[data-mill-wheel]', svg);
   const arm = $('.mill__arm', svg);
-  const caption = $('[data-cut-caption]');
   const again = $('[data-cut-again]');
 
   // Recorte del brillo: solo se ve lo ya cortado
-  const cutRect = el('rect', { x: 0, y: 0, width: 0, height: 330 });
+  const cutRect = el('rect', { x: 0, y: VIEW_TOP, width: 0, height: VIEW_H });
   const cutClip = el('clipPath', { id: 'cut-clip' });
   cutClip.append(cutRect);
   $('defs', svg).append(cutClip);
@@ -76,30 +80,22 @@ export function initKeyCutter() {
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  // La punta siempre se sale del borde derecho
   const narrow = window.matchMedia('(max-width: 860px)');
   const useLayout = () => {
     const l = narrow.matches ? LAYOUTS.narrow : LAYOUTS.wide;
-    ({ cuts: CUTS, half: HALF, flat: FLAT } = l);
-    svg.setAttribute('viewBox', l.viewBox);
+    ({ cuts: CUTS, half: HALF, flat: FLAT, end: END } = l);
+    // La cabeza empieza en x = 22: el mismo margen tras la punta
+    svg.setAttribute('viewBox', `0 ${VIEW_TOP} ${END + TIP + 22} ${VIEW_H}`);
   };
   useLayout();
   let running = false;
 
   function setup(code) {
     const pts = profilePoints(code);
-    blade.setAttribute('d', `${toPath(pts)}L1565 180L1540 230H${START}Z`);
+    blade.setAttribute('d', `${toPath(pts)}L${END + TIP} 180L${END + TIP - 25} 230H${START}Z`);
+    groove.setAttribute('d', `M${START} 168H${END + 20}L${END + 32} 184H${START}Z`);
     uncut.setAttribute('d', `M${START} ${TOP}H${END}${toPath([...pts].reverse()).replace(/^M/, 'L')}Z`);
     edge.setAttribute('d', toPath(pts));
-
-    marks.replaceChildren(...CUTS.map((c, i) => {
-      const g = el('g', {});
-      g.append(el('line', { x1: c, y1: 240, x2: c, y2: 256 }));
-      const t = el('text', { x: c, y: 318 });
-      t.textContent = code[i];
-      g.append(t);
-      return g;
-    }));
   }
 
   function place(x, code) {
@@ -107,20 +103,17 @@ export function initKeyCutter() {
     cutRect.setAttribute('width', Math.max(0, x));
     const cy = profileY(x, code) - WHEEL - 4;
     mill.setAttribute('transform', `translate(${x} ${cy})`);
-    arm.setAttribute('y1', -cy - 10);
-    [...marks.children].forEach((g, i) => g.classList.toggle('is-on', x > CUTS[i] + FLAT));
+    arm.setAttribute('y1', VIEW_TOP - cy - 10);
   }
 
   function finish() {
     place(1600, [0, 0, 0, 0]);
-    [...marks.children].forEach((g) => g.classList.add('is-on'));
     mill.classList.add('is-parked');
   }
 
-  function cut(code, text) {
+  function cut(code) {
     lastCode = code;
     setup(code);
-    if (caption && text) caption.textContent = text;
 
     if (reduce.matches) { finish(); return; }
 
@@ -166,7 +159,7 @@ export function initKeyCutter() {
         p.x += p.vx * dt;
         p.y += p.vy * dt;
         p.r += p.vr * dt;
-        if (p.y > 330 || p.life > 1100) {
+        if (p.y > VIEW_TOP + VIEW_H || p.life > 1100) {
           p.node.remove();
           particles.splice(i, 1);
         } else {
@@ -203,7 +196,7 @@ export function initKeyCutter() {
   again?.addEventListener('click', () => {
     if (running) return;
     const code = CUTS.map(() => 1 + Math.floor(Math.random() * 9));
-    cut(code, `Corte ${code.join('·')}: así de rápido sale la tuya.`);
+    cut(code);
   });
 
   setTimeout(() => cut(first), 450);

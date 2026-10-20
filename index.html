@@ -100,10 +100,10 @@
       </div>
 
       <figure class="cutter" data-cutter>
-        <svg class="cutter__svg" viewBox="0 0 1520 330" preserveAspectRatio="xMinYMid meet" role="img" aria-labelledby="key-desc" data-key-svg>
+        <svg class="cutter__svg" viewBox="0 -40 1587 340" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="key-desc" data-key-svg>
           <desc id="key-desc">Una llave de latón con el corte 1-9-8-5, el año en que abrió la ferretería.</desc>
           <defs>
-            <clipPath id="uncut-clip"><rect data-uncut-rect x="1600" y="0" width="1600" height="330"/></clipPath>
+            <clipPath id="uncut-clip"><rect data-uncut-rect x="1600" y="-40" width="1600" height="340"/></clipPath>
           </defs>
 
           <!-- cabeza -->
@@ -117,12 +117,9 @@
 
           <!-- paleta: perfil cortado + material sin cortar -->
           <path class="key__metal" data-blade d="M428 110H1480L1565 180L1540 230H428Z"/>
-          <path class="key__groove" d="M428 168H1500L1512 184H428Z"/>
+          <path class="key__groove" data-groove d="M428 168H1500L1512 184H428Z"/>
           <path class="key__metal key__uncut" data-uncut clip-path="url(#uncut-clip)" d="M428 110H1480V110H428Z"/>
           <path class="key__edge" data-edge d="M428 110H1480"/>
-
-          <!-- cotas del corte -->
-          <g class="key__marks" data-marks></g>
 
           <!-- virutas -->
           <g class="key__chips" data-chips></g>
@@ -138,13 +135,12 @@
           </g>
         </svg>
 
-        <figcaption class="cutter__caption wrap">
-          <span data-cut-caption>Corte 1·9·8·5: el año en que abrimos.</span>
+        <div class="cutter__caption wrap">
           <button class="cutter__again" type="button" data-cut-again>
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
             Cortar otra llave
           </button>
-        </figcaption>
+        </div>
       </figure>
     </section>
 

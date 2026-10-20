@@ -299,7 +299,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .cutter { margin-top: clamp(16px, 4vh, 48px); }
 .cutter__svg {
   display: block; width: 100%; height: auto;
-  max-height: 34vh;
+  max-height: 40vh;
   overflow: hidden;
 }
 
@@ -317,13 +317,6 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   font-family: var(--f-text); font-weight: 600; font-size: 30px; font-stretch: 115%;
   letter-spacing: 3px; fill: var(--brass-lo);
 }
-.key__marks line { stroke: var(--ink-3); stroke-width: 2; }
-.key__marks text {
-  font-family: var(--f-display); font-weight: 750; font-size: 40px;
-  fill: var(--ink); text-anchor: middle;
-}
-.key__marks g { opacity: 0; transition: opacity 0.35s var(--ease-out), transform 0.5s var(--ease-out); transform: translateY(-8px); }
-.key__marks g.is-on { opacity: 1; transform: none; }
 .key__chips rect { fill: var(--brass-hi); }
 
 .mill__arm { stroke: var(--ink); stroke-width: 14; stroke-linecap: square; }
@@ -334,7 +327,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .mill.is-parked { opacity: 0; }
 
 .cutter__caption {
-  display: flex; align-items: center; gap: 8px 28px; flex-wrap: wrap;
+  display: flex; align-items: center; justify-content: flex-end; gap: 8px 28px; flex-wrap: wrap;
   margin-top: 14px; color: var(--ink-2); font-size: 0.98rem;
 }
 .cutter__again {
@@ -709,7 +702,6 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   .hero__actions .btn { flex: 1 1 0; }
   .cutter { margin-top: 28px; }
   .cutter__svg { max-height: none; }
-  .key__marks text { font-size: 64px; }
 
   .keys__grid, .catalog__body, .services__grid, .visit__grid { grid-template-columns: 1fr; }
   .services__title { max-width: none; }
