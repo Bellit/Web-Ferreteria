@@ -316,9 +316,9 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .key__groove { fill: var(--brass-lo); }
 .key__edge { fill: none; stroke: var(--brass-hi); stroke-width: 3; stroke-linejoin: round; }
 .key__pine { fill: var(--brass-lo); }
-.key__stamp-sub {
-  font-family: var(--f-text); font-weight: 600; font-size: 30px; font-stretch: 115%;
-  letter-spacing: 3px; fill: var(--brass-lo);
+.key__stamp {
+  font-family: var(--f-display); font-weight: 800; font-size: 44px;
+  letter-spacing: 1px; fill: var(--brass-lo);
 }
 .key__chips rect { fill: var(--brass-hi); }
 
