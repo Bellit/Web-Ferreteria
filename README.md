@@ -1,8 +1,8 @@
 # Ferretería Pino — Web
 
-Web de una sola página para **Ferretería Pino**, ferretería de barrio desde 1985, especialista en copias de llaves y miembro de Cadena88.
+Web de una sola página para **Ferretería Pino**, ferretería de proximidad en Canovelles (Barcelona) desde 1985, especialista en copias de llaves y miembro de Cadena88.
 
-> Los datos del negocio (dirección, teléfonos, precios, cifras) son **de ejemplo**. Las fotos son de stock de Pexels y están pensadas para sustituirse por fotos reales de la tienda.
+> La dirección, el teléfono, el email, Instagram y el horario son **reales** (sacados de ferreteriapino.es). Siguen siendo **de ejemplo** el número de WhatsApp y los precios del catálogo. Las fotos son de stock de Pexels, salvo la fachada.
 
 ## Idea de diseño: «El panel de llaves»
 
@@ -11,7 +11,7 @@ La web está construida como el mostrador de llaves de la ferretería. Usa níqu
 - **Portada:** una fresa corta en directo una llave de latón con el código **1·9·8·5**, el año de apertura. El botón «Cortar otra llave» talla un código al azar.
 - **Panel de llaves:** las llaves vírgenes cuelgan de ganchos con su etiqueta de precio y se balancean al pasar el ratón.
 - **Catálogo:** lista de etiquetas de lineal con filtro por sección. La foto lateral cambia según la sección elegida.
-- **Abierto / cerrado:** el estado se calcula en directo con la hora de Madrid (horario partido) y el día de hoy se marca en la tabla de horarios.
+- **Abierto / cerrado:** el estado se calcula en directo con la hora peninsular (horario partido) y el día de hoy se marca en la tabla de horarios.
 - **Móvil:** barra fija con «Llegar · Llamar · WhatsApp».
 
 Tipografías servidas desde el propio proyecto: **Montserrat** para los titulares (la misma voz geométrica del logo) y **Archivo** para el texto.
@@ -52,12 +52,14 @@ src/js/modules/
   catalog.js                Catálogo y filtros
   navigation.js             Cabecera, menú móvil, sección activa
   contact.js                Validación del formulario (envío simulado)
+  map.js                    Mapa de Google que solo se carga al pulsar «Ver el mapa»
 ```
 
-## Qué cambiar por datos reales
+## Pendiente
 
-- Dirección, teléfono, WhatsApp, email e Instagram en `index.html`.
-- El horario: en `index.html` (la tabla) y en `HOURS`, dentro de `src/js/modules/status.js`.
-- Los productos y precios en `src/data/products.json`.
-- Las fotos de `public/img/`, sustituyéndolas por fotos propias con el mismo nombre.
-- El formulario no envía nada todavía: hay que conectarlo a un servicio (Formspree, un backend propio…).
+- **WhatsApp:** el número es de ejemplo (`34600123456`). Va en tres enlaces `wa.me` de `index.html` (portada, Visítanos y barra móvil) y en el texto «WhatsApp 600 12 34 56».
+- **Textos legales:** el pie enlaza de momento al aviso legal, la privacidad y las cookies de la web antigua (ferreteriapino.es). Cuando esta web la sustituya, hay que crear esas páginas aquí con los textos de la asesoría (NIF, datos registrales…). El formulario necesitará además una casilla de aceptación de la política de privacidad.
+- **Formulario:** no envía nada todavía; hay que conectarlo a un servicio (Formspree, un backend propio…).
+- **Precios del catálogo:** son de ejemplo, en `src/data/products.json`.
+- **Fotos:** las de `public/img/` son de stock, salvo `fachada.jpg`. Se sustituyen por fotos propias con el mismo nombre.
+- **Horario:** si cambia, hay que tocarlo en tres sitios: la tabla y el texto de la portada en `index.html`, `HOURS` en `src/js/modules/status.js` y el bloque JSON-LD del `<head>`.

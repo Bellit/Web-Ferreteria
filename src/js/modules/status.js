@@ -1,17 +1,17 @@
 /**
- * ¿Está abierto? — calcula el estado con la hora de Madrid
+ * ¿Está abierto? — calcula el estado con la hora peninsular (Europe/Madrid, también Barcelona)
  */
 import { $, $$ } from '../utils/dom.js';
 
 // Tramos en minutos desde medianoche. 0 = domingo.
 const HOURS = {
   0: [],
-  1: [[540, 840], [1020, 1230]],
-  2: [[540, 840], [1020, 1230]],
-  3: [[540, 840], [1020, 1230]],
-  4: [[540, 840], [1020, 1230]],
-  5: [[540, 840], [1020, 1230]],
-  6: [[570, 840]],
+  1: [[570, 810], [1020, 1200]],
+  2: [[570, 810], [1020, 1200]],
+  3: [[570, 810], [1020, 1200]],
+  4: [[570, 810], [1020, 1200]],
+  5: [[570, 810], [1020, 1200]],
+  6: [[540, 810]],
 };
 
 const DAY_NAMES = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];

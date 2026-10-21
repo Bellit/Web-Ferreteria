@@ -13,18 +13,18 @@ Vecinos del barrio, particulares que hacen bricolaje y profesionales (fontaneros
 Web institucional de una ferretería de barrio. Tiene dos objetivos a la vez: que la gente **venga a la tienda** (o llame o escriba por WhatsApp) y construir una **imagen de marca que transmita confianza y oficio**. Funciona bien si el visitante sale sabiendo qué se vende, dónde está la tienda y cuándo abre, y si se queda con la sensación de que allí le van a atender profesionales.
 
 ## Positioning
-Ferretería familiar de barrio fundada en 1985, con más de 40 años de oficio. Está especializada en copias de llaves y forma parte de la red Cadena88. Su diferencia frente a una gran superficie es la atención personal y el conocimiento técnico del mostrador.
+Ferretería familiar de proximidad en Canovelles (Barcelona), fundada en 1985, con más de 40 años de oficio. Está especializada en copias de llaves y forma parte de la red Cadena88. Su diferencia frente a una gran superficie es la atención personal y el conocimiento técnico del mostrador.
 
 ## Operating Context
 - Es un negocio físico y la compra se hace en la tienda. La web no tiene carrito ni venta online.
-- Servicios: copias de llaves (planas, de seguridad, tubulares), asesoría técnica y entrega a domicilio en la zona.
+- Servicios: copias de llaves (planas, de seguridad, tubulares), asesoría técnica y el surtido de Cadena88 (folleto de temporada). **No hay reparto a domicilio**: no hay que ofrecerlo.
 - Categorías del catálogo: Herramientas, Pinturas, Fontanería, Electricidad y Copias de llaves. Los productos están en `src/data/products.json`.
 - Canales de contacto: teléfono, WhatsApp, email, Instagram, formulario y mapa.
 
 ## Capabilities and Constraints
 - Stack actual: Vite 6, HTML, CSS y JS vanilla (ES modules), con PostCSS. Sin librerías de animación: todo el movimiento es CSS y SVG propio. Tipografías autoalojadas con @fontsource.
 - Es una página única con secciones Inicio, Catálogo, Servicios, Nosotros y Contacto. El catálogo tiene filtros por categoría y el formulario solo valida en el cliente (no hay backend).
-- **Los datos del negocio son de ejemplo**, ambientados en **España**: precios en euros, teléfonos +34 y dirección española ficticia. Los textos deben ir en español de España.
+- **Datos reales** (de ferreteriapino.es): C/ Pino, 35 · 08420 Canovelles (Barcelona) · 93 849 52 50 · ferreteriapino@ferreteriapino.es · Instagram @ferreteriapinosl · L–V 9:30–13:30 y 17:00–20:00, sáb 9:00–13:30. **Pendiente:** el número de WhatsApp (ahora es de ejemplo). Los precios del catálogo siguen siendo de ejemplo. Textos en español de España.
 
 ## Brand Commitments
 - Nombre: Ferretería Pino. Miembro de la red Cadena88.
@@ -32,8 +32,8 @@ Ferretería familiar de barrio fundada en 1985, con más de 40 años de oficio. 
 - Tono: cercano, de barrio, con oficio. Nada de jerga tecnológica.
 
 ## Evidence on Hand
-- No hay fotos reales. El usuario autoriza **fotos de stock** (Unsplash) como imágenes de muestra realistas.
-- Las cifras de la sección "Nosotros" (5.000 clientes, 15.000 llaves al año) y los productos son de ejemplo. No hay testimonios, reseñas ni prensa reales, y no hay que inventarlos.
+- Única foto real: la fachada (`public/img/fachada.jpg`, de la web antigua). El resto son **fotos de stock** (Pexels) autorizadas como muestra.
+- Los productos y precios son de ejemplo; ya no hay cifras inventadas en «Taller». No hay testimonios, reseñas ni prensa reales, y no hay que inventarlos.
 
 ## Product Principles
 1. Lo primero es poder llegar a la tienda: dirección, horario, teléfono y WhatsApp tienen que estar siempre a mano.

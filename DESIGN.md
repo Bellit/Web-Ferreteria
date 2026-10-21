@@ -152,6 +152,8 @@ A cool metal palette tuned to the logo: nickel and paper grounds, the logo's sla
 
 **Cadena88.** The network the shop belongs to, `public/img/logo-cadena88.png` (300×88, transparent; its wordmark is black). It appears twice and never above the fold: as the value of the "Red" row in the Taller spec list (38px tall, on the light ground), and in the footer after "Miembro de", mounted on a small paper plate (7px 12px padding, 4px radius) because black text cannot sit on the slate back wall. Never recoloured; ask Cadena88 for an SVG or an official negative version if one is needed.
 
+**Shop front and map.** The only real photo, `public/img/fachada.jpg` (940×459, from the old site), sits in Visítanos as the map's preview: the photo at full column width with a graphite caption plate «Busca este rótulo: C/ Pino, 35», and under it a line button «Ver el mapa» with a short note that Google may set cookies. Only on that click does `src/js/modules/map.js` swap in the Google Maps iframe (16:10, greyscale). No third-party request or cookie happens before it, so the site needs no cookie banner.
+
 ### Primary
 - **Brushed Brass** (brass): the one material colour. Key metal, the primary "Cómo llegar" and "Enviar mensaje" buttons, the active nav underline, the selected filter's dot, the "Hoy" badge, text selection.
 - **Polished Brass** (brass-hi): the lit edge. Button hover, the cut key edge and falling shavings, the address and icons on graphite, focus colour on graphite.
