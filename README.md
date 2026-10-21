@@ -2,7 +2,7 @@
 
 Web de una sola página para **Ferretería Pino**, ferretería de proximidad en Canovelles (Barcelona) desde 1985, especialista en copias de llaves y miembro de Cadena88.
 
-> La dirección, el teléfono, el email, Instagram y el horario son **reales** (sacados de ferreteriapino.es). Siguen siendo **de ejemplo** el número de WhatsApp y los precios del catálogo. Las fotos son de stock de Pexels, salvo la fachada.
+> La dirección, el teléfono (también WhatsApp: 93 849 52 50), el email, Instagram y el horario son **reales**. Siguen siendo **de ejemplo** los precios del catálogo. Las fotos son de stock de Pexels, salvo la fachada.
 
 ## Idea de diseño: «El panel de llaves»
 
@@ -57,7 +57,6 @@ src/js/modules/
 
 ## Pendiente
 
-- **WhatsApp:** el número es de ejemplo (`34600123456`). Va en tres enlaces `wa.me` de `index.html` (portada, Visítanos y barra móvil) y en el texto «WhatsApp 600 12 34 56».
 - **Textos legales:** el pie enlaza de momento al aviso legal, la privacidad y las cookies de la web antigua (ferreteriapino.es). Cuando esta web la sustituya, hay que crear esas páginas aquí con los textos de la asesoría (NIF, datos registrales…). El formulario necesitará además una casilla de aceptación de la política de privacidad.
 - **Formulario:** no envía nada todavía; hay que conectarlo a un servicio (Formspree, un backend propio…).
 - **Precios del catálogo:** son de ejemplo, en `src/data/products.json`.

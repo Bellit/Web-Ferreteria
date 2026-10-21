@@ -24,7 +24,7 @@ Ferretería familiar de proximidad en Canovelles (Barcelona), fundada en 1985, c
 ## Capabilities and Constraints
 - Stack actual: Vite 6, HTML, CSS y JS vanilla (ES modules), con PostCSS. Sin librerías de animación: todo el movimiento es CSS y SVG propio. Tipografías autoalojadas con @fontsource.
 - Es una página única con secciones Inicio, Catálogo, Servicios, Nosotros y Contacto. El catálogo tiene filtros por categoría y el formulario solo valida en el cliente (no hay backend).
-- **Datos reales** (de ferreteriapino.es): C/ Pino, 35 · 08420 Canovelles (Barcelona) · 93 849 52 50 · ferreteriapino@ferreteriapino.es · Instagram @ferreteriapinosl · L–V 9:30–13:30 y 17:00–20:00, sáb 9:00–13:30. **Pendiente:** el número de WhatsApp (ahora es de ejemplo). Los precios del catálogo siguen siendo de ejemplo. Textos en español de España.
+- **Datos reales** (de ferreteriapino.es): C/ Pino, 35 · 08420 Canovelles (Barcelona) · 93 849 52 50 (teléfono y WhatsApp) · ferreteriapino@ferreteriapino.es · Instagram @ferreteriapinosl · L–V 9:30–13:30 y 17:00–20:00, sáb 9:00–13:30. Los precios del catálogo siguen siendo de ejemplo. Textos en español de España.
 
 ## Brand Commitments
 - Nombre: Ferretería Pino. Miembro de la red Cadena88.
