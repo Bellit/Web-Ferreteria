@@ -23,11 +23,6 @@ const LABEL = {
 const MOBILE_LIMIT = 6;
 const mobile = window.matchMedia('(max-width: 860px)');
 
-const price = (n) => {
-  const [euros, cents] = n.toFixed(2).split('.');
-  return `${euros},<small>${cents} €</small>`;
-};
-
 const escape = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 const tag = (p, i, animate) => `
@@ -35,7 +30,6 @@ const tag = (p, i, animate) => `
     <span class="tag__code">${p.code}</span>
     <span class="tag__name">${escape(p.name)}</span>
     <span class="tag__desc">${escape(p.description)}</span>
-    <span class="tag__price">${price(p.price)}</span>
   </li>`;
 
 export function initCatalog() {

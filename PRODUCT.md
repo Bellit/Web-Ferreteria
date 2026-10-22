@@ -24,7 +24,7 @@ Ferretería familiar de proximidad en Canovelles (Barcelona), fundada en 1985, c
 ## Capabilities and Constraints
 - Stack actual: Vite 6, HTML, CSS y JS vanilla (ES modules), con PostCSS. Sin librerías de animación: todo el movimiento es CSS y SVG propio. Tipografías autoalojadas con @fontsource.
 - Es una página única con secciones Inicio, Catálogo, Servicios, Nosotros y Contacto. El catálogo tiene filtros por categoría y el formulario solo valida en el cliente (no hay backend).
-- **Datos reales** (de ferreteriapino.es): C/ Pino, 35 · 08420 Canovelles (Barcelona) · 93 849 52 50 (teléfono y WhatsApp) · ferreteriapino@ferreteriapino.es · Instagram @ferreteriapinosl · L–V 9:30–13:30 y 17:00–20:00, sáb 9:00–13:30. Los precios del catálogo siguen siendo de ejemplo. Textos en español de España.
+- **Datos reales** (de ferreteriapino.es): C/ Pino, 35 · 08420 Canovelles (Barcelona) · 93 849 52 50 (teléfono y WhatsApp) · ferreteriapino@ferreteriapino.es · Instagram @ferreteriapinosl · L–V 9:30–13:30 y 17:00–20:00, sáb 9:00–13:30. La web es informativa y no muestra precios: para saberlos, se llama, se escribe por WhatsApp o se va a la tienda. Textos en español de España.
 
 ## Brand Commitments
 - Nombre: Ferretería Pino. Miembro de la red Cadena88.
@@ -33,7 +33,7 @@ Ferretería familiar de proximidad en Canovelles (Barcelona), fundada en 1985, c
 
 ## Evidence on Hand
 - Única foto real: la fachada (`public/img/fachada.jpg`, de la web antigua). El resto son **fotos de stock** (Pexels) autorizadas como muestra.
-- Los productos y precios son de ejemplo; ya no hay cifras inventadas en «Taller». No hay testimonios, reseñas ni prensa reales, y no hay que inventarlos.
+- Los productos del catálogo son una muestra, sin precios; ya no hay cifras inventadas en «Taller». No hay testimonios, reseñas ni prensa reales, y no hay que inventarlos.
 
 ## Product Principles
 1. Lo primero es poder llegar a la tienda: dirección, horario, teléfono y WhatsApp tienen que estar siempre a mano.

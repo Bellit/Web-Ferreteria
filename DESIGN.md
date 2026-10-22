@@ -169,7 +169,7 @@ A cool metal palette tuned to the logo: nickel and paper grounds, the logo's sla
 - **Nickel White** (ground): page ground, rail, mobile menu and dock bar, the key's hole.
 - **Pegboard** (ground-2): the hook-wall board, hover wash on nav and filters, image placeholders.
 - **Pegboard Hole** (ground-3): the board's punched-hole dot pattern.
-- **Tag Paper** (paper): price tags, blank tags, the fob label.
+- **Tag Paper** (paper): catalogue tags, blank tags, the fob label.
 - **Steel Hairline** (rule): hairline dividers, tag borders, the scrolled rail's bottom edge.
 - **Slate Ink** (ink): primary text, line buttons, filter strokes, the dock pill, the cutter arm. A deepened logo slate, dark enough for body text.
 - **Slate Ink 2 / 3** (ink-2, ink-3): ink-2 is the logo slate itself: every display headline (hero title and section h2s on the light ground) and secondary text. ink-3 is for notes and tag threads.
@@ -197,7 +197,7 @@ Both are self-hosted through @fontsource-variable (montserrat with the weight ax
 - **Display** (800, clamp(6rem, 17vw, 15rem), line-height 0.8, -0.03em): the brand name in the hero only. Above it, like the logo's top line, «FERRETERÍA» in 700 uppercase tracked 0.14em at clamp(1.15rem, 2.5vw, 2.3rem). The rail's «Desde 1985» uses the same tracked-caps treatment. On mobile the name grows to clamp(6rem, 33vw, 11rem).
 - **Headline** (750, clamp(2.1rem, 4.2vw, 3.75rem), line-height 0.98, -0.02em, balanced; Montserrat is wider, so it runs smaller than the old grotesque): section titles, written as plain sentences. The Visítanos address uses the same voice in brass-hi at clamp(2.5rem, 5.4vw, 4.75rem).
 - **Title** (700, 1.45rem, line-height 1.15, -0.02em): service names and the form title (1.6rem).
-- **Figure** (750, 1.5rem, -0.02em, display face): prices on tags and the facts in the workshop spec list. Numbers are set in the display face so they read as stamped.
+- **Figure** (750, 1.5rem, -0.02em, display face): the facts in the workshop spec list. Numbers are set in the display face so they read as stamped.
 - **Body** (400, 1.0625rem, line-height 1.55): running text, max 38 to 46ch. Lead text runs at clamp(1.125rem, 1.6vw, 1.3rem) in ink-2, max 38ch.
 - **Label** (0.78rem to 1rem, width 108 to 115%): tag codes, the "desde 1985" line, catalogue rail titles, the key stamp. Width-expanded Archivo, sentence case, used sparingly.
 
@@ -221,7 +221,7 @@ Breakpoints: 1240px (catalogue rail drops to 3 tags), 1080px (nav collapses to a
 Flat by default. Depth comes from objects hanging, not from surfaces lifting: tags, keys and hooks cast short, soft drop shadows straight down as if hung on a wall; nothing floats as a card. Colour layers (ground, ground-2 board, paper tags; graphite, graphite-2 panels) carry all other hierarchy.
 
 ### Shadow Vocabulary
-- **Hanging tag** (`box-shadow: 0 8px 12px -8px rgb(27 28 30 / 0.3)`): catalogue price tags.
+- **Hanging tag** (`box-shadow: 0 8px 12px -8px rgb(27 28 30 / 0.3)`): catalogue tags.
 - **Hanging key** (`filter: drop-shadow(0 8px 6px rgb(27 28 30 / 0.18))`): key blanks on the board.
 - **Hook** (`box-shadow: 0 6px 8px -2px rgb(27 28 30 / 0.28)`): the hook pegs.
 - **Dock** (`box-shadow: 0 10px 24px -8px rgb(27 28 30 / 0.45)`): the desktop WhatsApp pill only; removed on the mobile bar.
@@ -255,7 +255,7 @@ Solid and plain, like a counter sign.
 - **Background:** paper with a 1px rule border.
 - **Shadow Strategy:** hanging tag shadow (see Elevation).
 - **Internal Padding:** 34px 16px 16px (room for the punch hole).
-- **Behaviour:** each tag hangs slightly askew (-0.7deg, 0.6deg on even, -0.2deg every third) and straightens on hover. Content: code (label), name (640 weight), description (hidden on mobile), price (figure). The catalogue is a set of tags hanging from one steel rail per category, never a price list or table.
+- **Behaviour:** each tag hangs slightly askew (-0.7deg, 0.6deg on even, -0.2deg every third) and straightens on hover. Content: code (label), name (640 weight), description. No prices: the site is informative and sends price questions to phone, WhatsApp or the shop. The catalogue is a set of tags hanging from one steel rail per category, never a list or table.
 
 ### Inputs / Fields
 - **Style:** on the graphite back wall only: graphite fill, on-graphite text, 1.5px graphite-rule border, 4px radius, 12px 14px padding, brass-hi caret.
@@ -289,7 +289,8 @@ A 24px band repeating the key profile in a 1.5px nickel-lo stroke, inset by the 
 - **Do** spend brass only on keys, tags' accents and the primary action; let weight and size do the rest.
 - **Do** use green (`open`) for open and red (`closed`) for closed, and nothing else.
 - **Do** draw from the counter: hooks, punched paper tags on threads, steel rails, the bitting profile, the graphite back wall.
-- **Do** set prices and facts in the display face at 750 with tabular figures.
+- **Do** set facts in the display face at 750 with tabular figures.
+- **Don't** show prices anywhere on the site; invite people to call, write on WhatsApp or come by.
 - **Do** end the page on the graphite back wall with its bitting-cut top edge.
 - **Do** keep address, hours, phone and WhatsApp within one move: hero, dock, rail status, Visítanos.
 - **Do** honour prefers-reduced-motion: animations and transitions collapse, the key is shown already cut.
@@ -299,7 +300,7 @@ A 24px band repeating the key profile in a 1.5px nickel-lo stroke, inset by the 
 - **Don't** use gradients, glass, blur or glows.
 - **Don't** add motion beyond the three: the key cut, the board sway, the tag entrance (plus small state transitions).
 - **Don't** put kickers, eyebrows or section numbers above headlines or in the nav.
-- **Don't** turn the catalogue into a price list or table; products hang as tags on a rail.
+- **Don't** turn the catalogue into a list or table; products hang as tags on a rail.
 - **Don't** use red for "open" or as a decorative accent.
 - **Don't** lift containers as floating cards; shadows only mean hanging.
 - **Don't** fall back to system display fonts; both families ship self-hosted.

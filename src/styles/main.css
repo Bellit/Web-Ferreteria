@@ -396,15 +396,16 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .blank__tag {
   display: grid; justify-items: center; gap: 1px;
   margin-top: auto;
-  padding: 7px 10px 8px;
+  align-content: start;
+  max-width: 100%; min-height: 4.2rem;
+  padding: 7px 8px 8px;
   background: var(--paper);
   border: 1px solid var(--rule);
   border-radius: 3px;
   font-size: 0.82rem; line-height: 1.2; text-align: center;
-  white-space: nowrap;
 }
-.blank__tag b { font-weight: 650; font-size: 0.9rem; }
-.blank__tag span { color: var(--ink-3); }
+.blank__tag b { font-weight: 650; font-size: 0.9rem; white-space: nowrap; }
+.blank__tag span { color: var(--ink-3); text-wrap: balance; }
 
 .blank:hover .blank__key,
 .board.is-swaying .blank__key {
@@ -517,15 +518,11 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .tag__code { font-size: 0.78rem; font-stretch: 112%; color: var(--ink-3); letter-spacing: 0.02em; }
 .tag__name { font-weight: 640; font-size: 1.02rem; line-height: 1.25; text-wrap: balance; }
 .tag__desc { color: var(--ink-2); font-size: 0.9rem; line-height: 1.4; }
-.tag__price {
-  margin-top: auto; padding-top: 10px;
-  font-family: var(--f-display); font-weight: 750; font-size: 1.5rem; letter-spacing: -0.02em;
-  white-space: nowrap;
-}
-.tag__price small { font-size: 0.62em; font-weight: 650; }
 
 .ledger__more { margin-top: 32px; }
-.ledger__note { margin-top: 28px; font-size: 0.88rem; color: var(--ink-3); }
+.ledger__note { margin-top: 28px; max-width: 52ch; color: var(--ink-2); }
+.ledger__note a { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+.ledger__note a:hover { text-decoration-thickness: 2px; }
 
 /* Separador: el perfil dentado de una llave */
 .bitting {
@@ -749,7 +746,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 
   .hanger__rail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 12px; }
   .tag { padding: 32px 12px 14px; }
-  .tag__desc { display: none; }
+  .tag__desc { font-size: 0.84rem; }
   .ledger__more { width: 100%; }
 
   .workshop__grid { grid-template-columns: 1fr; padding-right: 0; }
