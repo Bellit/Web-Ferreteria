@@ -182,6 +182,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .rail.show-status .status--compact { opacity: 1; visibility: visible; }
 .status--dark { color: var(--on-graphite-2); }
 .status--dark strong { color: var(--on-graphite); }
+.status--dark .status__dot { outline: 2px solid var(--on-graphite); }
 
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgb(44 122 75 / 0.45); }
@@ -220,7 +221,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   transition: color 0.2s, background-color 0.2s;
 }
 .nav__link:hover { color: var(--ink); background: var(--ground-2); }
-.nav__link[aria-current='true'] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--brass); border-radius: 0; }
+.nav__link[aria-current='true'] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--pine); border-radius: 0; }
 
 .rail__end { display: flex; align-items: center; gap: 16px; }
 
@@ -451,8 +452,8 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   border: 1.5px solid currentColor;
 }
 .filter:hover { background: var(--ground-2); }
-.filter[aria-selected='true'] { background: var(--ink); color: var(--paper); }
-.filter[aria-selected='true']::before { background: var(--brass); border-color: var(--brass); }
+.filter[aria-selected='true'] { background: var(--ink-2); border-color: var(--ink-2); color: var(--paper); }
+.filter[aria-selected='true']::before { background: var(--pine); border-color: var(--paper); }
 
 .catalog__body {
   display: grid;
@@ -543,14 +544,14 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .service {
   display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 8px 32px;
   padding: 28px 0;
-  border-top: 1.5px solid var(--ink);
+  border-top: 1.5px solid var(--ink-2);
 }
 .service:last-child { border-bottom: 1px solid var(--rule); }
 .service dt {
   display: flex; align-items: center; gap: 12px;
   font-family: var(--f-display); font-weight: 700; font-size: 1.45rem; letter-spacing: -0.02em; line-height: 1.15;
 }
-.service dt .i { color: var(--brass-ink); }
+.service dt .i { color: var(--ink-2); }
 .service dd { color: var(--ink-2); max-width: 46ch; }
 .carriers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .carriers li {
@@ -592,6 +593,11 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 
 /* ─── Visítanos ────────────────────────────────────────── */
 .visit {
+  /* El azul del logo; el pie sigue en la pizarra oscura para que el pino rojo destaque */
+  --graphite: var(--ink-2);
+  --graphite-2: #456074;
+  --graphite-rule: #5f7788;
+  --on-graphite-2: #d3dbe0;
   position: relative;
   background: var(--graphite); color: var(--on-graphite);
   padding-block: var(--section);
@@ -706,7 +712,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   display: inline-flex; align-items: center; gap: 10px;
   min-height: 52px; padding: 0 20px;
   border-radius: 999px; text-decoration: none; font-weight: 650;
-  background: var(--ink); color: var(--ground);
+  background: var(--ink-2); color: var(--ground);
   box-shadow: 0 10px 24px -8px rgb(29 42 52 / 0.45);
   transition: transform 0.25s var(--ease-out), background-color 0.2s;
 }

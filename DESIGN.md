@@ -105,7 +105,7 @@ components:
     padding: "0 18px 0 32px"
     height: "44px"
   filter-tag-selected:
-    backgroundColor: "{colors.ink}"
+    backgroundColor: "{colors.ink-2}"
     textColor: "{colors.paper}"
   price-tag:
     backgroundColor: "{colors.paper}"
@@ -117,7 +117,7 @@ components:
     rounded: "{rounded.field}"
     padding: "12px 14px"
   dock-button:
-    backgroundColor: "{colors.ink}"
+    backgroundColor: "{colors.ink-2}"
     textColor: "{colors.ground}"
     rounded: "{rounded.pill}"
     padding: "0 20px"
@@ -155,14 +155,14 @@ A cool metal palette tuned to the logo: nickel and paper grounds, the logo's sla
 **Shop front and map.** The only real photo, `public/img/fachada.jpg` (940×459, from the old site), sits in Visítanos as the map's preview: the photo at full column width with a graphite caption plate «Busca este rótulo: C/ Pino, 35», and under it a line button «Ver el mapa» with a short note that Google may set cookies. Only on that click does `src/js/modules/map.js` swap in the Google Maps iframe (16:10, greyscale). No third-party request or cookie happens before it, so the site needs no cookie banner.
 
 ### Primary
-- **Brushed Brass** (brass): the one material colour. Key metal, the primary "Cómo llegar" and "Enviar mensaje" buttons, the active nav underline, the selected filter's dot, the "Hoy" badge, text selection.
+- **Brushed Brass** (brass): the one material colour. Key metal, the primary "Cómo llegar" and "Enviar mensaje" buttons, the "Hoy" badge, text selection.
 - **Polished Brass** (brass-hi): the lit edge. Button hover, the cut key edge and falling shavings, the address and icons on graphite, focus colour on graphite.
 - **Shadowed Brass** (brass-lo): key shoulder, groove and stamp; recessed brass.
-- **Brass Ink** (brass-ink): brass dark enough to read on the light ground. Focus outline and service icons.
+- **Brass Ink** (brass-ink): brass dark enough to read on the light ground. Focus outline.
 
 ### Secondary
 - **Open Green** (open): the "Abierto" status dot and its pulse. Nothing else.
-- **Pine Red** (pine): the brand red from the logo's pine. Only in the logo and on the red key fob of the hook wall.
+- **Pine Red** (pine): the brand red from the logo's pine. A signature in small marks only: the logo, the red aluminium key of the hook wall, the active nav underline and the selected filter's dot. Never a large fill, never text, and never next to a status sentence. The hero key's engraved pine stays in brass-lo.
 - **Closed Red** (closed): the "Cerrado" status dot. Never used for "open".
 
 ### Neutral
@@ -171,16 +171,16 @@ A cool metal palette tuned to the logo: nickel and paper grounds, the logo's sla
 - **Pegboard Hole** (ground-3): the board's punched-hole dot pattern.
 - **Tag Paper** (paper): catalogue tags, blank tags, the fob label.
 - **Steel Hairline** (rule): hairline dividers, tag borders, the scrolled rail's bottom edge.
-- **Slate Ink** (ink): primary text, line buttons, filter strokes, the dock pill, the cutter arm. A deepened logo slate, dark enough for body text.
-- **Slate Ink 2 / 3** (ink-2, ink-3): ink-2 is the logo slate itself: every display headline (hero title and section h2s on the light ground) and secondary text. ink-3 is for notes and tag threads.
+- **Slate Ink** (ink): primary text, line buttons, filter strokes, the cutter arm. A deepened logo slate, dark enough for body text.
+- **Slate Ink 2 / 3** (ink-2, ink-3): ink-2 is the logo slate itself: every display headline (hero title and section h2s on the light ground), secondary text, the selected filter, the dock button, and the service icons and rules. ink-3 is for notes and tag threads.
 - **Nickel / Nickel Deep** (nickel, nickel-lo): steel key blanks and the cutter body; nickel-lo is the catalogue's steel rail, the tag punch ring and the bitting divider stroke.
-- **Back Wall** (graphite, graphite-2, graphite-rule): the closing ground of Visítanos and footer; graphite-2 lifts the map frame and form panel; graphite-rule is its hairline. A deep slate, lighter than ink, so the closing wall reads as the logo blue rather than black.
-- **On Graphite** (on-graphite, on-graphite-2): primary and secondary text on the back wall.
+- **Back Wall** (graphite, graphite-2, graphite-rule): the closing ground. Visítanos scopes these tokens to the logo slate (#3e5667, with graphite-2 #456074 lifting the map frame and form panel, and graphite-rule #5f7788 as its hairline). The footer keeps the deeper slate of the root tokens, because the logo's red pine barely reads on the logo slate.
+- **On Graphite** (on-graphite, on-graphite-2): primary and secondary text on the back wall (on-graphite-2 lightens to #d3dbe0 inside Visítanos to keep its contrast).
 
 ### Named Rules
 **The One Metal Rule.** Brass is the only warm colour and the only accent. If something needs emphasis and is not a key, a tag accent or the primary action, it gets weight or size, not brass.
 
-**The Signal Rule.** Green means open, red means closed. The open pulse is green (open) because red reads universally as "closed"; signal red is reserved for the closed state. Pine red is the brand's, not a signal: it lives in the logo and the key fob object only. Signals never decorate.
+**The Signal Rule.** Green means open, red means closed. The open pulse is green (open) because red reads universally as "closed"; signal red is reserved for the closed state. Pine red is the brand's, not a signal: it lives only in the small marks listed under Pine Red. Signals never decorate.
 
 **The Flat Fill Rule.** Every surface is a single flat colour. The only gradient function in the build is the pegboard's hard-edged hole pattern, which is a texture of holes, not a colour blend.
 
@@ -248,7 +248,7 @@ Solid and plain, like a counter sign.
 
 ### Chips (catalogue filters)
 - **Style:** luggage-tag shape, 1.5px ink stroke, transparent, 44px tall, hollow punch dot at left.
-- **State:** hover washes ground-2; selected fills ink with paper text and a brass dot. Horizontal scroll strip on mobile.
+- **State:** hover washes ground-2; selected fills ink-2 with paper text and a pine dot ringed in paper. Horizontal scroll strip on mobile.
 
 ### Cards / Containers (hanging tags)
 - **Corner Style:** 4px top, 8px bottom; 3px for blank tags on the board.
@@ -264,14 +264,14 @@ Solid and plain, like a counter sign.
 
 ### Navigation
 - **Rail:** sticky ground bar, 68px (60px on mobile), with the brass tag mark and the name in display 800 at left, plain text links (Llaves, Catálogo, Servicios, Taller, Visítanos) and the compact status at right. A hairline appears under the rail once scrolled.
-- **Links:** ink-2 at 550 weight; hover ink on a ground-2 wash; the current section gets a 2px inset brass underline. No section numbers.
+- **Links:** ink-2 at 550 weight; hover ink on a ground-2 wash; the current section gets a 2px inset pine underline. No section numbers.
 - **Mobile:** a "Menú" line button opens a full-screen ground panel listing the sections in display type with hairline separators.
 
 ### Status
-A 10px dot and a sentence ("Abierto ahora · hasta las 20:30"). Open: green dot with a slow 2.4s pulse ring. Closed: red dot, no motion. Unknown: nickel dot. Appears in the hero, in the rail (compact, after the hero status leaves view) and on graphite in Visítanos.
+A 10px dot and a sentence ("Abierto ahora · hasta las 20:30"). Open: green dot with a slow 2.4s pulse ring. Closed: red dot, no motion. Unknown: nickel dot. Appears in the hero, in the rail (compact, after the hero status leaves view) and on the logo slate in Visítanos, where the dot gets a 2px on-graphite ring to stay visible.
 
 ### Dock
-The always-reachable action. Desktop: a single ink WhatsApp pill fixed bottom-right with the dock shadow; it hides while the visitor is in zones that already show WhatsApp. Mobile (860px and below): a full-width ground bar with three 6px buttons: Llegar (brass), Llamar (line), WhatsApp (ink).
+The always-reachable action. Desktop: a single ink-2 WhatsApp pill fixed bottom-right with the dock shadow; it hides while the visitor is in zones that already show WhatsApp. Mobile (860px and below): a full-width ground bar with three 6px buttons: Llegar (brass), Llamar (line), WhatsApp (ink-2).
 
 ### The Key Cutter (signature)
 One giant SVG key across the hero, whole from bow to tip and centred horizontally at any width: bow at left with a ground-coloured hole and the logo's pine engraved in brass-lo above the word PINO (display face, 800). The drawing leaves headroom so the cutter wheel is always seen as a full circle. On load a nickel and ink cutter wheel travels the blade and carves four cuts in the order 1·9·8·5, dropping brass-hi shavings; no digits are drawn on the key. "Cortar otra llave" replays it with a random code. Two drawings: a long blade with wide cut spacing on desktop, a short blade with tight spacing at 860px and below so the whole key fits at a good size. Under reduced motion the cut key is drawn finished.
