@@ -552,6 +552,14 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 }
 .service dt .i { color: var(--brass-ink); }
 .service dd { color: var(--ink-2); max-width: 46ch; }
+.carriers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.carriers li {
+  padding: 4px 10px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-size: 0.86rem; font-weight: 650; color: var(--ink);
+}
 
 /* ─── Taller ───────────────────────────────────────────── */
 .workshop { padding-bottom: var(--section); }
@@ -619,6 +627,8 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   content: 'Hoy'; margin-left: 10px; padding: 2px 8px; border-radius: 3px;
   background: var(--brass); color: var(--ink); font-size: 0.78rem; font-weight: 650; vertical-align: 2px;
 }
+
+.visit__parcels { color: var(--on-graphite-2); max-width: 46ch; }
 
 .channels { display: grid; gap: 2px; }
 .channels a {
