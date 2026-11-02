@@ -128,23 +128,50 @@
           <desc id="key-desc">Una llave de latón con el corte 1-9-8-5, el año en que abrió la ferretería.</desc>
           <defs>
             <clipPath id="uncut-clip"><rect data-uncut-rect x="1600" y="-40" width="1600" height="340"/></clipPath>
-          </defs>
-
-          <!-- cabeza -->
-          <g class="key__bow">
-            <path class="key__metal" d="M70 40H300Q385 40 385 125V205Q385 290 300 290H70Q22 290 22 242V88Q22 40 70 40Z"/>
-            <path class="key__shoulder" d="M385 92H428V238H385Z"/>
-            <circle class="key__hole" cx="98" cy="165" r="34"/>
-            <!-- el pino del logo, grabado en el latón -->
-            <g class="key__pine" transform="translate(68.43 -265.42) scale(0.542)">
+            <!-- la luz viene de arriba a la izquierda: esta parte del canto de la cabeza queda iluminada -->
+            <clipPath id="bow-lit-clip"><path d="M0 250 450 90V-40H0Z"/></clipPath>
+            <g id="key-pine-shape">
               <polygon points="335,641 375.5,714 294.5,714"/><polygon points="313,714 357,714 388,769 282,769"/><polygon points="308,769 362,769 400,835 270,835"/><rect x="321.5" y="834" width="27" height="28.5"/>
             </g>
-            <text class="key__stamp" x="250" y="248" text-anchor="middle">PINO</text>
+          </defs>
+
+          <!-- cabeza: canto biselado, cara y filete grabado -->
+          <g class="key__bow">
+            <path class="key__rim-lo" d="M22 165C22 90 72 40 150 40H270C330 40 350 92 385 92V238C350 238 330 290 270 290H150C72 290 22 240 22 165Z"/>
+            <path class="key__rim-hi" clip-path="url(#bow-lit-clip)" d="M22 165C22 90 72 40 150 40H270C330 40 350 92 385 92V238C350 238 330 290 270 290H150C72 290 22 240 22 165Z"/>
+            <path class="key__metal" d="M31 165C31 96 78 49 150 49H270C323 49 345 101 385 101V229C345 229 323 281 270 281H150C78 281 31 234 31 165Z"/>
+            <path class="key__pinstripe" d="M43 165C43 103 85 61 150 61H270C317 61 340 113 372 113V217C340 217 317 269 270 269H150C85 269 43 227 43 165Z"/>
+
+            <!-- ojal: arandela biselada y grosor del metal visto por dentro -->
+            <circle class="key__rim-lo" cx="98" cy="165" r="47"/>
+            <circle class="key__rim-hi" cx="98" cy="165" r="44"/>
+            <circle class="key__rim-lo" cx="98" cy="165" r="38"/>
+            <circle class="key__hole" cx="98" cy="165" r="34"/>
+            <path class="key__recess" d="M64 165A34 34 0 0 1 132 165A36 28 0 0 0 64 165Z"/>
+
+            <!-- el pino del logo y el nombre, grabados en el latón -->
+            <use class="key__engrave-lit" href="#key-pine-shape" transform="translate(53.43 -263.8) scale(0.542)"/>
+            <use class="key__pine" href="#key-pine-shape" transform="translate(53.43 -265.42) scale(0.542)"/>
+            <text class="key__stamp key__engrave-lit" x="235" y="249.6" text-anchor="middle">PINO</text>
+            <text class="key__stamp" x="235" y="248" text-anchor="middle">PINO</text>
+
+            <!-- cuello torneado -->
+            <path class="key__rim-lo" d="M385 92H412L428 110V230L412 238H385Z"/>
+            <path class="key__rim-hi" d="M385 92H392V238H385Z"/>
+            <path class="key__metal" d="M392 92H400V238H392Z"/>
+            <path class="key__recess" d="M400 92H404V238H400Z"/>
+            <path class="key__rim-hi" d="M404 92H409V238H404Z"/>
           </g>
 
           <!-- paleta: perfil cortado + material sin cortar -->
           <path class="key__metal" data-blade d="M428 110H1480L1565 180L1540 230H428Z"/>
-          <path class="key__groove" data-groove d="M428 168H1500L1512 184H428Z"/>
+          <path class="key__rim-lo" data-bevel/>
+          <path class="key__recess" data-groove/>
+          <path class="key__rim-hi" data-groove-lit/>
+          <path class="key__rim-lo" data-groove-fine/>
+          <path class="key__rim-hi" data-tip-top/>
+          <path class="key__rim-lo" data-tip-low/>
+          <path class="key__rim-hi" data-chamfer/>
           <path class="key__metal key__uncut" data-uncut clip-path="url(#uncut-clip)" d="M428 110H1480V110H428Z"/>
           <path class="key__edge" data-edge d="M428 110H1480"/>
 
@@ -153,12 +180,15 @@
 
           <!-- fresa -->
           <g class="mill" data-mill transform="translate(-200 0)">
-            <line class="mill__arm" x1="0" y1="-400" x2="0" y2="-62"/>
+            <line class="mill__arm" x1="0" y1="-400" x2="0" y2="-84"/>
             <g data-mill-wheel>
-              <circle class="mill__teeth" r="62"/>
-              <circle class="mill__body" r="52"/>
-              <circle class="mill__hub" r="12"/>
+              <path class="mill__teeth" data-mill-teeth/>
+              <circle class="mill__body" r="50"/>
+              <circle class="mill__ring" r="36"/>
+              <circle class="mill__vent" cx="25" cy="0" r="5"/><circle class="mill__vent" cx="-12.5" cy="21.65" r="5"/><circle class="mill__vent" cx="-12.5" cy="-21.65" r="5"/>
             </g>
+            <path class="mill__fork" d="M-13 -90H13V-78H7L9 0A9 9 0 0 1-9 0L-7-78H-13Z"/>
+            <circle class="mill__bolt" r="4"/>
           </g>
         </svg>
 

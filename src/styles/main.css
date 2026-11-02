@@ -22,6 +22,7 @@
   --brass-hi: #d6b066;
   --brass-lo: #8f6726;
   --brass-ink: #7a5719;
+  --brass-glint: #efd9a2;
   --nickel: #a3abb0;
   --nickel-lo: #828b91;
 
@@ -312,21 +313,28 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 
 .key__metal { fill: var(--brass); }
 .key__uncut { stroke: var(--brass); stroke-width: 2; stroke-linejoin: round; }
-.key__shoulder { fill: var(--brass-lo); }
+.key__rim-hi { fill: var(--brass-hi); }
+.key__rim-lo { fill: var(--brass-lo); }
+.key__recess { fill: var(--brass-ink); }
 .key__hole { fill: var(--ground); }
-.key__groove { fill: var(--brass-lo); }
-.key__edge { fill: none; stroke: var(--brass-hi); stroke-width: 3; stroke-linejoin: round; }
+.key__pinstripe { fill: none; stroke: var(--brass-lo); stroke-width: 2; }
+.key__edge { fill: none; stroke: var(--brass-glint); stroke-width: 2.5; stroke-linejoin: round; }
 .key__pine { fill: var(--brass-lo); }
 .key__stamp {
   font-family: var(--f-display); font-weight: 800; font-size: 44px;
   letter-spacing: 1px; fill: var(--brass-lo);
 }
+/* El brillo bajo el grabado, para que se lea hundido en el metal */
+.key__engrave-lit { fill: var(--brass-hi); }
 .key__chips rect { fill: var(--brass-hi); }
 
 .mill__arm { stroke: var(--ink); stroke-width: 14; stroke-linecap: square; }
-.mill__teeth { fill: none; stroke: var(--ink-2); stroke-width: 14; stroke-dasharray: 7 6; }
-.mill__body { fill: var(--nickel); stroke: var(--ink); stroke-width: 3; }
-.mill__hub { fill: var(--ink); }
+.mill__teeth { fill: var(--ink-2); }
+.mill__body { fill: var(--nickel); }
+.mill__ring { fill: none; stroke: var(--nickel-lo); stroke-width: 2; }
+.mill__vent { fill: var(--nickel-lo); }
+.mill__fork { fill: var(--ink); }
+.mill__bolt { fill: var(--nickel); }
 .mill { transition: opacity 0.4s; }
 .mill.is-parked { opacity: 0; }
 

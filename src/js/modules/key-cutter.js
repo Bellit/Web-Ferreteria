@@ -56,12 +56,29 @@ const el = (name, attrs) => {
 
 const ease = (t) => 0.5 - Math.cos(Math.PI * t) / 2;
 
+// Dientes de sierra de la fresa
+function sawPath(teeth = 24, root = 53) {
+  const step = (Math.PI * 2) / teeth;
+  const at = (r, a) => [+(r * Math.cos(a)).toFixed(2), +(r * Math.sin(a)).toFixed(2)];
+  const pts = [];
+  for (let i = 0; i < teeth; i++) {
+    pts.push(at(WHEEL, i * step), at(root, i * step + step * 0.15));
+  }
+  return `${toPath(pts)}Z`;
+}
+
 export function initKeyCutter() {
   const svg = $('[data-key-svg]');
   if (!svg) return;
 
   const blade = $('[data-blade]', svg);
+  const bevel = $('[data-bevel]', svg);
   const groove = $('[data-groove]', svg);
+  const grooveLit = $('[data-groove-lit]', svg);
+  const grooveFine = $('[data-groove-fine]', svg);
+  const tipTop = $('[data-tip-top]', svg);
+  const tipLow = $('[data-tip-low]', svg);
+  const chamfer = $('[data-chamfer]', svg);
   const uncut = $('[data-uncut]', svg);
   const uncutRect = $('[data-uncut-rect]', svg);
   const edge = $('[data-edge]', svg);
@@ -71,12 +88,15 @@ export function initKeyCutter() {
   const arm = $('.mill__arm', svg);
   const again = $('[data-cut-again]');
 
+  $('[data-mill-teeth]', svg).setAttribute('d', sawPath());
+
   // Recorte del brillo: solo se ve lo ya cortado
   const cutRect = el('rect', { x: 0, y: VIEW_TOP, width: 0, height: VIEW_H });
   const cutClip = el('clipPath', { id: 'cut-clip' });
   cutClip.append(cutRect);
   $('defs', svg).append(cutClip);
   edge.setAttribute('clip-path', 'url(#cut-clip)');
+  chamfer.setAttribute('clip-path', 'url(#cut-clip)');
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -92,8 +112,17 @@ export function initKeyCutter() {
 
   function setup(code) {
     const pts = profilePoints(code);
-    blade.setAttribute('d', `${toPath(pts)}L${END + TIP} 180L${END + TIP - 25} 230H${START}Z`);
-    groove.setAttribute('d', `M${START} 168H${END + 20}L${END + 32} 184H${START}Z`);
+    const tip = END + TIP;
+    blade.setAttribute('d', `${toPath(pts)}L${tip} 180L${tip - 25} 230H${START}Z`);
+    // Los canales van por debajo del corte más hondo (y = 172 + bisel)
+    bevel.setAttribute('d', `M${START} 220H${tip - 37}L${tip - 25} 230H${START}Z`);
+    groove.setAttribute('d', `M${START} 182H${END + 18}L${END + 34} 190L${END + 18} 198H${START}Z`);
+    grooveLit.setAttribute('d', `M${START} 198H${END + 18}L${END + 15} 201H${START}Z`);
+    grooveFine.setAttribute('d', `M${START} 208H${END + 8}V212H${START}Z`);
+    tipTop.setAttribute('d', `M${END} ${TOP}L${tip} 180L${tip - 13} 183L${END - 6} ${TOP + 7}Z`);
+    tipLow.setAttribute('d', `M${tip} 180L${tip - 25} 230L${tip - 37} 220L${tip - 13} 183Z`);
+    const lit = [...pts].reverse().map(([x, y]) => [x, y + 7]);
+    chamfer.setAttribute('d', `${toPath(pts)}${toPath(lit).replace(/^M/, 'L')}Z`);
     uncut.setAttribute('d', `M${START} ${TOP}H${END}${toPath([...pts].reverse()).replace(/^M/, 'L')}Z`);
     edge.setAttribute('d', toPath(pts));
   }

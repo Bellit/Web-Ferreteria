@@ -14,6 +14,7 @@ colors:
   brass-hi: "#d6b066"
   brass-lo: "#8f6726"
   brass-ink: "#7a5719"
+  brass-glint: "#efd9a2"
   nickel: "#a3abb0"
   nickel-lo: "#828b91"
   pine: "#d32733"
@@ -158,7 +159,8 @@ A cool metal palette tuned to the logo: nickel and paper grounds, the logo's sla
 - **Brushed Brass** (brass): the one material colour. Key metal, the primary "Cómo llegar" and "Enviar mensaje" buttons, the "Hoy" badge, text selection.
 - **Polished Brass** (brass-hi): the lit edge. Button hover, the cut key edge and falling shavings, the address and icons on graphite, focus colour on graphite.
 - **Shadowed Brass** (brass-lo): key shoulder, groove and stamp; recessed brass.
-- **Brass Ink** (brass-ink): brass dark enough to read on the light ground. Focus outline.
+- **Brass Ink** (brass-ink): brass dark enough to read on the light ground. Focus outline and the hero key's deepest recesses (milled channel, inside of the eyelet).
+- **Brass Glint** (brass-glint): the hairline of light on the freshly cut edge of the hero key. Nothing else.
 
 ### Secondary
 - **Open Green** (open): the "Abierto" status dot and its pulse. Nothing else.
@@ -274,7 +276,7 @@ A 10px dot and a sentence ("Abierto ahora · hasta las 20:30"). Open: green dot 
 The always-reachable action. Desktop: a single ink-2 WhatsApp pill fixed bottom-right with the dock shadow; it hides while the visitor is in zones that already show WhatsApp. Mobile (860px and below): a full-width ground bar with three 6px buttons: Llegar (brass), Llamar (line), WhatsApp (ink-2).
 
 ### The Key Cutter (signature)
-One giant SVG key across the hero, whole from bow to tip and centred horizontally at any width: bow at left with a ground-coloured hole and the logo's pine engraved in brass-lo above the word PINO (display face, 800). The drawing leaves headroom so the cutter wheel is always seen as a full circle. On load a nickel and ink cutter wheel travels the blade and carves four cuts in the order 1·9·8·5, dropping brass-hi shavings; no digits are drawn on the key. "Cortar otra llave" replays it with a random code. Two drawings: a long blade with wide cut spacing on desktop, a short blade with tight spacing at 860px and below so the whole key fits at a good size. Under reduced motion the cut key is drawn finished.
+One giant SVG key across the hero, whole from bow to tip and centred horizontally at any width: drawn as a machined object in flat facets, with no gradients and light from the upper left. The bow is an oblong that flows into a turned collar, with a bevelled rim, a pinstripe, a bevelled eyelet around a ground-coloured hole, and the logo's pine engraved in brass-lo above the word PINO (display face, 800), each with a brass-hi highlight below so they read as sunk into the metal. The blade carries a milled channel, a fine second channel, a bottom bevel and a faceted tip; the cuts gain a brass-hi chamfer and a brass-glint edge as the wheel passes. The drawing leaves headroom so the cutter wheel is always seen as a full circle. On load a nickel saw-toothed cutter wheel, held by an ink fork, travels the blade and carves four cuts in the order 1·9·8·5, dropping brass-hi shavings; no digits are drawn on the key. "Cortar otra llave" replays it with a random code. Two drawings: a long blade with wide cut spacing on desktop, a short blade with tight spacing at 860px and below so the whole key fits at a good size. Under reduced motion the cut key is drawn finished.
 
 ### The Hook Wall
 A ground-2 pegboard (30px hole grid) holding the nine most-copied key types in three columns, each on an ink hook with a small paper tag. Blanks are nickel, two are brass, one is red aluminium, and the dark heads and the remote are graphite. The whole board sways once when it enters view (staggered delays), and a single blank sways on hover: a damped swing from 9deg settling to 0 over 1.8s.
