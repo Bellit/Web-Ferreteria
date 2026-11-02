@@ -277,7 +277,7 @@ The always-reachable action. Desktop: a single ink WhatsApp pill fixed bottom-ri
 One giant SVG key across the hero, whole from bow to tip and centred horizontally at any width: bow at left with a ground-coloured hole and the logo's pine engraved in brass-lo above the word PINO (display face, 800). The drawing leaves headroom so the cutter wheel is always seen as a full circle. On load a nickel and ink cutter wheel travels the blade and carves four cuts in the order 1·9·8·5, dropping brass-hi shavings; no digits are drawn on the key. "Cortar otra llave" replays it with a random code. Two drawings: a long blade with wide cut spacing on desktop, a short blade with tight spacing at 860px and below so the whole key fits at a good size. Under reduced motion the cut key is drawn finished.
 
 ### The Hook Wall
-A ground-2 pegboard (30px hole grid) holding six columns of key blanks (three below 1080px), each on an ink hook with a small paper tag. Blanks are nickel, two are brass, one carries a red fob. The whole board sways once when it enters view (staggered delays), and a single blank sways on hover: a damped swing from 9deg settling to 0 over 1.8s.
+A ground-2 pegboard (30px hole grid) holding the nine most-copied key types in three columns, each on an ink hook with a small paper tag. Blanks are nickel, two are brass, one is red aluminium, and the dark heads and the remote are graphite. The whole board sways once when it enters view (staggered delays), and a single blank sways on hover: a damped swing from 9deg settling to 0 over 1.8s.
 
 ### Bitting Divider
 A 24px band repeating the key profile in a 1.5px nickel-lo stroke, inset by the gutter. Separates hero, keys and catalogue.

@@ -1,0 +1,160 @@
+<!-- Copia del panel de llaves antiguo (6 tipos genéricos), sustituido el 2026-11-02 por las 9 llaves
+     que más se copian. No se usa en la web: para volver a él, cambia la sección #llaves de index.html
+     por este HTML y el bloque «Llaves: el panel» de src/styles/main.css por el CSS de abajo. -->
+
+<section id="llaves" class="keys" aria-labelledby="keys-title">
+  <div class="wrap keys__grid">
+    <div class="keys__intro">
+      <h2 class="h2" id="keys-title">Copiamos casi cualquier llave.</h2>
+      <p class="lead">Trae la tuya y te llevas la copia en unos minutos, mientras esperas. Planas, de seguridad, tubulares, de buzón o de candado.</p>
+      <p class="note">Las de seguridad se copian presentando la tarjeta de propiedad.</p>
+    </div>
+
+    <div class="board" data-board>
+      <ul class="board__list" role="list">
+        <li class="blank" style="--sway-delay:0ms">
+          <span class="blank__hook" aria-hidden="true"></span>
+          <svg class="blank__key" viewBox="0 0 80 240" aria-hidden="true">
+            <path d="M16 6h48a12 12 0 0 1 12 12v44a12 12 0 0 1-12 12H52v12h-24V74H16A12 12 0 0 1 4 62V18A12 12 0 0 1 16 6Z"/>
+            <circle cx="40" cy="22" r="7"/>
+            <path d="M28 86h24v118l-12 18-12-18v-14l8-6-8-6v-12l8-8-8-6v-14l8-6-8-8Z"/>
+          </svg>
+          <span class="blank__tag"><b>Plana</b><span>Casa y trastero</span></span>
+        </li>
+        <li class="blank" style="--sway-delay:90ms">
+          <span class="blank__hook" aria-hidden="true"></span>
+          <svg class="blank__key" viewBox="0 0 80 240" aria-hidden="true">
+            <path d="M40 4a34 34 0 0 1 34 34v8a34 34 0 0 1-22 32v10H28V78A34 34 0 0 1 6 46v-8A34 34 0 0 1 40 4Z"/>
+            <circle cx="40" cy="24" r="7"/>
+            <path d="M26 88h28v130l-14 16-14-16Z"/>
+            <circle class="dimple" cx="40" cy="112" r="4.5"/><circle class="dimple" cx="40" cy="136" r="3.5"/><circle class="dimple" cx="40" cy="160" r="5"/><circle class="dimple" cx="40" cy="184" r="3.5"/><circle class="dimple" cx="40" cy="206" r="4"/>
+          </svg>
+          <span class="blank__tag"><b>Seguridad</b><span>Con tarjeta</span></span>
+        </li>
+        <li class="blank" style="--sway-delay:180ms">
+          <span class="blank__hook" aria-hidden="true"></span>
+          <svg class="blank__key" viewBox="0 0 80 240" aria-hidden="true">
+            <path d="M14 6h52a10 10 0 0 1 10 10v58a10 10 0 0 1-10 10H14A10 10 0 0 1 4 74V16A10 10 0 0 1 14 6Z"/>
+            <circle cx="40" cy="22" r="7"/>
+            <path d="M24 84h32v12h-4v122a12 12 0 0 1-24 0V96h-4Z"/>
+            <path class="dimple" d="M36 206h8v18h-8Z"/>
+          </svg>
+          <span class="blank__tag"><b>Tubular</b><span>Cerraduras de tubo</span></span>
+        </li>
+        <li class="blank blank--small" style="--sway-delay:270ms">
+          <span class="blank__hook" aria-hidden="true"></span>
+          <svg class="blank__key" viewBox="0 0 80 240" aria-hidden="true">
+            <path d="M40 6a30 30 0 0 1 30 30 30 30 0 0 1-20 28v12H30V64a30 30 0 0 1-20-28A30 30 0 0 1 40 6Z"/>
+            <circle cx="40" cy="30" r="8"/>
+            <path d="M31 76h18v90l-9 12-9-12v-10l6-5-6-5v-10l6-6-6-5Z"/>
+          </svg>
+          <span class="blank__tag"><b>Buzón</b><span>Al momento</span></span>
+        </li>
+        <li class="blank blank--small" style="--sway-delay:360ms">
+          <span class="blank__hook" aria-hidden="true"></span>
+          <svg class="blank__key" viewBox="0 0 80 240" aria-hidden="true">
+            <path d="M22 6h36a14 14 0 0 1 14 14v28a14 14 0 0 1-14 14H50v14H30V62h-8A14 14 0 0 1 8 48V20A14 14 0 0 1 22 6Z"/>
+            <circle cx="40" cy="22" r="7"/>
+            <path d="M30 76h20v86l-10 14-10-14v-12l7-5-7-6v-12l7-5-7-6Z"/>
+          </svg>
+          <span class="blank__tag"><b>Candado</b><span>Al momento</span></span>
+        </li>
+        <li class="blank blank--fob" style="--sway-delay:450ms">
+          <span class="blank__hook" aria-hidden="true"></span>
+          <svg class="blank__key" viewBox="0 0 80 240" aria-hidden="true">
+            <path d="M40 4a8 8 0 0 1 8 8v14H32V12a8 8 0 0 1 8-8Z"/>
+            <path class="fob" d="M14 26h52a8 8 0 0 1 8 8v96a8 8 0 0 1-8 8H14a8 8 0 0 1-8-8V34a8 8 0 0 1 8-8Z"/>
+            <path class="fob-label" d="M16 44h48v54H16Z"/>
+          </svg>
+          <span class="blank__tag"><b>Llavero ID</b><span>Varios colores</span></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ─── Llaves: el panel ─────────────────────────────────── */
+.keys { padding-block: var(--section); }
+.keys__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: center;
+}
+.keys__intro { display: grid; gap: 22px; }
+
+.board {
+  background-color: var(--ground-2);
+  background-image: radial-gradient(circle at center, var(--ground-3) 2.6px, transparent 3.2px);
+  background-size: 30px 30px;
+  background-position: 15px 15px;
+  border-radius: var(--radius);
+  padding: clamp(28px, 4vw, 48px) clamp(16px, 3vw, 40px) clamp(24px, 3vw, 36px);
+}
+.board__list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 28px 12px;
+}
+
+.blank {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+}
+.blank__hook {
+  width: 8px; height: 24px; border-radius: 4px;
+  background: var(--ink);
+  box-shadow: 0 6px 8px -2px rgb(29 42 52 / 0.28);
+  position: relative; z-index: 2;
+}
+.blank__key {
+  width: clamp(50px, 6.4vw, 86px); height: auto;
+  margin-top: -14px; margin-bottom: 14px;
+  transform-origin: 50% 9%;
+  filter: drop-shadow(0 8px 6px rgb(29 42 52 / 0.18));
+}
+.blank__key path, .blank__key circle { fill: var(--nickel); }
+.blank__key > circle:not(.dimple) { fill: var(--ground-2); }
+.blank__key .dimple { fill: var(--nickel-lo); }
+.blank:nth-child(2) .blank__key path,
+.blank:nth-child(4) .blank__key path { fill: var(--brass); }
+.blank:nth-child(2) .blank__key .dimple { fill: var(--brass-lo); }
+.blank--small .blank__key { width: clamp(42px, 5vw, 68px); }
+.blank__key .fob { fill: var(--pine); }
+.blank__key .fob-label { fill: var(--paper); }
+
+.blank__tag {
+  display: grid; justify-items: center; gap: 1px;
+  margin-top: auto;
+  align-content: start;
+  max-width: 100%; min-height: 4.2rem;
+  padding: 7px 8px 8px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-size: 0.82rem; line-height: 1.2; text-align: center;
+}
+.blank__tag b { font-weight: 650; font-size: 0.9rem; white-space: nowrap; }
+.blank__tag span { color: var(--ink-3); text-wrap: balance; }
+
+.blank:hover .blank__key,
+.board.is-swaying .blank__key {
+  animation: sway 1.8s var(--ease-out) both;
+  animation-delay: var(--sway-delay, 0ms);
+}
+.blank:hover .blank__key { animation-delay: 0ms; }
+
+@keyframes sway {
+  0% { transform: rotate(0); }
+  12% { transform: rotate(9deg); }
+  30% { transform: rotate(-6deg); }
+  48% { transform: rotate(3.5deg); }
+  66% { transform: rotate(-1.8deg); }
+  84% { transform: rotate(0.6deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Dentro de @media (max-width: 1080px) */
+.board__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+</style>
