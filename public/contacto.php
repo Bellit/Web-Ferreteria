@@ -22,10 +22,14 @@ function field($key, $max) {
   return strlen($value) > $max ? null : $value;
 }
 
-// Máximo de envíos por hora y por visitante. Solo se guarda una huella de la IP, durante una hora.
+// Máximo de envíos por hora y por visitante. Solo se guarda una huella de la IP, y se borra pasada una hora.
 function tooMany() {
   $ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
-  $file = sys_get_temp_dir() . '/pino-contacto-' . sha1(__FILE__ . $ip);
+  $prefix = sys_get_temp_dir() . '/pino-contacto-';
+  foreach (glob($prefix . '*') ?: [] as $old) {
+    if (filemtime($old) < time() - 3600) @unlink($old);
+  }
+  $file = $prefix . sha1(__FILE__ . $ip);
   $handle = fopen($file, 'c+');
   if (!$handle) return false;
   flock($handle, LOCK_EX);
