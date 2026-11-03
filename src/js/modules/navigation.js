@@ -19,6 +19,8 @@ export function initNavigation() {
     btn.setAttribute('aria-expanded', String(open));
     menu.hidden = !open;
     document.documentElement.style.overflow = open ? 'hidden' : '';
+    // Lo que queda detrás del menú no se puede alcanzar con el teclado
+    ['.skip', 'main', '.footer', '.dock'].forEach((sel) => { const el = $(sel); if (el) el.inert = open; });
     if (open) $('a', menu)?.focus();
   };
 

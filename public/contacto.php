@@ -1,12 +1,13 @@
 <?php
 /**
- * Formulario de contacto — valida los datos y los envía por correo a la tienda. No guarda nada.
+ * Formulario de contacto — valida los datos y los envía por correo a la tienda. No guarda los mensajes.
  * Mantiene las mismas reglas que src/js/modules/contact.js.
  */
 ini_set('display_errors', '0');
 
 const TO = 'ferreteriapino@ferreteriapino.es';
 const FROM = 'web@ferreteriapino.es';
+const MAX_PER_HOUR = 5;
 
 function reply($status, $ok) {
   http_response_code($status);
@@ -21,12 +22,33 @@ function field($key, $max) {
   return strlen($value) > $max ? null : $value;
 }
 
+// Máximo de envíos por hora y por visitante. Solo se guarda una huella de la IP, durante una hora.
+function tooMany() {
+  $ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+  $file = sys_get_temp_dir() . '/pino-contacto-' . sha1(__FILE__ . $ip);
+  $handle = fopen($file, 'c+');
+  if (!$handle) return false;
+  flock($handle, LOCK_EX);
+  $now = time();
+  $sent = array_filter(array_map('intval', explode(',', (string) stream_get_contents($handle))), function ($t) use ($now) {
+    return $t > $now - 3600;
+  });
+  $limited = count($sent) >= MAX_PER_HOUR;
+  if (!$limited) $sent[] = $now;
+  ftruncate($handle, 0);
+  rewind($handle);
+  fwrite($handle, implode(',', $sent));
+  flock($handle, LOCK_UN);
+  fclose($handle);
+  return $limited;
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') reply(405, false);
 
 // Solo se acepta desde la propia web
 $origin = isset($_SERVER['HTTP_ORIGIN']) ? parse_url($_SERVER['HTTP_ORIGIN'], PHP_URL_HOST) : null;
 $host = isset($_SERVER['HTTP_HOST']) ? preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST']) : '';
-if ($origin !== null && $origin !== $host) reply(403, false);
+if (!$origin || $origin !== $host) reply(403, false);
 
 // Campo trampa: solo lo rellenan los robots. Se les responde como si nada y no se envía.
 if (!empty($_POST['website'])) reply(200, true);
@@ -44,6 +66,8 @@ if (
   $message === null || strlen($message) < 6 ||
   empty($_POST['privacy'])
 ) reply(400, false);
+
+if (tooMany()) reply(429, false);
 
 $body = "Nombre: $name\nContacto: $contact\n\nMensaje:\n$message\n";
 

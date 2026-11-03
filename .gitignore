@@ -22,3 +22,9 @@ dist/
 
 # Vite
 *.tsbuildinfo
+
+# Herramientas de trabajo
+.claude/
+.impeccable/
+.agents/
+skills-lock.json

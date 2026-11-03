@@ -14,6 +14,7 @@ import { initCatalog } from './js/modules/catalog.js';
 import { initContactForm } from './js/modules/contact.js';
 import { initMap } from './js/modules/map.js';
 import { initSince } from './js/modules/since.js';
+import { initYear } from './js/modules/year.js';
 
 initNavigation();
 initStatus();
@@ -22,6 +23,7 @@ initCatalog();
 initContactForm();
 initMap();
 initSince();
+initYear();
 
 // La llave se corta cuando la fuente del sello ya está lista
 (document.fonts?.ready ?? Promise.resolve()).then(initKeyCutter);

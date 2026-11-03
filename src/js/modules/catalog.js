@@ -8,19 +8,20 @@ import { $, $$ } from '../utils/dom.js';
 const IMG = `${import.meta.env.BASE_URL}img/`;
 
 const SECTIONS = {
-  todas:        { img: IMG + 'llaves-panel.jpg', alt: 'Llaves vírgenes colgadas en ganchos sobre un panel', caption: 'Todo cuelga de su gancho y tiene su código.' },
-  herramientas: { img: IMG + 'herramientas.jpg', alt: 'Martillos y guantes de trabajo sobre un banco de madera', caption: 'Herramienta de mano y eléctrica.' },
-  pinturas:     { img: IMG + 'pinturas.jpg', alt: 'Botes de pintura, brocha y rodillo sobre papel de embalar', caption: 'Pintura, esmaltes y todo para aplicarla.' },
-  fontaneria:   { img: IMG + 'fontaneria.jpg', alt: 'Dos grifos de latón con maneta roja en una pared blanca', caption: 'Grifería, tubo y recambios.' },
-  electricidad: { img: IMG + 'electricidad.jpg', alt: 'Multímetro digital rojo con sus puntas sobre la mesa de trabajo', caption: 'Cable, mecanismos y medición.' },
-  llaves:       { img: IMG + 'llaves-panel.jpg', alt: 'Llaves vírgenes colgadas en ganchos sobre un panel', caption: 'Copias al momento, mientras esperas.' },
+  todas:        { img: IMG + 'llaves-panel.webp', alt: 'Llaves vírgenes colgadas en ganchos sobre un panel', caption: 'Todo cuelga de su gancho y tiene su código.' },
+  herramientas: { img: IMG + 'herramientas.webp', alt: 'Martillos y guantes de trabajo sobre un banco de madera', caption: 'Herramienta de mano y eléctrica.' },
+  pinturas:     { img: IMG + 'pinturas.webp', alt: 'Botes de pintura, brocha y rodillo sobre papel de embalar', caption: 'Pintura, esmaltes y todo para aplicarla.' },
+  fontaneria:   { img: IMG + 'fontaneria.webp', alt: 'Dos grifos de latón con maneta roja en una pared blanca', caption: 'Grifería, tubo y recambios.' },
+  electricidad: { img: IMG + 'electricidad.webp', alt: 'Multímetro digital rojo con sus puntas sobre la mesa de trabajo', caption: 'Cable, mecanismos y medición.' },
+  llaves:       { img: IMG + 'llaves-panel.webp', alt: 'Llaves vírgenes colgadas en ganchos sobre un panel', caption: 'Copias al momento, mientras esperas.' },
 };
 
 const LABEL = {
   herramientas: 'Herramientas', pinturas: 'Pintura', fontaneria: 'Fontanería', electricidad: 'Electricidad', llaves: 'Llaves',
 };
 
-const MOBILE_LIMIT = 6;
+// Una muestra corta de entrada; el botón enseña el resto
+const LIMIT = { mobile: 6, desktop: 8 };
 const mobile = window.matchMedia('(max-width: 860px)');
 
 const escape = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -39,6 +40,7 @@ export function initCatalog() {
   const tabs = $$('[data-filter]');
   const img = $('[data-shelf-img]');
   const caption = $('[data-shelf-caption]');
+  const panel = $('#productos-panel');
   if (!list) return;
 
   let current = 'todas';
@@ -46,7 +48,7 @@ export function initCatalog() {
 
   function render(animate) {
     const items = current === 'todas' ? products : products.filter((p) => p.category === current);
-    const limit = mobile.matches && !expanded ? MOBILE_LIMIT : Infinity;
+    const limit = expanded ? Infinity : LIMIT[mobile.matches ? 'mobile' : 'desktop'];
     const shown = items.slice(0, limit);
 
     // Agrupar por sección: cada una tiene su riel
@@ -73,7 +75,7 @@ export function initCatalog() {
     img.classList.add('is-swapping');
     const next = new Image();
     next.src = s.img;
-    next.decode?.().catch(() => {}).finally(() => {
+    (next.decode ? next.decode().catch(() => {}) : Promise.resolve()).finally(() => {
       img.src = s.img;
       img.alt = s.alt;
       requestAnimationFrame(() => img.classList.remove('is-swapping'));
@@ -87,6 +89,7 @@ export function initCatalog() {
       t.tabIndex = on ? 0 : -1;
     });
     if (focus) tab.focus();
+    panel?.setAttribute('aria-label', tab.textContent);
     current = tab.dataset.filter;
     expanded = false;
     render(true);
@@ -95,7 +98,7 @@ export function initCatalog() {
 
   tabs.forEach((tab, i) => {
     tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
-    tab.setAttribute('aria-controls', 'productos');
+    tab.setAttribute('aria-controls', 'productos-panel');
     tab.addEventListener('click', () => select(tab));
     tab.addEventListener('keydown', (e) => {
       const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];

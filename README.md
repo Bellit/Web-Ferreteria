@@ -41,7 +41,8 @@ La compilación usa la base `/Web-Ferreteria/` (en `vite.config.js`). Si cambia 
 
 ```
 index.html                  Página completa
-public/img/                 Fotos (Pexels, con su origen en los metadatos)
+src/photos/                 Originales de las fotos (Pexels, salvo la fachada)
+public/img/                 Fotos optimizadas, generadas con npm run images
 src/main.js                 Entrada: fuentes, estilos y módulos
 src/styles/main.css         Todos los estilos
 src/data/products.json      Productos del catálogo
@@ -56,10 +57,18 @@ src/js/modules/
   since.js                  Las llaves de «Desde 1985», que caen en sus ganchos al entrar en pantalla
 ```
 
+## Publicar en el dominio
+
+`npm run build:dominio` compila para `ferreteriapino.es`; hay que subir el contenido de `dist/`. Después:
+
+- En `dist/.htaccess`, activar la redirección a https y HSTS cuando el certificado funcione.
+- Enviar un mensaje de prueba real con el formulario (límite: 5 por hora y visitante).
+- Desactivar GitHub Pages. Hasta entonces, esa copia lleva `noindex` para que Google no la indexe.
+
 ## Pendiente
 
 - **Textos legales:** `aviso-legal/` y `politica-de-privacidad/` copian los textos de la web antigua. `politica-de-cookies/` está adaptada a esta web, que no usa Google Analytics. Falta que los revise la asesoría.
 - **Formulario:** lo envía `public/contacto.php` con `mail()` a la dirección de la tienda, así que necesita un hosting con PHP. En GitHub Pages y con `npm run dev` no hay PHP: el formulario avisa de que no se ha podido enviar y da el teléfono y WhatsApp. Hay que probar un envío real al subirlo al hosting.
 - **Catálogo:** la muestra de productos está en `src/data/products.json`, sin precios a propósito.
-- **Fotos:** las de `public/img/` son de stock, salvo `fachada.jpg`. Se sustituyen por fotos propias con el mismo nombre.
+- **Fotos:** las de `src/photos/` son de stock, salvo `fachada.jpg`. Para cambiar una, sustituye el original con el mismo nombre y ejecuta `npm run images`.
 - **Horario:** si cambia, hay que tocarlo en tres sitios: la tabla y el texto de la portada en `index.html`, `HOURS` en `src/js/modules/status.js` y el bloque JSON-LD del `<head>`.

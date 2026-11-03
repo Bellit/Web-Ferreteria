@@ -270,7 +270,7 @@ Solid and plain, like a counter sign.
 - **Mobile:** a "Menú" line button opens a full-screen ground panel listing the sections in display type with hairline separators.
 
 ### Status
-A 10px dot and a sentence ("Abierto ahora · hasta las 20:30"). Open: green dot with a slow 2.4s pulse ring. Closed: red dot, no motion. Unknown: nickel dot. Appears in the hero, in the rail (compact, after the hero status leaves view) and on the logo slate in Visítanos, where the dot gets a 2px on-graphite ring to stay visible.
+A 10px dot and a sentence ("Abierto ahora · hasta las 20:30"). Open: green dot with a slow 2.4s pulse ring, three times, then still. Closed: red dot, no motion. Unknown: nickel dot. Appears in the hero, in the rail (compact, after the hero status leaves view) and on the logo slate in Visítanos, where the dot gets a 2px on-graphite ring to stay visible.
 
 ### Dock
 The always-reachable action. Desktop: a single ink-2 WhatsApp pill fixed bottom-right with the dock shadow; it hides while the visitor is in zones that already show WhatsApp. Mobile (860px and below): a full-width ground bar with three 6px buttons: Llegar (brass), Llamar (line), WhatsApp (ink-2).

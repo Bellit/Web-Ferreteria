@@ -59,7 +59,7 @@ export function initContactForm() {
     // Solo se da por enviado si el servidor lo confirma; si falla, el mensaje sigue escrito
     let sent = false;
     try {
-      const res = await fetch(`${import.meta.env.BASE_URL}contacto.php`, { method: 'POST', body: new FormData(form) });
+      const res = await fetch(`${import.meta.env.BASE_URL}contacto.php`, { method: 'POST', body: new FormData(form), signal: AbortSignal.timeout?.(15000) });
       sent = res.ok && (await res.json()).ok === true;
     } catch {
       sent = false;

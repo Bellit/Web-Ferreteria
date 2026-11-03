@@ -4,18 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ferretería Pino · Copias de llaves y ferretería en Canovelles desde 1985</title>
-  <meta name="description" content="Ferretería en Canovelles (Barcelona) desde 1985, miembro de Cadena88. Copias de llaves al momento, herramientas, pintura, fontanería y electricidad. Punto de recogida y devolución de paquetes GLS, Celeritas, Amazon Hub y Correos.">
+  <title>Ferretería Pino · Copias de llaves en Canovelles desde 1985</title>
+  <meta name="description" content="Ferretería en Canovelles desde 1985. Copias de llaves al momento, herramientas, pintura, fontanería y electricidad. Punto de recogida de paquetes.">
+  <link rel="canonical" href="%SITE%">
+  %ROBOTS%
   <meta name="theme-color" content="#ebeeee">
 
   <meta property="og:title" content="Ferretería Pino · Desde 1985">
   <meta property="og:description" content="Copias de llaves al momento y todo para mejorar y reparar tu casa. Ferretería de proximidad en Canovelles, miembro de Cadena88.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="%SITE%">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:image" content="https://bellit.github.io/Web-Ferreteria/img/llaves-panel.jpg">
+  <meta property="og:image" content="%SITE%img/compartir.jpg">
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="preload" as="image" href="/img/cerrajero.jpg" fetchpriority="low">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <noscript><style>.cutter__again, .ledger__count { display: none !important; }</style></noscript>
 
   <!-- Ficha de negocio local para buscadores -->
   <script type="application/ld+json">
@@ -23,6 +27,8 @@
     "@context": "https://schema.org",
     "@type": "HardwareStore",
     "name": "Ferretería Pino S.L.",
+    "url": "%SITE%",
+    "image": "%SITE%img/compartir.jpg",
     "description": "Ferretería de proximidad desde 1985, especialista en copias de llaves. Miembro de Cadena88. Punto de recogida y devolución de paquetes GLS, Celeritas, Amazon Hub y Correos.",
     "foundingDate": "1985",
     "telephone": "+34 938 49 52 50",
@@ -67,7 +73,7 @@
       </nav>
 
       <div class="rail__end">
-        <p class="status status--compact" data-status aria-live="polite">
+        <p class="status status--compact" data-status>
           <span class="status__dot" aria-hidden="true"></span>
           <span class="status__text">Lun–Sáb</span>
         </p>
@@ -408,13 +414,14 @@
 
         <div class="catalog__body">
           <figure class="shelf-photo" data-shelf-photo>
-            <img src="/img/llaves-panel.jpg" alt="Llaves vírgenes colgadas en ganchos sobre un panel" width="1600" height="2000" loading="lazy" data-shelf-img>
+            <img src="/img/llaves-panel.webp" alt="Llaves vírgenes colgadas en ganchos sobre un panel" width="1000" height="1250" loading="lazy" data-shelf-img>
             <figcaption data-shelf-caption>Todo cuelga de su gancho y tiene su código.</figcaption>
           </figure>
 
-          <div class="ledger">
+          <div class="ledger" id="productos-panel" role="tabpanel" aria-label="Todo">
             <p class="ledger__count" aria-live="polite" data-count>20 artículos</p>
             <ol class="ledger__list" id="productos" data-products></ol>
+            <noscript><p class="ledger__noscript">Tenemos herramientas, pintura, fontanería, electricidad y copias de llaves. Pregúntanos en el <a href="tel:+34938495250">93 849 52 50</a>.</p></noscript>
             <button class="btn btn--line ledger__more" type="button" hidden data-more>Ver los 20 artículos</button>
             <p class="ledger__note">¿Quieres saber un precio o si lo tenemos? <a href="tel:+34938495250">Llámanos</a>, escríbenos por <a href="https://wa.me/34938495250" target="_blank" rel="noopener">WhatsApp</a> o pásate por la tienda.</p>
           </div>
@@ -426,7 +433,7 @@
     <section id="taller" class="workshop" aria-labelledby="workshop-title">
       <div class="workshop__grid">
         <figure class="workshop__photo">
-          <img src="/img/cerrajero.jpg" alt="Un cerrajero trabajando en el mostrador, con la pared de llaves vírgenes detrás" width="1600" height="1067" loading="lazy">
+          <img src="/img/cerrajero-800.webp" srcset="/img/cerrajero-800.webp 800w, /img/cerrajero-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 56vw" alt="Un cerrajero trabajando en el mostrador, con la pared de llaves vírgenes detrás" width="1400" height="978" loading="lazy">
         </figure>
 
         <div class="workshop__text">
@@ -512,7 +519,7 @@
             <address class="visit__address">C/ Pino, 35 · 08420 Canovelles</address>
           </div>
 
-          <p class="status status--dark" data-status aria-live="polite">
+          <p class="status status--dark" data-status>
             <span class="status__dot" aria-hidden="true"></span>
             <span class="status__text">Consulta el horario</span>
           </p>
@@ -538,9 +545,9 @@
 
         <div class="visit__where">
           <!-- El mapa de Google solo se carga si el visitante lo pide: así no hay cookies de terceros sin permiso -->
-          <div class="map" data-map data-map-src="https://www.google.com/maps?q=Ferreteria+Pino,+Canovelles&amp;output=embed" data-map-title="Mapa: Ferretería Pino, C/ Pino 35, Canovelles">
+          <div class="map" data-map data-map-src="https://www.google.com/maps/embed?origin=mfe&amp;pb=!1m2!2m1!1sFerreteria+Pino,+Canovelles" data-map-title="Mapa: Ferretería Pino, C/ Pino 35, Canovelles">
             <figure class="map__preview">
-              <img src="/img/fachada.jpg" alt="Fachada de la tienda con el rótulo «Ferretería Pino, S.L.» y el logo de Cadena 88" width="940" height="459" loading="lazy">
+              <img src="/img/fachada.webp" alt="Fachada de la tienda con el rótulo «Ferretería Pino, S.L.» y el logo de Cadena 88" width="940" height="459" loading="lazy">
               <figcaption>Busca este rótulo: C/ Pino, 35.</figcaption>
             </figure>
             <div class="map__bar">
@@ -548,7 +555,7 @@
                 <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
                 Ver el mapa
               </button>
-              <p class="map__note">Al pulsar, aceptas que Google Maps cargue y pueda usar sus cookies. <a href="politica-de-cookies/" target="_blank" rel="noopener">Más información</a></p>
+              <p class="map__note">Al pulsar, aceptas que Google Maps cargue y pueda usar sus cookies. <a href="politica-de-cookies/" target="_blank" rel="noopener">Más sobre las cookies</a></p>
             </div>
           </div>
 
@@ -569,7 +576,7 @@
           </div>
           <div class="field field--half">
             <label for="f-contact">Teléfono o email</label>
-            <input id="f-contact" name="contact" type="text" autocomplete="email" required>
+            <input id="f-contact" name="contact" type="text" required>
             <p class="field__error" id="e-contact" aria-live="polite"></p>
           </div>
           <div class="field">
@@ -600,7 +607,7 @@
       <p class="footer__brand"><img class="footer__logo" src="/img/logo-ferreteria-pino-claro.svg" alt="Ferretería Pino" width="821" height="317" loading="lazy"> Ferretería de barrio desde 1985</p>
       <p class="footer__member">Miembro de <span class="plate"><img class="plate__logo" src="/img/logo-cadena88.png" alt="Cadena88 ferreterías" width="300" height="88" loading="lazy"></span></p>
       <p><a href="https://instagram.com/ferreteriapinosl" target="_blank" rel="noopener">Instagram @ferreteriapinosl</a></p>
-      <p class="footer__legal"><a href="aviso-legal/">Aviso legal</a> · <a href="politica-de-privacidad/">Privacidad</a> · <a href="politica-de-cookies/">Cookies</a> · © 2026 Ferretería Pino S.L.</p>
+      <p class="footer__legal"><a href="aviso-legal/">Aviso legal</a> · <a href="politica-de-privacidad/">Privacidad</a> · <a href="politica-de-cookies/">Cookies</a> · © <span data-year>2026</span> Ferretería Pino S.L.</p>
     </div>
   </footer>
 

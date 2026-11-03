@@ -12,7 +12,7 @@ export function initMap() {
     const iframe = document.createElement('iframe');
     iframe.title = map.dataset.mapTitle;
     iframe.src = map.dataset.mapSrc;
-    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
     map.replaceChildren(iframe);
     map.classList.add('is-loaded');
   });

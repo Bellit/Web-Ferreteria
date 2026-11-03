@@ -185,7 +185,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   width: 10px; height: 10px; border-radius: 50%; flex: none;
   background: var(--nickel);
 }
-.status.is-open .status__dot { background: var(--open); animation: pulse 2.4s var(--ease-out) infinite; }
+.status.is-open .status__dot { background: var(--open); animation: pulse 2.4s var(--ease-out) 3; }
 .status.is-closed .status__dot { background: var(--closed); }
 .status strong { color: var(--ink); font-weight: 650; }
 
@@ -466,6 +466,8 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   100% { transform: rotate(0); }
 }
 
+.ledger__noscript { margin-bottom: 24px; color: var(--ink-2); }
+
 /* ─── Catálogo ─────────────────────────────────────────── */
 .catalog { padding-block: var(--step); }
 .catalog__head {
@@ -561,7 +563,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 @keyframes tag-in { from { opacity: 0; translate: 0 -10px; } }
 
 .tag__code { font-size: 0.78rem; font-stretch: 112%; color: var(--ink-3); letter-spacing: 0.02em; }
-.tag__name { font-weight: 640; font-size: 1.02rem; line-height: 1.25; text-wrap: balance; }
+.tag__name { overflow-wrap: break-word; hyphens: auto; font-weight: 640; font-size: 1.02rem; line-height: 1.25; text-wrap: balance; }
 .tag__desc { color: var(--ink-2); font-size: 0.9rem; line-height: 1.4; }
 
 .ledger__more { margin-top: 32px; }
@@ -593,6 +595,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 /* La especialidad manda: panel de pizarra con la llave colgada de su gancho */
 .service.service--feature {
   --key: clamp(64px, 7vw, 100px);
+  --on-graphite-2: #d3dbe0;
   position: relative; grid-row: 1 / span 3;
   display: flex; flex-direction: column; justify-content: center; gap: 14px;
   padding: clamp(24px, 3vw, 40px);
@@ -794,15 +797,15 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .field input, .field textarea {
   width: 100%; padding: 12px 14px;
   background: var(--graphite); color: var(--on-graphite);
-  border: 1.5px solid var(--graphite-rule); border-radius: 4px;
+  border: 1.5px solid #a9bac6; border-radius: 4px;
   caret-color: var(--brass-hi);
   transition: border-color 0.2s;
 }
 .field textarea { resize: vertical; min-height: 110px; }
-.field input:hover, .field textarea:hover { border-color: var(--ink-3); }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--brass-hi); }
-.field.has-error input, .field.has-error textarea { border-color: #e0786d; }
-.field__error { min-height: 1.2em; font-size: 0.88rem; color: #f0a39a; }
+.field input:hover, .field textarea:hover { border-color: var(--on-graphite); }
+.field input:not([type="checkbox"]):focus, .field textarea:focus { outline: none; border-color: var(--brass-hi); }
+.field.has-error input, .field.has-error textarea { border-color: #ffb0a5; }
+.field__error { min-height: 1.2em; font-size: 0.88rem; color: #ffd2cc; }
 .form .btn { justify-self: start; }
 /* Nombre y contacto comparten fila; el resto ocupa todo el ancho */
 @media (min-width: 861px) {
@@ -811,12 +814,12 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   .form > .field--half { grid-column: auto; }
 }
 .form__done { color: var(--on-graphite); font-weight: 550; }
-.form__failed { color: #f0a39a; font-weight: 550; }
+.form__failed { color: #ffd2cc; font-weight: 550; }
 .form__failed a { color: var(--on-graphite); }
 .form__info { font-size: 0.88rem; line-height: 1.4; color: var(--on-graphite-2); margin-top: -10px; }
 .field--check label { display: flex; align-items: flex-start; gap: 10px; color: var(--on-graphite); }
 .field--check label a { color: inherit; }
-.field--check input { flex: none; width: 20px; height: 20px; min-height: 0; margin: 1px 0 0; padding: 0; accent-color: var(--brass-hi); }
+.field--check input { flex: none; width: 24px; height: 24px; min-height: 0; margin: 1px 0 0; padding: 0; accent-color: var(--brass-hi); }
 
 /* ─── Pie ──────────────────────────────────────────────── */
 .footer { background: var(--graphite); color: var(--on-graphite-2); font-size: 0.92rem; }
@@ -827,6 +830,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .footer__brand { display: flex; align-items: center; gap: 16px; }
 .footer__logo { width: auto; max-width: none; height: 52px; }
 .footer__legal { margin-left: auto; }
+.footer a { display: inline-block; padding-block: 4px; }
 /* Cadena88: su logo lleva texto negro, así que va en una chapa clara atornillada a la pared */
 .footer__member { display: flex; align-items: center; gap: 12px; }
 .plate { display: inline-flex; padding: 7px 12px; background: var(--paper); border-radius: 4px; }
@@ -870,6 +874,10 @@ body.legal-page { padding-bottom: 0; }
 .dock__btn:hover { transform: translateY(-2px); background: var(--graphite-2); }
 .dock__btn--map, .dock__btn--tel { display: none; }
 .dock { transition: opacity 0.3s, transform 0.4s var(--ease-out); }
+@media (min-width: 1081px) and (max-width: 1559px) {
+  .dock__btn--wa { justify-content: center; width: 52px; padding: 0; }
+  .dock__btn--wa span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
 @media (min-width: 861px) {
   .dock.is-hidden { opacity: 0; transform: translateY(16px); pointer-events: none; }
 }
@@ -952,6 +960,10 @@ body.legal-page { padding-bottom: 0; }
   .blank--more .blank__hook { grid-area: 1 / 1; align-self: start; justify-self: center; }
   .blank--more .blank__key { grid-area: 1 / 1; margin: 10px 0 0; }
   .blank--more .blank__tag { grid-area: 1 / 2; min-height: 0; margin: 0; padding-block: 12px; }
+}
+
+@media (max-width: 340px) {
+  .status--compact { display: none; }
 }
 
 @media (max-width: 420px) {

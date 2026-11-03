@@ -59,9 +59,12 @@ export function initStatus() {
     $$('[data-status]').forEach((el) => {
       el.classList.toggle('is-open', status.open);
       el.classList.toggle('is-closed', !status.open);
-      $('.status__text', el).innerHTML = el.classList.contains('status--compact')
+      const text = el.classList.contains('status--compact')
         ? `<strong>${status.open ? 'Abierto' : 'Cerrado'}</strong>`
         : status.html;
+      // Solo se reescribe si cambia, para no repetirlo en los lectores de pantalla
+      const target = $('.status__text', el);
+      if (target.innerHTML !== text) target.innerHTML = text;
     });
     $$('[data-hours] tr').forEach((tr) => tr.classList.toggle('is-today', Number(tr.dataset.day) === now.day));
   };
