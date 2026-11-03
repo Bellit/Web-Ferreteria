@@ -441,12 +441,10 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .blank__tag b { font-weight: 650; font-size: 0.86rem; text-wrap: balance; }
 .blank__tag span { color: var(--ink-3); text-wrap: balance; }
 
-.blank:hover .blank__key,
 .board.is-swaying .blank__key {
   animation: sway 1.8s var(--ease-out) both;
   animation-delay: var(--sway-delay, 0ms);
 }
-.blank:hover .blank__key { animation-delay: 0ms; }
 
 /* El gancho libre: la silueta de la llave que falta, sin sombra ni balanceo porque no cuelga nada */
 .blank--more.blank .blank__key { animation: none; filter: none; }
