@@ -197,7 +197,7 @@ Both are self-hosted through @fontsource-variable (montserrat with the weight ax
 
 ### Hierarchy
 - **Display** (800, clamp(6rem, 17vw, 15rem), line-height 0.8, -0.03em): the brand name in the hero only. Above it, like the logo's top line, «FERRETERÍA» in 700 uppercase tracked 0.14em at clamp(1.15rem, 2.5vw, 2.3rem). The rail's «Desde 1985» uses the same tracked-caps treatment. On mobile the name grows to clamp(6rem, 33vw, 11rem).
-- **Headline** (750, clamp(2.1rem, 4.2vw, 3.75rem), line-height 0.98, -0.02em, balanced; Montserrat is wider, so it runs smaller than the old grotesque): section titles, written as plain sentences. The Visítanos address uses the same voice in brass-hi at clamp(2.5rem, 5.4vw, 4.75rem).
+- **Headline** (750, clamp(2.1rem, 4.2vw, 3.75rem), line-height 0.98, -0.02em, balanced; Montserrat is wider, so it runs smaller than the old grotesque): section titles, written as plain sentences. The Visítanos title runs smaller, at clamp(1.7rem, 2.6vw, 2.4rem), with the address below it on one line in brass-hi, 700, at clamp(1.15rem, 1.7vw, 1.5rem).
 - **Title** (700, 1.45rem, line-height 1.15, -0.02em): service names and the form title (1.6rem).
 - **Figure** (750, 1.5rem, -0.02em, display face): the facts in the workshop spec list. Numbers are set in the display face so they read as stamped.
 - **Body** (400, 1.0625rem, line-height 1.55): running text, max 38 to 46ch. Lead text runs at clamp(1.125rem, 1.6vw, 1.3rem) in ink-2, max 38ch.
@@ -210,7 +210,7 @@ Both are self-hosted through @fontsource-variable (montserrat with the weight ax
 
 ## Layout
 
-A 1360px container with a fluid gutter (clamp(16px, 4vw, 48px)) and a fluid section rhythm (clamp(88px, 12vw, 168px)) top and bottom. Most sections use an asymmetric two-column grid of 5fr to 7fr (text to object) with a clamp(28px, 5vw, 80px) gap; the workshop flips to 7fr to 5fr and bleeds its photo to the left viewport edge (container up to 1600px). Visítanos is a 1fr to 1fr split.
+A 1360px container with a fluid gutter (clamp(16px, 4vw, 48px)) and a fluid section rhythm (clamp(88px, 12vw, 168px)) top and bottom. Most sections use an asymmetric two-column grid of 5fr to 7fr (text to object) with a clamp(28px, 5vw, 80px) gap; the workshop flips to 7fr to 5fr and bleeds its photo to the left viewport edge (container up to 1600px). Visítanos stacks a full-width head (title, address, status), the week of opening hours as seven day boxes with today lifted in graphite-2 and a brass-hi border (a plain table at 1080px and below), and a 5fr to 7fr row with the shop photo, map and contact channels beside the form.
 
 The hero is a 1.35fr to 1fr grid sized by its content, not the viewport, so the next section shows below it: the headline with the key directly under it at the name's own width, like a signature, and an aside (lede, status, address, two buttons) whose buttons line up with the base of the key. On mobile: headline, key, aside. A bitting-profile divider separates hero, keys and catalogue.
 

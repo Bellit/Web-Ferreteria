@@ -643,15 +643,22 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 
 .visit__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(40px, 6vw, 96px);
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(32px, 4vw, 56px);
 }
-.visit__main { display: grid; gap: 28px; align-content: start; }
+.visit__head {
+  grid-column: 1 / -1;
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 40px;
+}
+.visit__name { display: grid; gap: 8px; }
+.visit .h2 { font-size: clamp(1.7rem, 2.6vw, 2.4rem); }
 .visit__address {
-  font-family: var(--f-display); font-weight: 750;
-  font-size: clamp(2.5rem, 5.4vw, 4.75rem); line-height: 1; letter-spacing: -0.02em;
+  font-family: var(--f-display); font-weight: 700;
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem); line-height: 1.2; letter-spacing: -0.01em;
   color: var(--brass-hi);
 }
+.visit__week { grid-column: 1 / -1; display: grid; gap: 18px; }
+.visit__where { display: grid; gap: 16px; align-content: start; }
 
 .hours { width: 100%; border-collapse: collapse; }
 .hours th, .hours td { padding: 11px 0; border-bottom: 1px solid var(--graphite-rule); text-align: left; font-weight: 450; }
@@ -663,7 +670,22 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   background: var(--brass); color: var(--ink); font-size: 0.78rem; font-weight: 650; vertical-align: 2px;
 }
 
-.visit__parcels { color: var(--on-graphite-2); max-width: 46ch; }
+/* La semana de un vistazo: cada día, una caja */
+@media (min-width: 1081px) {
+  .hours { display: block; }
+  .hours tbody { display: grid; grid-template-columns: 1.15fr repeat(6, 1fr); gap: 8px; }
+  .hours tr {
+    display: grid; align-content: start; gap: 8px;
+    padding: 14px; border: 1px solid var(--graphite-rule); border-radius: var(--radius);
+  }
+  .hours tr.is-today { background: var(--graphite-2); border-color: var(--brass-hi); }
+  .hours th, .hours td { display: block; width: auto; padding: 0; border: 0; text-align: left; }
+  .hours tr.is-today th::after { margin-left: 6px; padding: 1px 6px; }
+  .hours__slot { display: block; }
+  .hours__sep { display: none; }
+}
+
+.visit__parcels { color: var(--on-graphite-2); }
 
 .channels { display: grid; gap: 2px; }
 .channels a {
@@ -673,7 +695,6 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .channels a .i { color: var(--brass-hi); }
 .channels a:hover span { text-decoration: underline; text-decoration-color: var(--brass); }
 
-.visit__side { display: grid; gap: 28px; align-content: start; }
 .map { border-radius: var(--radius); overflow: hidden; background: var(--graphite-2); }
 .map.is-loaded { aspect-ratio: 16 / 10; }
 .map iframe { display: block; width: 100%; height: 100%; border: 0; filter: grayscale(0.9) contrast(1.05); }
@@ -716,6 +737,12 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .field.has-error input, .field.has-error textarea { border-color: #e0786d; }
 .field__error { min-height: 1.2em; font-size: 0.88rem; color: #f0a39a; }
 .form .btn { justify-self: start; }
+/* Nombre y contacto comparten fila; el resto ocupa todo el ancho */
+@media (min-width: 861px) {
+  .form { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
+  .form > * { grid-column: 1 / -1; }
+  .form > .field--half { grid-column: auto; }
+}
 .form__done { color: var(--on-graphite); font-weight: 550; }
 .form__failed { color: #f0a39a; font-weight: 550; }
 .form__failed a { color: var(--on-graphite); }

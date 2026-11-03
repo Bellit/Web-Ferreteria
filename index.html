@@ -442,39 +442,37 @@
     <!-- ─── Visítanos ─────────────────────────────────────── -->
     <section id="visitanos" class="visit" aria-labelledby="visit-title">
       <div class="wrap visit__grid">
-        <div class="visit__main">
-          <h2 class="h2" id="visit-title">Pásate por la tienda.</h2>
-          <address class="visit__address">C/ Pino, 35<br>08420 Canovelles</address>
+        <div class="visit__head">
+          <div class="visit__name">
+            <h2 class="h2" id="visit-title">Pásate por la tienda.</h2>
+            <address class="visit__address">C/ Pino, 35 · 08420 Canovelles</address>
+          </div>
 
           <p class="status status--dark" data-status aria-live="polite">
             <span class="status__dot" aria-hidden="true"></span>
             <span class="status__text">Consulta el horario</span>
           </p>
+        </div>
 
-          <table class="hours" data-hours>
+        <div class="visit__week">
+          <!-- En escritorio se dibuja como tira de 7 días: los roles conservan la semántica de tabla -->
+          <table class="hours" role="table" data-hours>
             <caption class="sr-only">Horario de apertura</caption>
-            <tbody>
-              <tr data-day="1"><th scope="row">Lunes</th><td>9:30–13:30 · 17:00–20:00</td></tr>
-              <tr data-day="2"><th scope="row">Martes</th><td>9:30–13:30 · 17:00–20:00</td></tr>
-              <tr data-day="3"><th scope="row">Miércoles</th><td>9:30–13:30 · 17:00–20:00</td></tr>
-              <tr data-day="4"><th scope="row">Jueves</th><td>9:30–13:30 · 17:00–20:00</td></tr>
-              <tr data-day="5"><th scope="row">Viernes</th><td>9:30–13:30 · 17:00–20:00</td></tr>
-              <tr data-day="6"><th scope="row">Sábado</th><td>9:00–13:30</td></tr>
-              <tr data-day="0"><th scope="row">Domingo</th><td>Cerrado</td></tr>
+            <tbody role="rowgroup">
+              <tr role="row" data-day="1"><th role="rowheader" scope="row">Lunes</th><td role="cell"><span class="hours__slot">9:30–13:30</span><span class="hours__sep"> · </span><span class="hours__slot">17:00–20:00</span></td></tr>
+              <tr role="row" data-day="2"><th role="rowheader" scope="row">Martes</th><td role="cell"><span class="hours__slot">9:30–13:30</span><span class="hours__sep"> · </span><span class="hours__slot">17:00–20:00</span></td></tr>
+              <tr role="row" data-day="3"><th role="rowheader" scope="row">Miércoles</th><td role="cell"><span class="hours__slot">9:30–13:30</span><span class="hours__sep"> · </span><span class="hours__slot">17:00–20:00</span></td></tr>
+              <tr role="row" data-day="4"><th role="rowheader" scope="row">Jueves</th><td role="cell"><span class="hours__slot">9:30–13:30</span><span class="hours__sep"> · </span><span class="hours__slot">17:00–20:00</span></td></tr>
+              <tr role="row" data-day="5"><th role="rowheader" scope="row">Viernes</th><td role="cell"><span class="hours__slot">9:30–13:30</span><span class="hours__sep"> · </span><span class="hours__slot">17:00–20:00</span></td></tr>
+              <tr role="row" data-day="6"><th role="rowheader" scope="row">Sábado</th><td role="cell"><span class="hours__slot">9:00–13:30</span></td></tr>
+              <tr role="row" data-day="0"><th role="rowheader" scope="row">Domingo</th><td role="cell"><span class="hours__slot">Cerrado</span></td></tr>
             </tbody>
           </table>
 
           <p class="visit__parcels">También recogida y devolución de paquetes: GLS, Celeritas, Amazon Hub y Correos.</p>
-
-          <ul class="channels" role="list">
-            <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Ferreteria+Pino+Canovelles" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Cómo llegar</span></a></li>
-            <li><a href="tel:+34938495250"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg><span>93 849 52 50</span></a></li>
-            <li><a href="https://wa.me/34938495250" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5 5.6 16A8 8 0 1 1 8.4 18.6Z"/><path d="M9.2 8.6c.3 2.6 2.4 4.9 5.2 5.4l.9-1.3 1.8.8-.4 1.6c-3.9.3-8.4-3.6-8.6-7.6l1.6-.5.9 1.8Z"/></svg><span>WhatsApp 93 849 52 50</span></a></li>
-            <li><a href="mailto:ferreteriapino@ferreteriapino.es"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3Z"/><path d="m3 6 9 7 9-7"/></svg><span>ferreteriapino@ferreteriapino.es</span></a></li>
-          </ul>
         </div>
 
-        <div class="visit__side">
+        <div class="visit__where">
           <!-- El mapa de Google solo se carga si el visitante lo pide: así no hay cookies de terceros sin permiso -->
           <div class="map" data-map data-map-src="https://www.google.com/maps?q=Ferreteria+Pino,+Canovelles&amp;output=embed" data-map-title="Mapa: Ferretería Pino, C/ Pino 35, Canovelles">
             <figure class="map__preview">
@@ -490,38 +488,45 @@
             </div>
           </div>
 
-          <form class="form" id="contact-form" novalidate data-form>
-            <h3 class="form__title">¿Prefieres escribirnos?</h3>
-            <div class="field">
-              <label for="f-name">Nombre</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" required>
-              <p class="field__error" id="e-name" aria-live="polite"></p>
-            </div>
-            <div class="field">
-              <label for="f-contact">Teléfono o email</label>
-              <input id="f-contact" name="contact" type="text" autocomplete="email" required>
-              <p class="field__error" id="e-contact" aria-live="polite"></p>
-            </div>
-            <div class="field">
-              <label for="f-msg">¿Qué necesitas?</label>
-              <textarea id="f-msg" name="message" rows="4" required></textarea>
-              <p class="field__error" id="e-msg" aria-live="polite"></p>
-            </div>
-            <!-- campo trampa para robots: no se ve ni se puede enfocar -->
-            <div class="sr-only" aria-hidden="true">
-              <label for="f-web">No rellenes este campo</label>
-              <input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off">
-            </div>
-            <div class="field field--check">
-              <label for="f-privacy"><input id="f-privacy" name="privacy" type="checkbox" required> <span>He leído y acepto la <a href="politica-de-privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</span></label>
-              <p class="field__error" id="e-privacy" aria-live="polite"></p>
-            </div>
-            <p class="form__info">Ferretería Pino, SL usa estos datos para contestar a tu mensaje. Tus derechos y el resto de la información están en la política de privacidad.</p>
-            <button class="btn btn--brass" type="submit" data-submit>Enviar mensaje</button>
-            <p class="form__done" role="status" hidden data-form-done>Recibido. Te contestamos en horario de tienda.</p>
-            <p class="form__failed" role="alert" hidden data-form-failed>No se ha podido enviar. Llámanos al <a href="tel:+34938495250">93 849 52 50</a> o escríbenos por <a href="https://wa.me/34938495250" target="_blank" rel="noopener">WhatsApp</a>.</p>
-          </form>
+          <ul class="channels" role="list">
+            <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Ferreteria+Pino+Canovelles" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Cómo llegar</span></a></li>
+            <li><a href="tel:+34938495250"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg><span>93 849 52 50</span></a></li>
+            <li><a href="https://wa.me/34938495250" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5 5.6 16A8 8 0 1 1 8.4 18.6Z"/><path d="M9.2 8.6c.3 2.6 2.4 4.9 5.2 5.4l.9-1.3 1.8.8-.4 1.6c-3.9.3-8.4-3.6-8.6-7.6l1.6-.5.9 1.8Z"/></svg><span>WhatsApp 93 849 52 50</span></a></li>
+            <li><a href="mailto:ferreteriapino@ferreteriapino.es"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3Z"/><path d="m3 6 9 7 9-7"/></svg><span>ferreteriapino@ferreteriapino.es</span></a></li>
+          </ul>
         </div>
+
+        <form class="form" id="contact-form" novalidate data-form>
+          <h3 class="form__title">¿Prefieres escribirnos?</h3>
+          <div class="field field--half">
+            <label for="f-name">Nombre</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+            <p class="field__error" id="e-name" aria-live="polite"></p>
+          </div>
+          <div class="field field--half">
+            <label for="f-contact">Teléfono o email</label>
+            <input id="f-contact" name="contact" type="text" autocomplete="email" required>
+            <p class="field__error" id="e-contact" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-msg">¿Qué necesitas?</label>
+            <textarea id="f-msg" name="message" rows="4" required></textarea>
+            <p class="field__error" id="e-msg" aria-live="polite"></p>
+          </div>
+          <!-- campo trampa para robots: no se ve ni se puede enfocar -->
+          <div class="sr-only" aria-hidden="true">
+            <label for="f-web">No rellenes este campo</label>
+            <input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="field field--check">
+            <label for="f-privacy"><input id="f-privacy" name="privacy" type="checkbox" required> <span>He leído y acepto la <a href="politica-de-privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</span></label>
+            <p class="field__error" id="e-privacy" aria-live="polite"></p>
+          </div>
+          <p class="form__info">Ferretería Pino, SL usa estos datos para contestar a tu mensaje. Tus derechos y el resto de la información están en la política de privacidad.</p>
+          <button class="btn btn--brass" type="submit" data-submit>Enviar mensaje</button>
+          <p class="form__done" role="status" hidden data-form-done>Recibido. Te contestamos en horario de tienda.</p>
+          <p class="form__failed" role="alert" hidden data-form-failed>No se ha podido enviar. Llámanos al <a href="tel:+34938495250">93 849 52 50</a> o escríbenos por <a href="https://wa.me/34938495250" target="_blank" rel="noopener">WhatsApp</a>.</p>
+        </form>
       </div>
     </section>
   </main>
