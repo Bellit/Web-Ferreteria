@@ -1,0 +1,55 @@
+<!-- Copia de la sección «Desde 1985» con la foto a sangre por la izquierda y la fila «Apertura», guardada el 2026-11-03.
+     No se usa en la web: para volver a ella, cambia la sección #taller de index.html por este HTML y el bloque
+     «Taller» de src/styles/main.css por el CSS de abajo. Por debajo de 860px: .workshop__grid { grid-template-columns: 1fr; padding-right: 0; },
+     .workshop__photo img { border-radius: 0; aspect-ratio: 4 / 3; } y .workshop__text { padding-inline: var(--gutter); }. -->
+
+<section id="taller" class="workshop" aria-labelledby="workshop-title">
+      <div class="workshop__grid">
+        <figure class="workshop__photo">
+          <img src="/img/cerrajero.jpg" alt="Un cerrajero trabajando en el mostrador, con la pared de llaves vírgenes detrás" width="1600" height="1067" loading="lazy">
+        </figure>
+
+        <div class="workshop__text">
+          <h2 class="h2" id="workshop-title">Desde 1985 en el mismo mostrador.</h2>
+          <p>Desde 1985 nuestro objetivo ha sido estar cerca de nuestros clientes: aconsejar, asesorar y ofrecer productos de calidad, seas particular o profesional.</p>
+          <p>Formamos parte de <strong>Cadena88</strong>, la primera cadena de ferreterías de consumo del país: eso nos da un amplio surtido y un gran stock. El buen servicio es nuestra filosofía de trabajo.</p>
+
+          <dl class="spec">
+            <div><dt>Apertura</dt><dd>1985</dd></div>
+            <div><dt>Dónde</dt><dd>Canovelles</dd></div>
+            <div class="spec__row--logo"><dt>Red</dt><dd><img class="spec__logo" src="/img/logo-cadena88.png" alt="Cadena88 ferreterías" width="300" height="88" loading="lazy"></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+<style>
+/* ─── Taller ───────────────────────────────────────────── */
+.workshop { padding-bottom: var(--section); }
+.workshop__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+  max-width: 1600px; margin-inline: auto;
+  padding-right: var(--gutter);
+}
+.workshop__photo img {
+  width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.workshop__text { display: grid; gap: 20px; max-width: 34rem; }
+.workshop__text p { color: var(--ink-2); text-wrap: pretty; }
+.workshop__text strong { color: var(--ink); font-weight: 650; }
+
+.spec { margin-top: 12px; border-top: 1.5px solid var(--ink); }
+.spec > div {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  padding: 14px 0; border-bottom: 1px solid var(--rule);
+}
+.spec dt { color: var(--ink-2); }
+.spec__note { color: var(--ink-3); font-size: 0.85em; }
+.spec dd { font-family: var(--f-display); font-weight: 750; font-size: 1.5rem; letter-spacing: -0.02em; }
+.spec > .spec__row--logo { align-items: center; padding-block: 10px; }
+.spec__logo { width: auto; height: 38px; }
+</style>

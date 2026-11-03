@@ -142,7 +142,7 @@ The page closes on graphite. The Visítanos section and footer are the counter's
 - Brass is the single material accent; green and red are signals, never decoration.
 - Monumental Montserrat display, the same geometric voice as the logo, over a quiet Archivo text face with tabular figures.
 - Recurring counter objects: hooks, punched paper tags on threads, steel rails, the bitting profile.
-- One signature motion (the key cut 1·9·8·5) plus the board sway and the tag entrance; reduced motion honoured.
+- One signature motion (the key cut 1·9·8·5) plus the board sway, the workshop keys dropping onto their hooks and the tag entrance; reduced motion honoured.
 
 ## Colors
 
@@ -210,7 +210,7 @@ Both are self-hosted through @fontsource-variable (montserrat with the weight ax
 
 ## Layout
 
-A 1360px container with a fluid gutter (clamp(16px, 4vw, 48px)) and a fluid section rhythm (clamp(88px, 12vw, 168px)) top and bottom. Most sections use an asymmetric two-column grid of 5fr to 7fr (text to object) with a clamp(28px, 5vw, 80px) gap; the workshop flips to 7fr to 5fr and bleeds its photo to the left viewport edge (container up to 1600px). Visítanos stacks a full-width head (title, address, status), the week of opening hours as seven day boxes with today lifted in graphite-2 and a brass-hi border (a plain table at 1080px and below), and a 5fr to 7fr row with the shop photo, map and contact channels beside the form.
+A 1360px container with a fluid gutter (clamp(16px, 4vw, 48px)) and a fluid section rhythm (clamp(88px, 12vw, 168px)) top and bottom. Most sections use an asymmetric two-column grid of 5fr to 7fr (text to object) with a clamp(28px, 5vw, 80px) gap; the workshop flips to 7fr to 5fr, inside the same container and with the photo rounded on all four corners like every other photo. Visítanos stacks a full-width head (title, address, status), the week of opening hours as seven day boxes with today lifted in graphite-2 and a brass-hi border (a plain table at 1080px and below), and a 5fr to 7fr row with the shop photo, map and contact channels beside the form.
 
 The hero is a 1.35fr to 1fr grid sized by its content, not the viewport, so the next section shows below it: the headline with the key directly under it at the name's own width, like a signature, and an aside (lede, status, address, two buttons) whose buttons line up with the base of the key. On mobile: headline, key, aside. A bitting-profile divider separates hero, keys and catalogue.
 
@@ -278,6 +278,9 @@ The always-reachable action. Desktop: a single ink-2 WhatsApp pill fixed bottom-
 ### The Key Cutter (signature)
 One SVG key under the hero's name, at the name's own width and whole from bow to tip: drawn as a machined object in flat facets, with no gradients and light from the upper left. The bow is an oblong that flows into a turned collar, with a bevelled rim, a pinstripe, a bevelled eyelet around a ground-coloured hole, and the logo's pine engraved in brass-lo above the word PINO (display face, 800), each with a brass-hi highlight below so they read as sunk into the metal. The blade carries a milled channel, a fine second channel, a bottom bevel and a faceted tip; the cuts gain a brass-hi chamfer and a brass-glint edge as the wheel passes. The drawing leaves headroom so the cutter wheel is always seen as a full circle. On load a nickel saw-toothed cutter wheel, held by an ink fork, travels the blade and carves four cuts in the order 1·9·8·5, dropping brass-hi shavings; no digits are drawn on the key. "Cortar otra llave" replays it with a random code. One drawing at every width: a short blade with tight cut spacing, like a real key. Under reduced motion the cut key is drawn finished.
 
+### The Workshop Keys
+Five of the board's blanks on a small pegboard in the Desde 1985 section, from the old lever key to the remote, over the line «1985 · Las llaves han cambiado. El mostrador, no. · Hoy». When it enters view, each key drops onto its hook and sways once, 260ms apart. Under reduced motion they simply hang there.
+
 ### The Hook Wall
 A ground-2 pegboard (30px hole grid) titled «Las 9 que más copiamos», holding the nine most-copied key types, each on an ink hook with a small paper tag, plus a tenth free hook with a dashed key silhouette and the tag «Y muchas más · Trae la tuya», so the board never reads as the full list: one long row of ten on desktop, two rows of five below 1240px, and three columns with the free hook as a full-width strip below 640px. Silhouettes follow the shop's JMA price poster, without its logos. Blanks are nickel, two are brass, one is red aluminium, and the dark heads and the remote are graphite. The whole board sways once when it enters view (staggered delays), and a single blank sways on hover: a damped swing from 9deg settling to 0 over 1.8s.
 
@@ -300,7 +303,7 @@ A 24px band repeating the key profile in a 1.5px nickel-lo stroke, inset by the 
 
 ### Don't:
 - **Don't** use gradients, glass, blur or glows.
-- **Don't** add motion beyond the three: the key cut, the board sway, the tag entrance (plus small state transitions).
+- **Don't** add motion beyond the four: the key cut, the board sway, the workshop keys dropping, the tag entrance (plus small state transitions).
 - **Don't** put kickers, eyebrows or section numbers above headlines or in the nav.
 - **Don't** turn the catalogue into a list or table; products hang as tags on a rail.
 - **Don't** use red for "open" or as a decorative accent.

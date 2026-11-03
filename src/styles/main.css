@@ -598,16 +598,38 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   align-items: center;
   gap: clamp(32px, 5vw, 80px);
-  max-width: 1600px; margin-inline: auto;
-  padding-right: var(--gutter);
+  max-width: 1360px; margin-inline: auto;
+  padding-inline: var(--gutter);
 }
-.workshop__photo img {
-  width: 100%; aspect-ratio: 3 / 2; object-fit: cover;
-  border-radius: 0 var(--radius) var(--radius) 0;
-}
+.workshop__photo { overflow: hidden; border-radius: var(--radius); }
+.workshop__photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .workshop__text { display: grid; gap: 20px; max-width: 34rem; }
 .workshop__text p { color: var(--ink-2); text-wrap: pretty; }
 .workshop__text strong { color: var(--ink); font-weight: 650; }
+
+/* De la llave antigua al telemando: cada una cae en su gancho */
+.keyline { display: grid; gap: 4px; margin-top: 8px; }
+.keyline__list {
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+  padding: 16px 8px 8px;
+  background-color: var(--ground-2);
+  background-image: radial-gradient(circle at center, var(--ground-3) 2.6px, transparent 3.2px);
+  background-size: 30px 30px;
+  border-radius: var(--radius);
+}
+.keyline__item { display: flex; flex-direction: column; align-items: center; }
+.keyline .blank__key { width: clamp(44px, 4.2vw, 60px); margin-bottom: 0; }
+.keyline.is-waiting .blank__key { opacity: 0; }
+.keyline.is-run .blank__key {
+  animation: key-drop 0.4s var(--ease-out) both, sway 1.5s var(--ease-out) 0.25s;
+  animation-delay: calc(var(--i) * 260ms), calc(var(--i) * 260ms + 250ms);
+}
+@keyframes key-drop {
+  0% { opacity: 0; translate: 0 -22px; }
+  100% { opacity: 1; translate: 0 0; }
+}
+.keyline__caption { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: 8px; color: var(--ink-2); font-size: 0.95rem; text-align: center; }
+.keyline__caption b { font-family: var(--f-display); font-weight: 750; font-size: 1.15rem; color: var(--ink); }
 
 .spec { margin-top: 12px; border-top: 1.5px solid var(--ink); }
 .spec > div {
@@ -856,9 +878,8 @@ body.legal-page { padding-bottom: 0; }
   .tag__desc { font-size: 0.84rem; }
   .ledger__more { width: 100%; }
 
-  .workshop__grid { grid-template-columns: 1fr; padding-right: 0; }
-  .workshop__photo img { border-radius: 0; aspect-ratio: 4 / 3; }
-  .workshop__text { padding-inline: var(--gutter); }
+  .workshop__grid { grid-template-columns: 1fr; }
+  .workshop__photo img { aspect-ratio: 4 / 3; }
 
   .footer__legal { margin-left: 0; }
 

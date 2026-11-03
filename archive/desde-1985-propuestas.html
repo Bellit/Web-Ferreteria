@@ -1,0 +1,354 @@
+<!-- Propuestas de animación para la sección «Desde 1985» que no se han usado, guardadas el 2026-11-03.
+     En la web está la F (las llaves de ayer a hoy). Nada de esto se publica.
+
+     A: contador mecánico sobre la foto, de 1985 al año actual.
+     B: una fresa recorre una tira de latón bajo el titular y talla 1·9·8·5.
+     C: etiqueta de papel colgada sobre la foto, que se balancea una vez.
+     D: sello redondo con el pino, que cae y se estampa sobre la foto.
+     E: persiana metálica que sube y descubre la foto.
+     G: de la foto antigua a la actual, con una línea de latón.
+
+     Para usar una: copia su función al módulo src/js/modules/since.js, llámala desde initSince y añade su CSS
+     al bloque «Taller» de src/styles/main.css. .workshop__photo necesita position: relative.
+     La G usa archive/img/mostrador-antiguo.jpg: hay que moverla a public/img/. Foto de neil kelly en Pexels,
+     https://www.pexels.com/photo/grey-steel-kitchenwares-735338/ -->
+
+<script type="text/plain" data-nota="Código de las propuestas, no se ejecuta">
+import { $ } from '../utils/dom.js';
+
+const OPENED = 1985;
+const reduce = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canAnimate = () => !reduce() && 'IntersectionObserver' in window;
+
+function whenSeen(node, run, threshold = 0.6) {
+  const io = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    io.disconnect();
+    run();
+  }, { threshold });
+  io.observe(node);
+}
+
+// A: un contador mecánico, con rodillos, que gira de 1985 al año actual
+function buildCounter(photo, year) {
+  const digits = Array.from({ length: 30 }, (_, i) => `<span>${i % 10}</span>`).join('');
+  const from = String(OPENED).split('').map(Number);
+  const to = String(year).split('').map(Number);
+
+  const plate = document.createElement('div');
+  plate.className = 'odo';
+  plate.innerHTML = `
+    <div class="odo__wheels" aria-hidden="true">
+      ${from.map((d) => `<span class="odo__wheel"><span class="odo__col" style="--at:${d}">${digits}</span></span>`).join('')}
+    </div>
+    <p class="odo__caption">${year - OPENED} años abiertos</p>`;
+  photo.append(plate);
+
+  const cols = [...plate.querySelectorAll('.odo__col')];
+  // Cuanto más a la derecha, más vueltas da el rodillo
+  const finish = () => cols.forEach((col, i) => {
+    const turns = [0, 0, 1, 2][i];
+    let at = to[i] + turns * 10;
+    if (at < from[i]) at += 10;
+    col.style.setProperty('--at', at);
+  });
+  if (canAnimate()) whenSeen(plate, finish);
+  else {
+    plate.classList.add('is-still');
+    finish();
+  }
+}
+
+// B: una tira de latón bajo el titular; una fresa la recorre de 1985 a hoy y talla 1·9·8·5
+const W = 560;
+const TOP = 46;
+const BOTTOM = 80;
+const R = 20;
+const CUTS = [[90, 1], [205, 9], [320, 8], [435, 5]];
+const HALF = 34;
+const FLAT = 8;
+const END = 505;
+const depth = (digit) => 3 + digit * 1.2;
+
+function edgeY(x) {
+  for (const [c, digit] of CUTS) {
+    const dx = Math.abs(x - c);
+    if (dx <= FLAT) return TOP + depth(digit);
+    if (dx < HALF) return TOP + depth(digit) * (HALF - dx) / (HALF - FLAT);
+  }
+  return TOP;
+}
+
+function sawPath(teeth = 16, outer = R, root = R - 4) {
+  const step = (Math.PI * 2) / teeth;
+  const at = (r, a) => `${(r * Math.cos(a)).toFixed(2)} ${(r * Math.sin(a)).toFixed(2)}`;
+  let d = '';
+  for (let i = 0; i < teeth; i++) d += `${i ? 'L' : 'M'}${at(outer, i * step)}L${at(root, i * step + step * 0.15)}`;
+  return `${d}Z`;
+}
+
+function buildCut(year) {
+  const profile = CUTS.map(([c, digit]) => `L${c - HALF} ${TOP}L${c - FLAT} ${TOP + depth(digit)}L${c + FLAT} ${TOP + depth(digit)}L${c + HALF} ${TOP}`).join('');
+  const top = `M0 ${TOP}${profile}L${END} ${TOP}`;
+
+  const box = document.createElement('div');
+  box.className = 'cutline';
+  box.innerHTML = `
+    <svg class="cutline__svg" viewBox="0 0 ${W} 86" aria-hidden="true">
+      <defs><clipPath id="cutline-done"><rect data-done x="0" y="0" width="0" height="86"/></clipPath></defs>
+      <path class="cutline__metal" d="${top}L${W} 66L${W - 12} ${BOTTOM}H0Z"/>
+      <path class="cutline__low" d="M0 ${BOTTOM - 5}H${W - 16}L${W - 12} ${BOTTOM}H0Z"/>
+      <path class="cutline__groove" d="M0 66H${END + 6}L${END + 14} 69L${END + 6} 72H0Z"/>
+      <path class="cutline__metal" data-uncut d="M0 ${TOP}H${END}L${END} ${TOP + 22}H0Z"/>
+      <path class="cutline__edge" clip-path="url(#cutline-done)" d="${top}"/>
+      <g class="cutline__mill" data-mill>
+        <line class="cutline__arm" x1="0" y1="-120" x2="0" y2="-${R - 4}"/>
+        <g data-wheel><path class="cutline__teeth" d="${sawPath()}"/><circle class="cutline__body" r="${R - 4}"/><circle class="cutline__bolt" r="2.5"/></g>
+      </g>
+    </svg>
+    <p class="cutline__years"><b>${OPENED}</b><span>${year - OPENED} años abiertos</span><b>${year}</b></p>`;
+  $('.workshop__text .h2').after(box);
+
+  const done = $('[data-done]', box);
+  const uncut = $('[data-uncut]', box);
+  const mill = $('[data-mill]', box);
+  const wheel = $('[data-wheel]', box);
+
+  const place = (x) => {
+    done.setAttribute('width', x);
+    uncut.style.clipPath = `inset(0 0 0 ${x}px)`;
+    mill.setAttribute('transform', `translate(${x} ${edgeY(x) - R - 1})`);
+  };
+
+  const finish = () => {
+    place(W);
+    mill.classList.add('is-parked');
+    box.classList.add('is-done');
+  };
+
+  place(0);
+  mill.classList.add('is-parked');
+  if (!canAnimate()) { finish(); return; }
+  whenSeen(box, () => {
+    mill.classList.remove('is-parked');
+    const start = performance.now();
+    const frame = (now) => {
+      const t = Math.min((now - start) / 2600, 1);
+      const eased = 0.5 - Math.cos(Math.PI * t) / 2;
+      place(END * eased);
+      wheel.setAttribute('transform', `rotate(${(now - start) * 0.7})`);
+      if (t < 1) requestAnimationFrame(frame);
+      else finish();
+    };
+    requestAnimationFrame(frame);
+  });
+}
+
+// C: una etiqueta de papel colgada de un gancho sobre la foto, que se balancea como las llaves del panel
+function buildTag(photo, year) {
+  const tag = document.createElement('div');
+  tag.className = 'since-tag';
+  tag.innerHTML = `
+    <span class="since-tag__hook" aria-hidden="true"></span>
+    <div class="since-tag__paper">
+      <b>${OPENED}</b>
+      <span>${year - OPENED} años abiertos</span>
+    </div>`;
+  photo.append(tag);
+  if (canAnimate()) whenSeen(tag, () => tag.classList.add('is-swaying'));
+}
+
+// D: un sello con el pino del logo que cae y se estampa sobre la foto
+function buildSeal(photo) {
+  const seal = document.createElement('div');
+  seal.className = 'seal';
+  seal.innerHTML = `
+    <svg viewBox="0 0 200 200" role="img" aria-label="Sello de Ferretería Pino, Canovelles, desde ${OPENED}">
+      <defs><path id="seal-ring" d="M100 100m-77 0a77 77 0 1 1 154 0a77 77 0 1 1-154 0"/></defs>
+      <circle class="seal__disc" cx="100" cy="100" r="98"/>
+      <circle class="seal__line" cx="100" cy="100" r="92"/>
+      <circle class="seal__line" cx="100" cy="100" r="62"/>
+      <text class="seal__ring"><textPath href="#seal-ring" textLength="478" lengthAdjust="spacing">FERRETERÍA PINO · CANOVELLES ·&#160;</textPath></text>
+      <g class="seal__pine" transform="translate(100 44) scale(0.3) translate(-335 -641)"><polygon points="335,641 375.5,714 294.5,714"/><polygon points="313,714 357,714 388,769 282,769"/><polygon points="308,769 362,769 400,835 270,835"/><rect x="321.5" y="834" width="27" height="28.5"/></g>
+      <text class="seal__year" x="100" y="146" text-anchor="middle">${OPENED}</text>
+    </svg>`;
+  photo.append(seal);
+
+  if (!canAnimate()) return;
+  seal.classList.add('is-waiting');
+  whenSeen(photo, () => {
+    seal.classList.remove('is-waiting');
+    seal.classList.add('is-stamped');
+  });
+}
+
+// E: la persiana metálica de la tienda tapa la foto y sube al llegar, como al abrir por la mañana
+function buildShutter(photo) {
+  if (!canAnimate()) return;
+  const shutter = document.createElement('div');
+  shutter.className = 'shutter';
+  shutter.setAttribute('aria-hidden', 'true');
+  shutter.innerHTML = '<p class="shutter__sign"><span>Ferretería</span><b>Pino</b><span>Desde 1985</span></p><span class="shutter__handle"></span>';
+  photo.append(shutter);
+  whenSeen(photo, () => shutter.classList.add('is-open'));
+}
+
+// G: el mostrador antiguo en blanco y negro, que una línea de latón va convirtiendo en el de hoy
+function buildThenNow(photo) {
+  if (!canAnimate()) return;
+  const now = document.createElement('span');
+  now.className = 'then-tag then-tag--now';
+  now.textContent = 'Hoy';
+  const then = document.createElement('div');
+  then.className = 'then';
+  then.setAttribute('aria-hidden', 'true');
+  then.innerHTML = `<img src="${import.meta.env.BASE_URL}img/mostrador-antiguo.jpg" alt="" width="1600" height="1064"><span class="then-tag">1985</span>`;
+  const line = document.createElement('span');
+  line.className = 'then-line';
+  photo.append(now, then, line);
+
+  const img = $('img', then);
+  const ready = img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+  ready.then(() => whenSeen(photo, () => photo.classList.add('is-turning')));
+}
+</script>
+
+<style>
+/* A: contador mecánico atornillado a la foto */
+.odo {
+  position: absolute; right: clamp(12px, 2vw, 28px); bottom: clamp(12px, 2vw, 28px);
+  display: grid; gap: 8px; justify-items: center;
+  padding: 12px 14px 10px;
+  background: var(--ink); color: var(--on-graphite);
+  border-radius: var(--radius);
+}
+.odo__wheels { display: flex; gap: 3px; }
+.odo__wheel {
+  display: block; overflow: hidden;
+  height: 1.2em; padding-inline: 0.16em;
+  background: var(--paper); color: var(--ink);
+  border-radius: 3px;
+  font-family: var(--f-display); font-weight: 750; font-size: clamp(1.75rem, 3vw, 2.75rem); line-height: 1.2;
+}
+.odo__col {
+  display: block;
+  transform: translateY(calc(var(--at) * -1.2em));
+  transition: transform 2.6s cubic-bezier(0.45, 0, 0.15, 1);
+}
+.odo.is-still .odo__col { transition: none; }
+.odo__col span { display: block; height: 1.2em; }
+.odo__caption { font-size: 0.88rem; font-weight: 600; }
+
+/* B: una fresa talla una tira de latón bajo el titular */
+.cutline { display: grid; gap: 6px; }
+.cutline__svg { display: block; width: 100%; height: auto; overflow: hidden; }
+.cutline__metal { fill: var(--brass); }
+.cutline__low { fill: var(--brass-lo); }
+.cutline__groove { fill: var(--brass-ink); }
+.cutline__edge { fill: none; stroke: var(--brass-glint); stroke-width: 2; stroke-linejoin: round; }
+.cutline__arm { stroke: var(--ink); stroke-width: 5; }
+.cutline__teeth { fill: var(--ink-2); }
+.cutline__body { fill: var(--nickel); }
+.cutline__bolt { fill: var(--ink); }
+.cutline__mill { transition: opacity 0.4s; }
+.cutline__mill.is-parked { opacity: 0; }
+.cutline__years {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  color: var(--ink-2); font-size: 0.95rem;
+}
+.cutline__years b { font-family: var(--f-display); font-weight: 750; font-size: 1.25rem; letter-spacing: -0.01em; color: var(--ink); }
+.cutline__years span, .cutline__years b:last-child { opacity: 0; transition: opacity 0.5s; }
+.cutline.is-done .cutline__years span, .cutline.is-done .cutline__years b:last-child { opacity: 1; }
+
+/* C: etiqueta de papel colgada de un gancho sobre la foto (usa @keyframes sway del panel) */
+.since-tag {
+  position: absolute; top: 0; right: clamp(16px, 4vw, 56px);
+  display: flex; flex-direction: column; align-items: center;
+  transform-origin: 50% 0;
+}
+.since-tag.is-swaying { animation: sway 2.2s var(--ease-out) both; }
+.since-tag__hook {
+  width: 8px; height: 30px; border-radius: 0 0 4px 4px;
+  background: var(--ink);
+  position: relative; z-index: 2;
+}
+.since-tag__paper {
+  display: grid; justify-items: center; gap: 2px;
+  margin-top: -12px; padding: 20px 16px 12px;
+  background: var(--paper); color: var(--ink-2);
+  border: 1px solid var(--rule); border-radius: 4px 4px 8px 8px;
+  filter: drop-shadow(0 8px 6px rgb(29 42 52 / 0.28));
+  font-size: 0.82rem; font-weight: 550; text-align: center;
+}
+.since-tag__paper b { font-family: var(--f-display); font-weight: 750; font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); }
+
+/* D: sello con el pino del logo, que cae y se estampa */
+.seal {
+  position: absolute; right: clamp(12px, 2.4vw, 32px); bottom: clamp(12px, 2.4vw, 32px);
+  width: clamp(104px, 12vw, 164px);
+  transform: rotate(-8deg);
+}
+.seal svg { display: block; width: 100%; height: auto; }
+.seal__disc { fill: var(--paper); }
+.seal__line { fill: none; stroke: var(--ink-2); stroke-width: 1.5; }
+.seal__ring { font-family: var(--f-display); font-weight: 700; font-size: 15.5px; letter-spacing: 1px; fill: var(--ink-2); }
+.seal__pine { fill: var(--pine); }
+.seal__year { font-family: var(--f-display); font-weight: 800; font-size: 34px; letter-spacing: -0.5px; fill: var(--ink-2); }
+.seal.is-waiting { opacity: 0; }
+.seal.is-stamped { animation: stamp 0.55s cubic-bezier(0.3, 0, 0.2, 1) both; }
+@keyframes stamp {
+  0% { opacity: 0; transform: rotate(-18deg) scale(1.9); }
+  55% { opacity: 1; transform: rotate(-8deg) scale(0.94); }
+  78% { transform: rotate(-8deg) scale(1.03); }
+  100% { opacity: 1; transform: rotate(-8deg) scale(1); }
+}
+
+/* E: la persiana metálica sube y descubre la tienda */
+.shutter {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  background: repeating-linear-gradient(var(--nickel) 0 15px, var(--nickel-lo) 15px 17px);
+}
+.shutter.is-open { animation: shutter-up 2s cubic-bezier(0.55, 0, 0.2, 1) both; }
+.shutter__sign {
+  display: grid; justify-items: center;
+  padding: clamp(10px, 1.6vw, 20px) clamp(20px, 3vw, 40px);
+  background: var(--ground); color: var(--ink-2);
+  border-radius: var(--radius);
+  font-family: var(--f-display); text-align: center;
+}
+.shutter__sign span { font-weight: 700; font-size: clamp(0.72rem, 1vw, 0.95rem); letter-spacing: 0.14em; text-transform: uppercase; }
+.shutter__sign b { font-weight: 800; font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -0.03em; }
+.shutter__handle {
+  position: absolute; bottom: 14px; left: 50%; translate: -50% 0;
+  width: 64px; height: 8px; border-radius: 4px; background: var(--ink);
+}
+@keyframes shutter-up {
+  0% { transform: translateY(0); }
+  10% { transform: translateY(-5%); }
+  20% { transform: translateY(-5%); }
+  100% { transform: translateY(-101%); }
+}
+
+/* G: del mostrador antiguo al de hoy; una línea de latón hace la transición */
+.then { position: absolute; inset: 0; }
+.then img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; filter: grayscale(1); }
+.then-tag {
+  position: absolute; left: 12px; bottom: 12px;
+  padding: 6px 10px; border-radius: 4px;
+  background: var(--ink); color: var(--on-graphite);
+  font-family: var(--f-display); font-weight: 700; font-size: 0.95rem;
+}
+.then-line { position: absolute; top: 0; bottom: 0; left: 0; width: 3px; margin-left: -1.5px; background: var(--brass-hi); opacity: 0; }
+.workshop__photo.is-turning .then { animation: then-wipe 2.6s cubic-bezier(0.65, 0, 0.35, 1) 0.7s both; }
+.workshop__photo.is-turning .then-line { animation: then-line 2.6s cubic-bezier(0.65, 0, 0.35, 1) 0.7s both; }
+@keyframes then-wipe {
+  from { clip-path: inset(0 0 0 0); }
+  to { clip-path: inset(0 0 0 100%); }
+}
+@keyframes then-line {
+  0% { left: 0; opacity: 1; }
+  96% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+</style>
