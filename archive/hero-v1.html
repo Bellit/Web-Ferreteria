@@ -1,0 +1,232 @@
+<!-- Copia del hero con la llave a todo el ancho, guardada el 2026-11-03 antes de probar versiones más pequeñas.
+     No se usa en la web: para volver a él, cambia la sección #inicio de index.html por este HTML y el bloque
+     «Inicio» de src/styles/main.css por el CSS de abajo. El JS es src/js/modules/key-cutter.js del commit ba1b1f2. -->
+
+<section id="inicio" class="hero" aria-labelledby="hero-title">
+      <div class="hero__top wrap">
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__title-pre">Ferretería</span>
+          <span class="hero__title-name">Pino</span>
+        </h1>
+
+        <div class="hero__aside">
+          <p class="hero__lede">Copias de llaves al momento y todo para mejorar y reparar tu casa. Ferretería de proximidad en Canovelles desde 1985.</p>
+
+          <p class="status" data-status aria-live="polite">
+            <span class="status__dot" aria-hidden="true"></span>
+            <span class="status__text">Lun–Vie 9:30–13:30 y 17:00–20:00 · Sáb 9:00–13:30</span>
+          </p>
+
+          <address class="hero__address">C/ Pino, 35 · 08420 Canovelles (Barcelona)</address>
+
+          <div class="hero__actions">
+            <a class="btn btn--brass" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ferreteria+Pino+Canovelles" target="_blank" rel="noopener">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              Cómo llegar
+            </a>
+            <a class="btn btn--line" href="https://wa.me/34938495250" target="_blank" rel="noopener">
+              <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5 5.6 16A8 8 0 1 1 8.4 18.6Z"/><path d="M9.2 8.6c.3 2.6 2.4 4.9 5.2 5.4l.9-1.3 1.8.8-.4 1.6c-3.9.3-8.4-3.6-8.6-7.6l1.6-.5.9 1.8Z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <figure class="cutter" data-cutter>
+        <svg class="cutter__svg" viewBox="0 -40 1587 340" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="key-desc" data-key-svg>
+          <desc id="key-desc">Una llave de latón con el corte 1-9-8-5, el año en que abrió la ferretería.</desc>
+          <defs>
+            <clipPath id="uncut-clip"><rect data-uncut-rect x="1600" y="-40" width="1600" height="340"/></clipPath>
+            <!-- la luz viene de arriba a la izquierda: esta parte del canto de la cabeza queda iluminada -->
+            <clipPath id="bow-lit-clip"><path d="M0 250 450 90V-40H0Z"/></clipPath>
+            <g id="key-pine-shape">
+              <polygon points="335,641 375.5,714 294.5,714"/><polygon points="313,714 357,714 388,769 282,769"/><polygon points="308,769 362,769 400,835 270,835"/><rect x="321.5" y="834" width="27" height="28.5"/>
+            </g>
+          </defs>
+
+          <!-- cabeza: canto biselado, cara y filete grabado -->
+          <g class="key__bow">
+            <path class="key__rim-lo" d="M22 165C22 90 72 40 150 40H270C330 40 350 92 385 92V238C350 238 330 290 270 290H150C72 290 22 240 22 165Z"/>
+            <path class="key__rim-hi" clip-path="url(#bow-lit-clip)" d="M22 165C22 90 72 40 150 40H270C330 40 350 92 385 92V238C350 238 330 290 270 290H150C72 290 22 240 22 165Z"/>
+            <path class="key__metal" d="M31 165C31 96 78 49 150 49H270C323 49 345 101 385 101V229C345 229 323 281 270 281H150C78 281 31 234 31 165Z"/>
+            <path class="key__pinstripe" d="M43 165C43 103 85 61 150 61H270C317 61 340 113 372 113V217C340 217 317 269 270 269H150C85 269 43 227 43 165Z"/>
+
+            <!-- ojal: arandela biselada y grosor del metal visto por dentro -->
+            <circle class="key__rim-lo" cx="98" cy="165" r="47"/>
+            <circle class="key__rim-hi" cx="98" cy="165" r="44"/>
+            <circle class="key__rim-lo" cx="98" cy="165" r="38"/>
+            <circle class="key__hole" cx="98" cy="165" r="34"/>
+            <path class="key__recess" d="M64 165A34 34 0 0 1 132 165A36 28 0 0 0 64 165Z"/>
+
+            <!-- el pino del logo y el nombre, grabados en el latón -->
+            <use class="key__engrave-lit" href="#key-pine-shape" transform="translate(53.43 -263.8) scale(0.542)"/>
+            <use class="key__pine" href="#key-pine-shape" transform="translate(53.43 -265.42) scale(0.542)"/>
+            <text class="key__stamp key__engrave-lit" x="235" y="249.6" text-anchor="middle">PINO</text>
+            <text class="key__stamp" x="235" y="248" text-anchor="middle">PINO</text>
+
+            <!-- cuello torneado -->
+            <path class="key__rim-lo" d="M385 92H412L428 110V230L412 238H385Z"/>
+            <path class="key__rim-hi" d="M385 92H392V238H385Z"/>
+            <path class="key__metal" d="M392 92H400V238H392Z"/>
+            <path class="key__recess" d="M400 92H404V238H400Z"/>
+            <path class="key__rim-hi" d="M404 92H409V238H404Z"/>
+          </g>
+
+          <!-- paleta: perfil cortado + material sin cortar -->
+          <path class="key__metal" data-blade d="M428 110H1480L1565 180L1540 230H428Z"/>
+          <path class="key__rim-lo" data-bevel/>
+          <path class="key__recess" data-groove/>
+          <path class="key__rim-hi" data-groove-lit/>
+          <path class="key__rim-lo" data-groove-fine/>
+          <path class="key__rim-hi" data-tip-top/>
+          <path class="key__rim-lo" data-tip-low/>
+          <path class="key__rim-hi" data-chamfer/>
+          <path class="key__metal key__uncut" data-uncut clip-path="url(#uncut-clip)" d="M428 110H1480V110H428Z"/>
+          <path class="key__edge" data-edge d="M428 110H1480"/>
+
+          <!-- virutas -->
+          <g class="key__chips" data-chips></g>
+
+          <!-- fresa -->
+          <g class="mill" data-mill transform="translate(-200 0)">
+            <line class="mill__arm" x1="0" y1="-400" x2="0" y2="-84"/>
+            <g data-mill-wheel>
+              <path class="mill__teeth" data-mill-teeth/>
+              <circle class="mill__body" r="50"/>
+              <circle class="mill__ring" r="36"/>
+              <circle class="mill__vent" cx="25" cy="0" r="5"/><circle class="mill__vent" cx="-12.5" cy="21.65" r="5"/><circle class="mill__vent" cx="-12.5" cy="-21.65" r="5"/>
+            </g>
+            <path class="mill__fork" d="M-13 -90H13V-78H7L9 0A9 9 0 0 1-9 0L-7-78H-13Z"/>
+            <circle class="mill__bolt" r="4"/>
+          </g>
+        </svg>
+
+        <div class="cutter__caption wrap">
+          <button class="cutter__again" type="button" data-cut-again>
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg>
+            Cortar otra llave
+          </button>
+        </div>
+      </figure>
+    </section>
+
+<style>
+/* ─── Inicio ───────────────────────────────────────────── */
+.hero {
+  min-height: calc(100svh - var(--rail-h));
+  display: grid; grid-template-rows: 1fr auto;
+  padding-bottom: clamp(20px, 3vh, 36px);
+  overflow: hidden;
+}
+
+.hero__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(24px, 4vw, 64px);
+  padding-top: clamp(24px, 5vh, 64px);
+}
+
+.hero__title {
+  font-family: var(--f-display);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+}
+/* Como en el logo: «FERRETERÍA» pequeño y espaciado sobre un nombre enorme */
+.hero__title-pre {
+  display: block;
+  font-size: clamp(1.15rem, 2.5vw, 2.3rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  margin-bottom: 0.35em;
+  margin-left: 0.08em;
+}
+.hero__title-name {
+  display: block;
+  font-size: clamp(6rem, 17vw, 15rem);
+  margin-left: -0.05em;
+}
+
+.hero__aside {
+  display: grid; gap: 18px; justify-items: start;
+  padding-bottom: clamp(8px, 2vw, 28px);
+}
+.hero__lede {
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  line-height: 1.38; font-weight: 500;
+  max-width: 26ch; text-wrap: pretty;
+}
+.hero__address { color: var(--ink-2); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+
+/* La llave */
+.cutter { margin-top: clamp(16px, 4vh, 48px); }
+.cutter__svg {
+  display: block; width: 100%; height: auto;
+  max-height: 40vh;
+  overflow: hidden;
+}
+
+.key__metal { fill: var(--brass); }
+.key__uncut { stroke: var(--brass); stroke-width: 2; stroke-linejoin: round; }
+.key__rim-hi { fill: var(--brass-hi); }
+.key__rim-lo { fill: var(--brass-lo); }
+.key__recess { fill: var(--brass-ink); }
+.key__hole { fill: var(--ground); }
+.key__pinstripe { fill: none; stroke: var(--brass-lo); stroke-width: 2; }
+.key__edge { fill: none; stroke: var(--brass-glint); stroke-width: 2.5; stroke-linejoin: round; }
+.key__pine { fill: var(--brass-lo); }
+.key__stamp {
+  font-family: var(--f-display); font-weight: 800; font-size: 44px;
+  letter-spacing: 1px; fill: var(--brass-lo);
+}
+/* El brillo bajo el grabado, para que se lea hundido en el metal */
+.key__engrave-lit { fill: var(--brass-hi); }
+.key__chips rect { fill: var(--brass-hi); }
+
+.mill__arm { stroke: var(--ink); stroke-width: 14; stroke-linecap: square; }
+.mill__teeth { fill: var(--ink-2); }
+.mill__body { fill: var(--nickel); }
+.mill__ring { fill: none; stroke: var(--nickel-lo); stroke-width: 2; }
+.mill__vent { fill: var(--nickel-lo); }
+.mill__fork { fill: var(--ink); }
+.mill__bolt { fill: var(--nickel); }
+.mill { transition: opacity 0.4s; }
+.mill.is-parked { opacity: 0; }
+
+.cutter__caption {
+  display: flex; align-items: center; justify-content: flex-end; gap: 8px 28px; flex-wrap: wrap;
+  margin-top: 14px; color: var(--ink-2); font-size: 0.98rem;
+}
+.cutter__again {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 4px;
+  background: none; border: 0; font-weight: 600; color: var(--ink);
+  text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 0.3em; text-decoration-thickness: 2px;
+}
+.cutter__again:hover .i { transform: rotate(-90deg); }
+.cutter__again .i { transition: transform 0.5s var(--ease-out); }
+.cutter__again:disabled { opacity: 0.5; cursor: progress; }
+
+/* Dentro de @media (max-width: 860px) */
+@media (max-width: 860px) {
+  .hero { min-height: auto; }
+  .hero__top { grid-template-columns: 1fr; gap: 22px; padding-top: 28px; }
+  .hero__title-name { font-size: clamp(6rem, 33vw, 11rem); }
+  .hero__aside { padding-bottom: 0; }
+  .hero__actions { width: 100%; }
+  .hero__actions .btn { flex: 1 1 0; }
+  .cutter { margin-top: 28px; }
+  .cutter__svg { max-height: none; }
+}
+</style>
+
+<!-- En key-cutter.js, la paleta larga solo en escritorio:
+const LAYOUTS = {
+  wide:   { cuts: [560, 800, 1040, 1280], half: 80, flat: 12, end: 1480 },
+  narrow: { cuts: [500, 625, 750, 875],   half: 52, flat: 10, end: 960 },
+};
+-->

@@ -254,21 +254,16 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 
 /* ─── Inicio ───────────────────────────────────────────── */
 .hero {
-  min-height: calc(100svh - var(--rail-h));
-  display: grid; grid-template-rows: 1fr auto;
-  padding-bottom: clamp(20px, 3vh, 36px);
-  overflow: hidden;
-}
-
-.hero__top {
+  --hero-name: clamp(6rem, 17vw, 15rem);
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  align-items: end;
-  gap: clamp(24px, 4vw, 64px);
-  padding-top: clamp(24px, 5vh, 64px);
+  grid-template-areas: "title aside" "cutter aside";
+  column-gap: clamp(24px, 4vw, 64px);
+  padding-block: clamp(32px, 7vh, 80px) clamp(24px, 5vh, 56px);
 }
 
 .hero__title {
+  grid-area: title;
   font-family: var(--f-display);
   font-weight: 800;
   line-height: 0.8;
@@ -287,13 +282,15 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 }
 .hero__title-name {
   display: block;
-  font-size: clamp(6rem, 17vw, 15rem);
+  font-size: var(--hero-name);
   margin-left: -0.05em;
 }
 
+/* La base de los botones cae a la altura de la base de la llave */
 .hero__aside {
+  grid-area: aside; align-self: end;
   display: grid; gap: 18px; justify-items: start;
-  padding-bottom: clamp(8px, 2vw, 28px);
+  padding-bottom: 58px;
 }
 .hero__lede {
   font-size: clamp(1.2rem, 1.8vw, 1.5rem);
@@ -303,13 +300,13 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .hero__address { color: var(--ink-2); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
 
-/* La llave */
-.cutter { margin-top: clamp(16px, 4vh, 48px); }
-.cutter__svg {
-  display: block; width: 100%; height: auto;
-  max-height: 40vh;
-  overflow: hidden;
+/* La llave: firma el nombre, con su mismo ancho */
+.cutter {
+  grid-area: cutter;
+  width: calc(var(--hero-name) * 2.42); max-width: 100%;
+  margin-left: calc(var(--hero-name) * -0.02);
 }
+.cutter__svg { display: block; width: 100%; height: auto; overflow: hidden; }
 
 .key__metal { fill: var(--brass); }
 .key__uncut { stroke: var(--brass); stroke-width: 2; stroke-linejoin: round; }
@@ -339,8 +336,8 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .mill.is-parked { opacity: 0; }
 
 .cutter__caption {
-  display: flex; align-items: center; justify-content: flex-end; gap: 8px 28px; flex-wrap: wrap;
-  margin-top: 14px; color: var(--ink-2); font-size: 0.98rem;
+  display: flex; align-items: center; gap: 8px 28px; flex-wrap: wrap;
+  margin: 6px 0 0 2%; color: var(--ink-2); font-size: 0.98rem;
 }
 .cutter__again {
   display: inline-flex; align-items: center; gap: 8px;
@@ -758,14 +755,17 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   .brand__logo { height: 40px; }
   body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 
-  .hero { min-height: auto; }
-  .hero__top { grid-template-columns: 1fr; gap: 22px; padding-top: 28px; }
-  .hero__title-name { font-size: clamp(6rem, 33vw, 11rem); }
-  .hero__aside { padding-bottom: 0; }
+  .hero {
+    --hero-name: clamp(6rem, 33vw, 11rem);
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "title" "cutter" "aside";
+    padding-block: 28px 32px;
+  }
+  .hero__aside { margin-top: 18px; padding-bottom: 0; }
   .hero__actions { width: 100%; }
   .hero__actions .btn { flex: 1 1 0; }
-  .cutter { margin-top: 28px; }
-  .cutter__svg { max-height: none; }
+  .cutter { width: auto; margin: 8px 0 0; }
+  .cutter__caption { margin-left: 0; }
 
   .keys__intro, .catalog__body, .services__grid, .visit__grid { grid-template-columns: 1fr; }
   .keys__intro .h2 { grid-row: auto; }

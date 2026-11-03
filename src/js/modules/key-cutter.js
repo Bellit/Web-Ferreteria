@@ -7,21 +7,18 @@ import { $ } from '../utils/dom.js';
 const NS = 'http://www.w3.org/2000/svg';
 const TOP = 110;           // canto superior de la paleta sin cortar
 const START = 428;         // donde empieza la paleta
-let END;                   // donde empieza la punta (depende de la disposición)
+const END = 960;           // donde empieza la punta
 const WHEEL = 62;
 
-// Escritorio: cortes amplios a lo largo de una paleta larga. Móvil: cortes juntos y paleta corta,
-// como una llave real, para que la llave entera quepa a buen tamaño.
+// Cortes juntos y paleta corta, como una llave real.
 // El dibujo deja sitio arriba para la fresa completa (y = -40) y va de la cabeza a la punta,
 // con el mismo margen a cada lado para que la llave quede centrada.
 const VIEW_TOP = -40;
 const VIEW_H = 340;
 const TIP = 85;            // largo de la punta, desde END
-const LAYOUTS = {
-  wide:   { cuts: [560, 800, 1040, 1280], half: 80, flat: 12, end: 1480 },
-  narrow: { cuts: [500, 625, 750, 875],   half: 52, flat: 10, end: 960 },
-};
-let CUTS, HALF, FLAT;
+const CUTS = [500, 625, 750, 875];
+const HALF = 52;
+const FLAT = 10;
 const DURATION = 2900;
 
 const depth = (digit) => 8 + digit * 6;
@@ -100,14 +97,6 @@ export function initKeyCutter() {
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  const narrow = window.matchMedia('(max-width: 860px)');
-  const useLayout = () => {
-    const l = narrow.matches ? LAYOUTS.narrow : LAYOUTS.wide;
-    ({ cuts: CUTS, half: HALF, flat: FLAT, end: END } = l);
-    // La cabeza empieza en x = 22: el mismo margen tras la punta
-    svg.setAttribute('viewBox', `0 ${VIEW_TOP} ${END + TIP + 22} ${VIEW_H}`);
-  };
-  useLayout();
   let running = false;
 
   function setup(code) {
@@ -214,13 +203,6 @@ export function initKeyCutter() {
   let lastCode = first;
   setup(first);
   place(START - 20, first);
-
-  narrow.addEventListener('change', () => {
-    if (running) return;
-    useLayout();
-    setup(lastCode);
-    finish();
-  });
 
   again?.addEventListener('click', () => {
     if (running) return;
