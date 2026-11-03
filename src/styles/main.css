@@ -472,7 +472,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: 22px clamp(32px, 5vw, 80px);
-  align-items: start;
+  align-items: end;
   margin-bottom: clamp(32px, 4vw, 48px);
 }
 
