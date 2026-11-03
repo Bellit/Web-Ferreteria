@@ -59,8 +59,8 @@
       <nav class="nav" aria-label="Principal">
         <ul class="nav__list" data-nav>
           <li><a href="#llaves" class="nav__link">Llaves</a></li>
-          <li><a href="#catalogo" class="nav__link">Catálogo</a></li>
           <li><a href="#servicios" class="nav__link">Servicios</a></li>
+          <li><a href="#catalogo" class="nav__link">Catálogo</a></li>
           <li><a href="#taller" class="nav__link">Taller</a></li>
           <li><a href="#visitanos" class="nav__link">Visítanos</a></li>
         </ul>
@@ -81,8 +81,8 @@
     <div class="menu" id="menu" hidden data-menu>
       <ul class="menu__list">
         <li><a href="#llaves">Llaves</a></li>
-        <li><a href="#catalogo">Catálogo</a></li>
         <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
         <li><a href="#taller">Taller</a></li>
         <li><a href="#visitanos">Visítanos</a></li>
       </ul>
@@ -200,9 +200,7 @@
     </section>
 
     <!-- ─── Llaves: el panel ──────────────────────────────── -->
-    <div class="bitting" aria-hidden="true"></div>
-
-    <section id="llaves" class="keys" aria-labelledby="keys-title">
+    <section id="llaves" class="keys has-cut" aria-labelledby="keys-title">
       <div class="wrap keys__grid">
         <div class="keys__intro">
           <h2 class="h2" id="keys-title">Copiamos casi cualquier llave.</h2>
@@ -337,43 +335,8 @@
       </div>
     </section>
 
-    <!-- ─── Catálogo ──────────────────────────────────────── -->
-    <div class="bitting" aria-hidden="true"></div>
-
-    <section id="catalogo" class="catalog" aria-labelledby="catalog-title">
-      <div class="wrap">
-        <div class="catalog__head">
-          <h2 class="h2" id="catalog-title">Lo que hay en el mostrador.</h2>
-          <p class="lead">Una muestra de lo que tenemos. Si no lo ves aquí, pregúntanos.</p>
-        </div>
-
-        <div class="filters" role="tablist" aria-label="Filtrar por sección" data-filters>
-          <button class="filter" role="tab" aria-selected="true" data-filter="todas">Todo</button>
-          <button class="filter" role="tab" aria-selected="false" data-filter="herramientas">Herramientas</button>
-          <button class="filter" role="tab" aria-selected="false" data-filter="pinturas">Pintura</button>
-          <button class="filter" role="tab" aria-selected="false" data-filter="fontaneria">Fontanería</button>
-          <button class="filter" role="tab" aria-selected="false" data-filter="electricidad">Electricidad</button>
-          <button class="filter" role="tab" aria-selected="false" data-filter="llaves">Llaves</button>
-        </div>
-
-        <div class="catalog__body">
-          <figure class="shelf-photo" data-shelf-photo>
-            <img src="/img/llaves-panel.jpg" alt="Llaves vírgenes colgadas en ganchos sobre un panel" width="1600" height="2000" loading="lazy" data-shelf-img>
-            <figcaption data-shelf-caption>Todo cuelga de su gancho y tiene su código.</figcaption>
-          </figure>
-
-          <div class="ledger">
-            <p class="ledger__count" aria-live="polite" data-count>20 artículos</p>
-            <ol class="ledger__list" id="productos" data-products></ol>
-            <button class="btn btn--line ledger__more" type="button" hidden data-more>Ver los 20 artículos</button>
-            <p class="ledger__note">¿Quieres saber un precio o si lo tenemos? <a href="tel:+34938495250">Llámanos</a>, escríbenos por <a href="https://wa.me/34938495250" target="_blank" rel="noopener">WhatsApp</a> o pásate por la tienda.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ─── Servicios ─────────────────────────────────────── -->
-    <section id="servicios" class="services" aria-labelledby="services-title">
+    <section id="servicios" class="services has-cut" aria-labelledby="services-title">
       <div class="wrap services__grid">
         <h2 class="h2 services__title" id="services-title">Más que vender tornillos.</h2>
 
@@ -423,6 +386,39 @@
             <dd>Gracias a Cadena88 tenemos un amplio surtido y un gran stock. <a href="https://www.cadena88.com/es/catalogos-y-ofertas-vigentes" target="_blank" rel="noopener">Mira el folleto de temporada</a>.</dd>
           </div>
         </dl>
+      </div>
+    </section>
+
+    <!-- ─── Catálogo ──────────────────────────────────────── -->
+    <section id="catalogo" class="catalog" aria-labelledby="catalog-title">
+      <div class="wrap">
+        <div class="catalog__head">
+          <h2 class="h2" id="catalog-title">Lo que hay en el mostrador.</h2>
+          <p class="lead">Una muestra de lo que tenemos. Si no lo ves aquí, pregúntanos.</p>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Filtrar por sección" data-filters>
+          <button class="filter" role="tab" aria-selected="true" data-filter="todas">Todo</button>
+          <button class="filter" role="tab" aria-selected="false" data-filter="herramientas">Herramientas</button>
+          <button class="filter" role="tab" aria-selected="false" data-filter="pinturas">Pintura</button>
+          <button class="filter" role="tab" aria-selected="false" data-filter="fontaneria">Fontanería</button>
+          <button class="filter" role="tab" aria-selected="false" data-filter="electricidad">Electricidad</button>
+          <button class="filter" role="tab" aria-selected="false" data-filter="llaves">Llaves</button>
+        </div>
+
+        <div class="catalog__body">
+          <figure class="shelf-photo" data-shelf-photo>
+            <img src="/img/llaves-panel.jpg" alt="Llaves vírgenes colgadas en ganchos sobre un panel" width="1600" height="2000" loading="lazy" data-shelf-img>
+            <figcaption data-shelf-caption>Todo cuelga de su gancho y tiene su código.</figcaption>
+          </figure>
+
+          <div class="ledger">
+            <p class="ledger__count" aria-live="polite" data-count>20 artículos</p>
+            <ol class="ledger__list" id="productos" data-products></ol>
+            <button class="btn btn--line ledger__more" type="button" hidden data-more>Ver los 20 artículos</button>
+            <p class="ledger__note">¿Quieres saber un precio o si lo tenemos? <a href="tel:+34938495250">Llámanos</a>, escríbenos por <a href="https://wa.me/34938495250" target="_blank" rel="noopener">WhatsApp</a> o pásate por la tienda.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -508,7 +504,7 @@
     </section>
 
     <!-- ─── Visítanos ─────────────────────────────────────── -->
-    <section id="visitanos" class="visit" aria-labelledby="visit-title">
+    <section id="visitanos" class="visit has-cut" aria-labelledby="visit-title">
       <div class="wrap visit__grid">
         <div class="visit__head">
           <div class="visit__name">

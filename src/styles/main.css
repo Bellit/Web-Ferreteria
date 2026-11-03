@@ -47,6 +47,8 @@
   /* Ritmo */
   --gutter: clamp(16px, 4vw, 48px);
   --section: clamp(88px, 12vw, 168px);
+  --band: clamp(56px, 7vw, 96px);   /* a cada lado de un cambio de fondo */
+  --step: clamp(40px, 4.2vw, 60px); /* a cada lado entre secciones del mismo fondo */
   --rail-h: 68px;
   --radius: 6px;
 
@@ -122,6 +124,15 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   stroke-linecap: round; stroke-linejoin: round;
 }
 .i--lg { width: 26px; height: 26px; }
+
+/* ─── Cambio de zona: el borde superior está cortado como una llave ─ */
+.has-cut { --cut: var(--ground); position: relative; }
+.has-cut::before {
+  content: ''; position: absolute; left: 0; right: 0; top: -23px; height: 24px;
+  background: var(--cut);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24'%3E%3Cpath d='M0 24V4H40L72 20H88L120 4H150L166 13H178L194 4H240V24Z'/%3E%3C/svg%3E") repeat-x left bottom;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24'%3E%3Cpath d='M0 24V4H40L72 20H88L120 4H150L166 13H178L194 4H240V24Z'/%3E%3C/svg%3E") repeat-x left bottom;
+}
 
 /* ─── Tipos ────────────────────────────────────────────── */
 /* Los titulares llevan el azul pizarra del logo; en la pared del fondo, el claro */
@@ -259,7 +270,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
   grid-template-areas: "title aside" "cutter aside";
   column-gap: clamp(24px, 4vw, 64px);
-  padding-block: clamp(32px, 7vh, 80px) clamp(24px, 5vh, 56px);
+  padding-block: clamp(32px, 7vh, 80px) var(--band);
 }
 
 .hero__title {
@@ -350,7 +361,16 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .cutter__again:disabled { opacity: 0.5; cursor: progress; }
 
 /* ─── Llaves: el panel ─────────────────────────────────── */
-.keys { padding-block: var(--section); }
+/* Toda la sección es el panel perforado */
+.keys {
+  --cut: var(--ground-2);
+  padding-block: var(--band);
+  background-color: var(--ground-2);
+  background-image: radial-gradient(circle at center, var(--ground-3) 2.6px, transparent 3.2px);
+  background-size: 30px 30px;
+  background-position: 15px 15px;
+}
+.keys .note { color: var(--ink-2); }
 .keys__grid { display: grid; gap: clamp(28px, 3.5vw, 48px); }
 .keys__intro {
   display: grid;
@@ -367,14 +387,6 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 }
 .keys__note { max-width: none; }
 
-.board {
-  background-color: var(--ground-2);
-  background-image: radial-gradient(circle at center, var(--ground-3) 2.6px, transparent 3.2px);
-  background-size: 30px 30px;
-  background-position: 15px 15px;
-  border-radius: var(--radius);
-  padding: clamp(28px, 4vw, 48px) clamp(16px, 3vw, 40px) clamp(24px, 3vw, 36px);
-}
 .board__list {
   --cols: 10;
   display: flex; flex-wrap: wrap; justify-content: center;
@@ -455,9 +467,12 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 }
 
 /* ─── Catálogo ─────────────────────────────────────────── */
-.catalog { padding-block: var(--section); }
+.catalog { padding-block: var(--step); }
 .catalog__head {
-  display: flex; align-items: end; justify-content: space-between; gap: 24px 48px; flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 22px clamp(32px, 5vw, 80px);
+  align-items: start;
   margin-bottom: clamp(32px, 4vw, 48px);
 }
 
@@ -555,14 +570,9 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .ledger__note a:hover { text-decoration-thickness: 2px; }
 
 /* Separador: el perfil dentado de una llave */
-.bitting {
-  height: 24px;
-  margin-inline: var(--gutter);
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24'%3E%3Cpath d='M0 4H40L72 20H88L120 4H150L166 13H178L194 4H240' fill='none' stroke='%2384888c' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") repeat-x left center;
-}
 
 /* ─── Servicios ────────────────────────────────────────── */
-.services { padding-block: var(--section); }
+.services { padding-block: var(--band) var(--step); }
 .services__grid { display: grid; gap: clamp(28px, 3.5vw, 48px); }
 .services__list {
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -612,7 +622,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 }
 
 /* ─── Taller ───────────────────────────────────────────── */
-.workshop { padding-bottom: var(--section); }
+.workshop { padding-block: var(--step) var(--band); }
 .workshop__grid {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
@@ -669,16 +679,9 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   --graphite-2: #456074;
   --graphite-rule: #5f7788;
   --on-graphite-2: #d3dbe0;
-  position: relative;
+  --cut: var(--graphite);
   background: var(--graphite); color: var(--on-graphite);
-  padding-block: var(--section);
-}
-/* El borde superior del cierre está cortado como una llave */
-.visit::before {
-  content: ''; position: absolute; left: 0; right: 0; top: -23px; height: 24px;
-  background: var(--graphite);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24'%3E%3Cpath d='M0 24V4H40L72 20H88L120 4H150L166 13H178L194 4H240V24Z'/%3E%3C/svg%3E") repeat-x left bottom;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24'%3E%3Cpath d='M0 24V4H40L72 20H88L120 4H150L166 13H178L194 4H240V24Z'/%3E%3C/svg%3E") repeat-x left bottom;
+  padding-block: var(--band);
 }
 .visit ::selection { background: var(--brass); color: var(--ink); }
 .visit :focus-visible { outline-color: var(--brass-hi); }
@@ -700,6 +703,28 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   color: var(--brass-hi);
 }
 .visit__week { grid-column: 1 / -1; display: grid; gap: 18px; }
+/* El cartel de la puerta: cuelga de la pared de arriba y cruza el corte */
+@media (min-width: 861px) {
+  .visit__head .status--dark {
+    position: relative; align-self: flex-start;
+    padding: 12px 16px;
+    background: var(--paper); color: var(--ink-2);
+    border: 1px solid var(--rule); border-radius: 4px 4px 8px 8px;
+    filter: drop-shadow(0 8px 6px rgb(29 42 52 / 0.32));
+  }
+  .visit__head .status--dark strong { color: var(--ink); }
+  .visit__head .status--dark .status__dot { outline: 0; }
+  .visit__head .status--dark::before {
+    content: ''; position: absolute; left: 50%; bottom: 100%;
+    width: 1.5px; height: calc(var(--band) + 34px); margin-left: -0.75px;
+    background: var(--nickel-lo);
+  }
+  .visit__head .status--dark::after {
+    content: ''; position: absolute; left: 50%; bottom: calc(100% + var(--band) + 26px);
+    width: 8px; height: 18px; margin-left: -4px; border-radius: 4px;
+    background: var(--ink);
+  }
+}
 .visit__where { display: grid; gap: 16px; align-content: start; }
 
 .hours { width: 100%; border-collapse: collapse; }
@@ -874,7 +899,7 @@ body.legal-page { padding-bottom: 0; }
     --hero-name: clamp(6rem, 33vw, 11rem);
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "title" "cutter" "aside";
-    padding-block: 28px 32px;
+    padding-block: 28px var(--band);
   }
   .hero__aside { margin-top: 18px; padding-bottom: 0; }
   .hero__actions { width: 100%; }
@@ -882,7 +907,7 @@ body.legal-page { padding-bottom: 0; }
   .cutter { width: auto; margin: 8px 0 0; }
   .cutter__caption { margin-left: 0; }
 
-  .keys__intro, .catalog__body, .services__grid, .visit__grid { grid-template-columns: 1fr; }
+  .keys__intro, .catalog__head, .catalog__body, .services__grid, .visit__grid { grid-template-columns: 1fr; }
   .services__list { grid-template-columns: minmax(0, 1fr); }
   .service.service--feature { grid-row: auto; margin-bottom: 20px; }
   .service { grid-template-columns: 1fr; }

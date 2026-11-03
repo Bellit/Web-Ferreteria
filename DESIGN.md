@@ -135,7 +135,7 @@ The site is the shop's key counter: the wall of blank keys on hooks, the cutting
 
 Type is the monument. A single display grotesque set very large and very tight carries the brand name across the first viewport, and one giant drawn key runs the full width under it. Density is generous: sections breathe on a fluid section rhythm, and information (open now, address, hours, WhatsApp) is never hidden behind effect. Motion is rationed to three behaviours, all physical: the key being cut, blanks swaying on their hooks, tags dropping onto their rail.
 
-The page closes on graphite. The Visítanos section and footer are the counter's back wall, and their top edge is cut as a key bitting profile, so the light ground ends the way a key blade does.
+The page is the shop's wall, in three grounds: light ground for the counter, the perforated pegboard for the key zone (the whole section, not a card inside it) and graphite for the closing back wall with the footer. Every change of ground is cut as a key bitting profile, so one zone ends the way a key blade does. Same ground, no divider.
 
 **Key Characteristics:**
 - Flat colour only: no gradients, no glass, no glows, no blends.
@@ -175,7 +175,7 @@ A cool metal palette tuned to the logo: nickel and paper grounds, the logo's sla
 - **Steel Hairline** (rule): hairline dividers, tag borders, the scrolled rail's bottom edge.
 - **Slate Ink** (ink): primary text, line buttons, filter strokes, the cutter arm. A deepened logo slate, dark enough for body text.
 - **Slate Ink 2 / 3** (ink-2, ink-3): ink-2 is the logo slate itself: every display headline (hero title and section h2s on the light ground), secondary text, the selected filter, the dock button, and the service icons and rules. ink-3 is for notes and tag threads.
-- **Nickel / Nickel Deep** (nickel, nickel-lo): steel key blanks and the cutter body; nickel-lo is the catalogue's steel rail, the tag punch ring and the bitting divider stroke.
+- **Nickel / Nickel Deep** (nickel, nickel-lo): steel key blanks and the cutter body; nickel-lo is the catalogue's steel rail and the tag punch ring.
 - **Back Wall** (graphite, graphite-2, graphite-rule): the closing ground. Visítanos scopes these tokens to the logo slate (#3e5667, with graphite-2 #456074 lifting the map frame and form panel, and graphite-rule #5f7788 as its hairline). The footer keeps the deeper slate of the root tokens, because the logo's red pine barely reads on the logo slate.
 - **On Graphite** (on-graphite, on-graphite-2): primary and secondary text on the back wall (on-graphite-2 lightens to #d3dbe0 inside Visítanos to keep its contrast).
 
@@ -210,7 +210,7 @@ Both are self-hosted through @fontsource-variable (montserrat with the weight ax
 
 ## Layout
 
-A 1360px container with a fluid gutter (clamp(16px, 4vw, 48px)) and a fluid section rhythm (clamp(88px, 12vw, 168px)) top and bottom. Most sections use an asymmetric two-column grid of 5fr to 7fr (text to object) with a clamp(28px, 5vw, 80px) gap; the workshop flips to 7fr to 5fr, inside the same container and with the photo rounded on all four corners like every other photo. Visítanos stacks a full-width head (title, address, status), the week of opening hours as seven day boxes with today lifted in graphite-2 and a brass-hi border (a plain table at 1080px and below), and a 5fr to 7fr row with the shop photo, map and contact channels beside the form.
+A 1360px container with a fluid gutter (clamp(16px, 4vw, 48px)) and two section spacings: band (clamp(56px, 7vw, 96px)) on each side of a change of ground and step (clamp(40px, 4.2vw, 60px)) on each side between sections on the same ground. Section order: hero, keys, services, catalogue, workshop, visit. Section heads share one pattern: title on the left, lead beside it on the 5fr to 7fr grid. Most sections use an asymmetric two-column grid of 5fr to 7fr (text to object) with a clamp(28px, 5vw, 80px) gap; the workshop flips to 7fr to 5fr, inside the same container and with the photo rounded on all four corners like every other photo. Visítanos stacks a full-width head (title, address, status), the week of opening hours as seven day boxes with today lifted in graphite-2 and a brass-hi border (a plain table at 1080px and below), and a 5fr to 7fr row with the shop photo, map and contact channels beside the form.
 
 The hero is a 1.35fr to 1fr grid sized by its content, not the viewport, so the next section shows below it: the headline with the key directly under it at the name's own width, like a signature, and an aside (lede, status, address, two buttons) whose buttons line up with the base of the key. On mobile: headline, key, aside. A bitting-profile divider separates hero, keys and catalogue.
 
@@ -236,7 +236,7 @@ Flat by default. Depth comes from objects hanging, not from surfaces lifting: ta
 
 Gently rounded, workshop-made corners: 6px for buttons, board, photos, map and form; 4px for fields; 3px for small paper (blank tags, the "Hoy" badge). Price tags are 4px at the top and 8px at the bottom, punched with an 11px round hole and hung by a 1.5px ink thread from a 5px nickel steel rail. Filters are luggage tags: 3px on the left, fully round on the right, with a hollow punch dot that fills with brass when selected. The only true pill is the desktop dock.
 
-The recurring silhouette is the key bitting profile (flat, a deep V cut, flat, a shallow cut, flat): a 1.5px nickel-lo stroke as the section divider, and a CSS mask cutting the top edge of the graphite back wall. Lines are hairlines (1px rule) or firm ink rules (1.5px ink) at the head of lists.
+The recurring silhouette is the key bitting profile (flat, a deep V cut, flat, a shallow cut, flat): a CSS mask cutting the top edge of the section at every change of ground (the only section divider). Lines are hairlines (1px rule) or firm ink rules (1.5px ink) at the head of lists.
 
 ## Components
 
@@ -287,8 +287,8 @@ Five of the board's blanks on a small pegboard in the Desde 1985 section, from t
 ### The Hook Wall
 A ground-2 pegboard (30px hole grid) titled «Las 9 que más copiamos», holding the nine most-copied key types, each on an ink hook with a small paper tag, plus a tenth free hook with a dashed key silhouette and the tag «Y muchas más · Trae la tuya», so the board never reads as the full list: one long row of ten on desktop, two rows of five below 1240px, and three columns with the free hook as a full-width strip below 640px. Silhouettes follow the shop's JMA price poster, without its logos. Blanks are nickel, two are brass, one is red aluminium, and the dark heads and the remote are graphite. The whole board sways once when it enters view (staggered delays), and a single blank sways on hover: a damped swing from 9deg settling to 0 over 1.8s.
 
-### Bitting Divider
-A 24px band repeating the key profile in a 1.5px nickel-lo stroke, inset by the gutter. Separates hero, keys and catalogue.
+### Bitting Cut
+The `.has-cut` edge: a 24px band in the section's own ground, masked with the key profile and repeated across the top. Used on every change of ground and nowhere else. The door sign in Visítanos (the open/closed status on a paper tag) hangs from the wall above and crosses the cut, so the two zones touch.
 
 ## Do's and Don'ts
 
