@@ -358,7 +358,14 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   gap: 22px clamp(32px, 5vw, 80px);
   align-items: start;
 }
-.keys__intro .h2 { grid-row: span 2; }
+.keys__wall { display: grid; gap: 14px; }
+.keys__wall-title {
+  font-family: var(--f-display); font-weight: 750;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  line-height: 1.1; letter-spacing: -0.01em;
+  color: var(--ink-2);
+}
+.keys__note { max-width: none; }
 
 .board {
   background-color: var(--ground-2);
@@ -369,7 +376,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   padding: clamp(28px, 4vw, 48px) clamp(16px, 3vw, 40px) clamp(24px, 3vw, 36px);
 }
 .board__list {
-  --cols: 9;
+  --cols: 10;
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: 28px 12px;
 }
@@ -413,13 +420,13 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   margin-top: auto;
   align-content: start;
   width: 100%; min-height: 4.2rem;
-  padding: 7px 8px 8px;
+  padding: 7px 5px 8px;
   background: var(--paper);
   border: 1px solid var(--rule);
   border-radius: 3px;
   font-size: 0.82rem; line-height: 1.2; text-align: center;
 }
-.blank__tag b { font-weight: 650; font-size: 0.9rem; text-wrap: balance; }
+.blank__tag b { font-weight: 650; font-size: 0.86rem; text-wrap: balance; }
 .blank__tag span { color: var(--ink-3); text-wrap: balance; }
 
 .blank:hover .blank__key,
@@ -428,6 +435,14 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   animation-delay: var(--sway-delay, 0ms);
 }
 .blank:hover .blank__key { animation-delay: 0ms; }
+
+/* El gancho libre: la silueta de la llave que falta, sin sombra ni balanceo porque no cuelga nada */
+.blank--more.blank .blank__key { animation: none; filter: none; }
+.blank--more .blank__key path, .blank--more .blank__key circle {
+  fill: none; stroke: var(--nickel-lo); stroke-width: 2; stroke-dasharray: 5 4;
+}
+.blank--more .blank__tag { border: 1px dashed var(--nickel-lo); }
+.blank--more .blank__tag b { color: var(--ink-2); }
 
 @keyframes sway {
   0% { transform: rotate(0); }
@@ -742,11 +757,14 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   .hanger__rail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+@media (max-width: 1240px) {
+  .board__list { --cols: 5; }
+}
+
 @media (max-width: 1080px) {
   .nav { display: none; }
   .menu-btn { display: inline-flex; }
   .rail__end { margin-left: auto; }
-  .board__list { --cols: 5; }
   .blank__key { width: 60px; }
 }
 
@@ -768,7 +786,6 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   .cutter__caption { margin-left: 0; }
 
   .keys__intro, .catalog__body, .services__grid, .visit__grid { grid-template-columns: 1fr; }
-  .keys__intro .h2 { grid-row: auto; }
   .services__title { max-width: none; }
   .service { grid-template-columns: 1fr; }
 
@@ -805,6 +822,14 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 @media (max-width: 640px) {
   .board__list { --cols: 3; gap: 20px 10px; }
   .blank__key { width: 46px; margin-bottom: 10px; }
+  /* En tres columnas sobraría sola: franja a todo el ancho */
+  .blank--more {
+    flex-basis: 100%;
+    display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center;
+  }
+  .blank--more .blank__hook { grid-area: 1 / 1; align-self: start; justify-self: center; }
+  .blank--more .blank__key { grid-area: 1 / 1; margin: 10px 0 0; }
+  .blank--more .blank__tag { grid-area: 1 / 2; min-height: 0; margin: 0; padding-block: 12px; }
 }
 
 @media (max-width: 420px) {
