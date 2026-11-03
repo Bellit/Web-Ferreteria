@@ -507,8 +507,19 @@
               <textarea id="f-msg" name="message" rows="4" required></textarea>
               <p class="field__error" id="e-msg" aria-live="polite"></p>
             </div>
+            <!-- campo trampa para robots: no se ve ni se puede enfocar -->
+            <div class="sr-only" aria-hidden="true">
+              <label for="f-web">No rellenes este campo</label>
+              <input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="field field--check">
+              <label for="f-privacy"><input id="f-privacy" name="privacy" type="checkbox" required> <span>He leído y acepto la <a href="politica-de-privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</span></label>
+              <p class="field__error" id="e-privacy" aria-live="polite"></p>
+            </div>
+            <p class="form__info">Ferretería Pino, SL usa estos datos para contestar a tu mensaje. Tus derechos y el resto de la información están en la política de privacidad.</p>
             <button class="btn btn--brass" type="submit" data-submit>Enviar mensaje</button>
             <p class="form__done" role="status" hidden data-form-done>Recibido. Te contestamos en horario de tienda.</p>
+            <p class="form__failed" role="alert" hidden data-form-failed>No se ha podido enviar. Llámanos al <a href="tel:+34938495250">93 849 52 50</a> o escríbenos por <a href="https://wa.me/34938495250" target="_blank" rel="noopener">WhatsApp</a>.</p>
           </form>
         </div>
       </div>
@@ -520,7 +531,7 @@
       <p class="footer__brand"><img class="footer__logo" src="/img/logo-ferreteria-pino-claro.svg" alt="Ferretería Pino" width="821" height="317" loading="lazy"> Ferretería de barrio desde 1985</p>
       <p class="footer__member">Miembro de <span class="plate"><img class="plate__logo" src="/img/logo-cadena88.png" alt="Cadena88 ferreterías" width="300" height="88" loading="lazy"></span></p>
       <p><a href="https://instagram.com/ferreteriapinosl" target="_blank" rel="noopener">Instagram @ferreteriapinosl</a></p>
-      <p class="footer__legal"><a href="http://ferreteriapino.es/aviso-legal/" target="_blank" rel="noopener">Aviso legal</a> · <a href="http://ferreteriapino.es/politica-de-privacidad/" target="_blank" rel="noopener">Privacidad</a> · <a href="http://ferreteriapino.es/politica-de-cookies/" target="_blank" rel="noopener">Cookies</a> · © 2026 Ferretería Pino S.L.</p>
+      <p class="footer__legal"><a href="aviso-legal/">Aviso legal</a> · <a href="politica-de-privacidad/">Privacidad</a> · <a href="politica-de-cookies/">Cookies</a> · © 2026 Ferretería Pino S.L.</p>
     </div>
   </footer>
 

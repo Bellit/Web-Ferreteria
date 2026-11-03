@@ -57,8 +57,8 @@ src/js/modules/
 
 ## Pendiente
 
-- **Textos legales:** el pie enlaza de momento al aviso legal, la privacidad y las cookies de la web antigua (ferreteriapino.es). Cuando esta web la sustituya, hay que crear esas páginas aquí con los textos de la asesoría (NIF, datos registrales…). El formulario necesitará además una casilla de aceptación de la política de privacidad.
-- **Formulario:** no envía nada todavía; hay que conectarlo a un servicio (Formspree, un backend propio…).
+- **Textos legales:** `aviso-legal/` y `politica-de-privacidad/` copian los textos de la web antigua. `politica-de-cookies/` está adaptada a esta web, que no usa Google Analytics. Falta que los revise la asesoría.
+- **Formulario:** lo envía `public/contacto.php` con `mail()` a la dirección de la tienda, así que necesita un hosting con PHP. En GitHub Pages y con `npm run dev` no hay PHP: el formulario avisa de que no se ha podido enviar y da el teléfono y WhatsApp. Hay que probar un envío real al subirlo al hosting.
 - **Catálogo:** la muestra de productos está en `src/data/products.json`, sin precios a propósito.
 - **Fotos:** las de `public/img/` son de stock, salvo `fachada.jpg`. Se sustituyen por fotos propias con el mismo nombre.
 - **Horario:** si cambia, hay que tocarlo en tres sitios: la tabla y el texto de la portada en `index.html`, `HOURS` en `src/js/modules/status.js` y el bloque JSON-LD del `<head>`.

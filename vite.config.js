@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
 export default defineConfig(({ command }) => ({
@@ -9,6 +10,14 @@ export default defineConfig(({ command }) => ({
   },
   build: {
     cssMinify: 'esbuild',
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        'aviso-legal': resolve(__dirname, 'aviso-legal/index.html'),
+        'politica-de-privacidad': resolve(__dirname, 'politica-de-privacidad/index.html'),
+        'politica-de-cookies': resolve(__dirname, 'politica-de-cookies/index.html'),
+      },
+    },
   },
   server: {
     port: 3000,

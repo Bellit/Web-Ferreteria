@@ -1,5 +1,5 @@
 /**
- * Contacto — validación en cliente (no hay servidor: el envío es simulado)
+ * Contacto — validación en cliente y envío a contacto.php, que lo manda por correo a la tienda
  */
 import { $ } from '../utils/dom.js';
 
@@ -13,21 +13,23 @@ const RULES = {
     return email || phone ? '' : 'No parece un teléfono ni un email válidos. Revísalo.';
   },
   message: (v) => (v.trim().length < 6 ? 'Cuéntanos un poco más: qué necesitas o qué quieres arreglar.' : ''),
+  privacy: (accepted) => (accepted ? '' : 'Para enviarlo tienes que aceptar la política de privacidad.'),
 };
 
-const FIELDS = { name: ['#f-name', '#e-name'], contact: ['#f-contact', '#e-contact'], message: ['#f-msg', '#e-msg'] };
+const FIELDS = { name: ['#f-name', '#e-name'], contact: ['#f-contact', '#e-contact'], message: ['#f-msg', '#e-msg'], privacy: ['#f-privacy', '#e-privacy'] };
 
 export function initContactForm() {
   const form = $('[data-form]');
   if (!form) return;
   const done = $('[data-form-done]', form);
+  const failed = $('[data-form-failed]', form);
   const submit = $('[data-submit]', form);
 
   const check = (key) => {
     const [inputSel, errorSel] = FIELDS[key];
     const input = $(inputSel, form);
     const error = $(errorSel, form);
-    const msg = RULES[key](input.value);
+    const msg = RULES[key](input.type === 'checkbox' ? input.checked : input.value);
     input.closest('.field').classList.toggle('has-error', Boolean(msg));
     input.setAttribute('aria-invalid', String(Boolean(msg)));
     input.setAttribute('aria-describedby', error.id);
@@ -37,7 +39,7 @@ export function initContactForm() {
 
   Object.keys(FIELDS).forEach((key) => {
     const input = $(FIELDS[key][0], form);
-    input.addEventListener('blur', () => input.value && check(key));
+    if (input.type !== 'checkbox') input.addEventListener('blur', () => input.value && check(key));
     input.addEventListener('input', () => input.closest('.field').classList.contains('has-error') && check(key));
   });
 
@@ -49,12 +51,24 @@ export function initContactForm() {
       return;
     }
 
+    done.hidden = true;
+    failed.hidden = true;
     submit.disabled = true;
     submit.textContent = 'Enviando…';
-    await new Promise((r) => setTimeout(r, 900));
-    form.reset();
+
+    // Solo se da por enviado si el servidor lo confirma; si falla, el mensaje sigue escrito
+    let sent = false;
+    try {
+      const res = await fetch(`${import.meta.env.BASE_URL}contacto.php`, { method: 'POST', body: new FormData(form) });
+      sent = res.ok && (await res.json()).ok === true;
+    } catch {
+      sent = false;
+    }
+
     submit.disabled = false;
     submit.textContent = 'Enviar mensaje';
-    done.hidden = false;
+    if (sent) form.reset();
+    done.hidden = !sent;
+    failed.hidden = sent;
   });
 }
