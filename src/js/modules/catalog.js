@@ -12,7 +12,7 @@ const SECTIONS = {
   herramientas: { img: IMG + 'herramientas.webp', alt: 'Martillos y guantes de trabajo sobre un banco de madera', caption: 'Herramienta de mano y eléctrica.' },
   pinturas:     { img: IMG + 'pinturas.webp', alt: 'Botes de pintura, brocha y rodillo sobre papel de embalar', caption: 'Pintura, esmaltes y todo para aplicarla.' },
   fontaneria:   { img: IMG + 'fontaneria.webp', alt: 'Dos grifos de latón con maneta roja en una pared blanca', caption: 'Grifería, tubo y recambios.' },
-  electricidad: { img: IMG + 'electricidad.webp', alt: 'Multímetro digital rojo con sus puntas sobre la mesa de trabajo', caption: 'Cable, mecanismos y medición.' },
+  electricidad: { img: IMG + 'electricidad.webp', alt: 'Multímetro digital rojo con sus puntas sobre la mesa de trabajo', caption: 'Cable, mecanismos y bases múltiples.' },
   llaves:       { img: IMG + 'llaves-panel.webp', alt: 'Llaves vírgenes colgadas en ganchos sobre un panel', caption: 'Copias al momento, mientras esperas.' },
 };
 
