@@ -388,7 +388,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .keys__note { max-width: none; }
 
 .board__list {
-  --cols: 10;
+  --cols: 9;
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: 28px 12px;
 }
@@ -575,32 +575,35 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 .services { padding-block: var(--band) var(--step); }
 .services__grid { display: grid; gap: clamp(28px, 3.5vw, 48px); }
 .services__list {
-  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  column-gap: clamp(32px, 5vw, 80px);
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 40px) clamp(20px, 2.4vw, 32px);
 }
+/* Dos especialidades a media anchura y, debajo, los otros tres servicios */
 .service {
-  display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 8px 32px;
-  padding: 28px 0;
+  grid-column: span 2;
+  display: grid; align-content: start; gap: 10px;
+  padding-top: 20px;
   border-top: 1.5px solid var(--ink-2);
 }
-.service:last-child { border-bottom: 1px solid var(--rule); }
 .service dt {
   display: flex; align-items: center; gap: 12px;
   font-family: var(--f-display); font-weight: 700; font-size: 1.45rem; letter-spacing: -0.02em; line-height: 1.15;
 }
 .service dt .i { color: var(--ink-2); }
 .service dd { color: var(--ink-2); max-width: 46ch; }
-/* La especialidad manda: panel de pizarra con la llave colgada de su gancho */
+/* Las especialidades mandan: paneles de pizarra con lo que se copia colgado de su gancho */
 .service.service--feature {
-  --key: clamp(64px, 7vw, 100px);
+  --key: clamp(56px, 6vw, 84px);
   --on-graphite-2: #d3dbe0;
-  position: relative; grid-row: 1 / span 3;
+  position: relative; grid-column: span 3;
   display: flex; flex-direction: column; justify-content: center; gap: 14px;
+  min-height: calc(var(--key) * 2.2 + 44px);
   padding: clamp(24px, 3vw, 40px);
   padding-right: calc(var(--key) + clamp(36px, 5vw, 72px));
   background: var(--ink-2); color: var(--on-graphite);
   border: 0; border-radius: var(--radius);
 }
+.service.service--pair { padding-right: calc(var(--key) * 2 + clamp(44px, 5.5vw, 84px)); }
 .service--feature dt { font-size: clamp(1.6rem, 2.4vw, 2.1rem); }
 .service--feature dd { color: var(--on-graphite-2); font-size: 1.08rem; }
 .service__more { display: block; margin-top: 18px; font-weight: 600; color: var(--on-graphite); text-decoration-color: var(--brass-hi); text-decoration-thickness: 2px; }
@@ -609,9 +612,13 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
   position: absolute; top: 0; right: clamp(18px, 2.6vw, 40px);
   display: flex; flex-direction: column; align-items: center;
 }
+.service--pair .service__hanging { flex-direction: row; align-items: flex-start; gap: clamp(10px, 1.2vw, 18px); }
+.service__hang { display: flex; flex-direction: column; align-items: center; }
 .service__hanging .blank__hook { height: 44px; background: var(--on-graphite-2); }
 /* El gancho entra hasta el ojo de la llave */
 .service__hanging .service__key { width: var(--key); margin: calc(var(--key) * -0.3) 0 0; }
+.service__hanging .service__key--remote { margin-top: calc(var(--key) * -0.14); }
+.service__hanging .service__key--fob { margin-top: calc(var(--key) * -0.3); }
 .service__hanging .blank__key > circle:not(.dimple) { fill: var(--ink-2); }
 .carriers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .carriers li {
@@ -915,8 +922,7 @@ body.legal-page { padding-bottom: 0; }
 
   .keys__intro, .catalog__head, .catalog__body, .services__grid, .visit__grid { grid-template-columns: 1fr; }
   .services__list { grid-template-columns: minmax(0, 1fr); }
-  .service.service--feature { grid-row: auto; margin-bottom: 20px; }
-  .service { grid-template-columns: 1fr; }
+  .service, .service.service--feature { grid-column: auto; }
 
   .shelf-photo { position: static; }
   .shelf-photo img { aspect-ratio: 16 / 9; }
@@ -948,16 +954,11 @@ body.legal-page { padding-bottom: 0; }
 }
 
 @media (max-width: 640px) {
+  /* En móvil no caben dos objetos al lado del texto: uno sobre otro */
+  .service.service--pair { min-height: calc(var(--key) * 3.9 + 92px); padding-right: calc(var(--key) + clamp(36px, 5vw, 72px)); }
+  .service--pair .service__hanging { flex-direction: column; align-items: center; gap: 0; }
   .board__list { --cols: 3; gap: 20px 10px; }
   .blank__key { width: 46px; margin-bottom: 10px; }
-  /* En tres columnas sobraría sola: franja a todo el ancho */
-  .blank--more {
-    flex-basis: 100%;
-    display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center;
-  }
-  .blank--more .blank__hook { grid-area: 1 / 1; align-self: start; justify-self: center; }
-  .blank--more .blank__key { grid-area: 1 / 1; margin: 10px 0 0; }
-  .blank--more .blank__tag { grid-area: 1 / 2; min-height: 0; margin: 0; padding-block: 12px; }
 }
 
 @media (max-width: 340px) {
