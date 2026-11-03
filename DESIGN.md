@@ -278,6 +278,9 @@ The always-reachable action. Desktop: a single ink-2 WhatsApp pill fixed bottom-
 ### The Key Cutter (signature)
 One SVG key under the hero's name, at the name's own width and whole from bow to tip: drawn as a machined object in flat facets, with no gradients and light from the upper left. The bow is an oblong that flows into a turned collar, with a bevelled rim, a pinstripe, a bevelled eyelet around a ground-coloured hole, and the logo's pine engraved in brass-lo above the word PINO (display face, 800), each with a brass-hi highlight below so they read as sunk into the metal. The blade carries a milled channel, a fine second channel, a bottom bevel and a faceted tip; the cuts gain a brass-hi chamfer and a brass-glint edge as the wheel passes. The drawing leaves headroom so the cutter wheel is always seen as a full circle. On load a nickel saw-toothed cutter wheel, held by an ink fork, travels the blade and carves four cuts in the order 1·9·8·5, dropping brass-hi shavings; no digits are drawn on the key. "Cortar otra llave" replays it with a random code. One drawing at every width: a short blade with tight cut spacing, like a real key. Under reduced motion the cut key is drawn finished.
 
+### The Services
+The headline on one full-width line, then a 5fr to 7fr split. Copias de llaves, the specialty, is a logo-slate panel with on-graphite text, a link down to the hook wall and a brass key whose eyelet is centred, so it hangs straight from its hook, which runs into the eyelet. Beside it, the other three services as ruled rows. On mobile the panel comes first.
+
 ### The Workshop Keys
 Five of the board's blanks on a small pegboard in the Desde 1985 section, from the old lever key to the remote, over the line «1985 · Las llaves han cambiado. El mostrador, no. · Hoy». When it enters view, each key drops onto its hook and sways once, 260ms apart. Under reduced motion they simply hang there.
 

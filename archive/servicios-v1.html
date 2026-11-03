@@ -1,0 +1,120 @@
+<!-- Copia de la sección «Más que vender tornillos» en lista de filas, guardada el 2026-11-03.
+     No se usa en la web: para volver a ella, cambia la sección #servicios de index.html por este HTML y el bloque
+     «Servicios» de src/styles/main.css por el CSS de abajo. Por debajo de 860px: .services__title { max-width: none; }
+     y .service { grid-template-columns: 1fr; }. -->
+
+<section id="servicios" class="services" aria-labelledby="services-title">
+      <div class="wrap services__grid">
+        <h2 class="h2 services__title" id="services-title">Más que vender tornillos.</h2>
+
+        <dl class="services__list">
+          <div class="service">
+            <dt>
+              <svg class="i i--lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="12" r="4.5"/><path d="M12 12h9.5M17.5 12v3M20.5 12v2"/></svg>
+              Copias de llaves
+            </dt>
+            <dd>Nuestra especialidad. Planas, de seguridad y tubulares, cortadas con máquina y repasadas a mano.</dd>
+          </div>
+          <div class="service">
+            <dt>
+              <svg class="i i--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 8 8-4 8 4v8l-8 4-8-4Z"/><path d="m4 8 8 4 8-4M12 12v8"/></svg>
+              Punto de paquetes
+            </dt>
+            <dd>
+              Recoge o devuelve aquí tus paquetes, en nuestro horario de tienda.
+              <ul class="carriers" role="list">
+                <li>GLS</li>
+                <li>Celeritas</li>
+                <li>Amazon Hub</li>
+                <li>Correos</li>
+              </ul>
+            </dd>
+          </div>
+          <div class="service">
+            <dt>
+              <svg class="i i--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18.5V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8Z"/><path d="M9 9h6M9 12h4"/></svg>
+              Asesoría técnica
+            </dt>
+            <dd>¿No sabes qué taco, qué pintura o qué latiguillo te hace falta? Cuéntanoslo en el mostrador y salimos de dudas.</dd>
+          </div>
+          <div class="service">
+            <dt>
+              <svg class="i i--lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h7a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4Z"/><path d="M20 5h-7a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h7Z"/></svg>
+              Surtido Cadena88
+            </dt>
+            <dd>Gracias a Cadena88 tenemos un amplio surtido y un gran stock. <a href="https://www.cadena88.com/es/catalogos-y-ofertas-vigentes" target="_blank" rel="noopener">Mira el folleto de temporada</a>.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+<style>
+/* ─── Servicios ────────────────────────────────────────── */
+.services { padding-block: var(--section); }
+.services__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+.services__title { max-width: 9ch; }
+.service {
+  display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 8px 32px;
+  padding: 28px 0;
+  border-top: 1.5px solid var(--ink-2);
+}
+.service:last-child { border-bottom: 1px solid var(--rule); }
+.service dt {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--f-display); font-weight: 700; font-size: 1.45rem; letter-spacing: -0.02em; line-height: 1.15;
+}
+.service dt .i { color: var(--ink-2); }
+.service dd { color: var(--ink-2); max-width: 46ch; }
+.carriers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.carriers li {
+  padding: 4px 10px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-size: 0.86rem; font-weight: 650; color: var(--ink);
+}
+</style>
+
+<!-- Propuesta A, no usada: los cuatro servicios como etiquetas colgadas de un riel. Va con el titular a todo el ancho
+     (.services__grid en una columna) y añadiendo data-serv="a" a <html>. -->
+<style>
+/* A: cuatro etiquetas de papel colgadas de un riel, como las del catálogo */
+[data-serv="a"] .services__list {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px;
+  padding-top: 30px;
+  border-top: 3px solid var(--nickel-lo);
+}
+[data-serv="a"] .service, [data-serv="a"] .service:last-child {
+  position: relative;
+  display: flex; flex-direction: column; gap: 12px;
+  padding: 40px 20px 22px;
+  background: var(--paper);
+  border: 1px solid var(--rule); border-radius: 4px 4px 8px 8px;
+  filter: drop-shadow(0 6px 5px rgb(29 42 52 / 0.14));
+}
+[data-serv="a"] .service::before {
+  content: ''; position: absolute; left: 50%; top: -30px; bottom: calc(100% - 15px);
+  width: 1.5px; margin-left: -0.75px;
+  background: var(--ink-3);
+}
+[data-serv="a"] .service::after {
+  content: ''; position: absolute; left: 50%; top: 13px;
+  width: 11px; height: 11px; margin-left: -5.5px;
+  background: var(--ground-2); border: 1.5px solid var(--nickel-lo); border-radius: 50%;
+}
+[data-serv="a"] .service dt { font-size: 1.3rem; }
+[data-serv="a"] .service dd { font-size: 0.98rem; }
+
+@media (max-width: 1080px) {
+  [data-serv="a"] .services__list { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-top: 0; border-top: 0; }
+  [data-serv="a"] .service::before { display: none; }
+}
+@media (max-width: 860px) {
+  [data-serv="a"] .services__list { grid-template-columns: minmax(0, 1fr); }
+}
+</style>

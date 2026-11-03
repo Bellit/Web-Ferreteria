@@ -563,13 +563,11 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 
 /* ─── Servicios ────────────────────────────────────────── */
 .services { padding-block: var(--section); }
-.services__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(32px, 5vw, 80px);
-  align-items: start;
+.services__grid { display: grid; gap: clamp(28px, 3.5vw, 48px); }
+.services__list {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  column-gap: clamp(32px, 5vw, 80px);
 }
-.services__title { max-width: 9ch; }
 .service {
   display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 8px 32px;
   padding: 28px 0;
@@ -582,6 +580,28 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22e
 }
 .service dt .i { color: var(--ink-2); }
 .service dd { color: var(--ink-2); max-width: 46ch; }
+/* La especialidad manda: panel de pizarra con la llave colgada de su gancho */
+.service.service--feature {
+  --key: clamp(64px, 7vw, 100px);
+  position: relative; grid-row: 1 / span 3;
+  display: flex; flex-direction: column; justify-content: center; gap: 14px;
+  padding: clamp(24px, 3vw, 40px);
+  padding-right: calc(var(--key) + clamp(36px, 5vw, 72px));
+  background: var(--ink-2); color: var(--on-graphite);
+  border: 0; border-radius: var(--radius);
+}
+.service--feature dt { font-size: clamp(1.6rem, 2.4vw, 2.1rem); }
+.service--feature dd { color: var(--on-graphite-2); font-size: 1.08rem; }
+.service__more { display: block; margin-top: 18px; font-weight: 600; color: var(--on-graphite); text-decoration-color: var(--brass-hi); text-decoration-thickness: 2px; }
+.service__more:focus-visible { outline-color: var(--brass-hi); }
+.service__hanging {
+  position: absolute; top: 0; right: clamp(18px, 2.6vw, 40px);
+  display: flex; flex-direction: column; align-items: center;
+}
+.service__hanging .blank__hook { height: 44px; background: var(--on-graphite-2); }
+/* El gancho entra hasta el ojo de la llave */
+.service__hanging .service__key { width: var(--key); margin: calc(var(--key) * -0.3) 0 0; }
+.service__hanging .blank__key > circle:not(.dimple) { fill: var(--ink-2); }
 .carriers { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .carriers li {
   padding: 4px 10px;
@@ -863,7 +883,8 @@ body.legal-page { padding-bottom: 0; }
   .cutter__caption { margin-left: 0; }
 
   .keys__intro, .catalog__body, .services__grid, .visit__grid { grid-template-columns: 1fr; }
-  .services__title { max-width: none; }
+  .services__list { grid-template-columns: minmax(0, 1fr); }
+  .service.service--feature { grid-row: auto; margin-bottom: 20px; }
   .service { grid-template-columns: 1fr; }
 
   .shelf-photo { position: static; }
